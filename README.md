@@ -117,7 +117,7 @@ The towers converge in Part 6 (System Design), where you combine speakers + amps
 | 14 | [Cabinet Design](./part-2-speakers/14-cabinet-design.md) | Intermediate | Sealed, ported, transmission line, horn-loaded, band-pass, baffle diffraction, bracing, damping, materials, volume calculations |
 | 15 | [Design Tools and Simulation](./part-2-speakers/15-design-tools-simulation.md) | Inter→Adv | WinISD, VituixCAD, REW basics, XSim, simulation vs reality, iterative design methodology |
 | 16 | [Build: Bookshelf Speakers](./part-2-speakers/16-build-bookshelf-speakers.md) | Intermediate | Full 2-way build: driver selection, crossover design, cabinet construction, finishing, measurement with REW |
-| 17 | [Build: Towers, PA Speakers, and Subwoofer](./part-2-speakers/17-build-towers-pa-subwoofer.md) | Inter→Adv | Floor-standing tower, horn-loaded PA speaker, sealed/ported subwoofer — three builds for three use cases |
+| 17 | [Build: Floor-Standing Towers, PA Speakers, and Subwoofer](./part-2-speakers/17-build-towers-pa-subwoofer.md) | Inter→Adv | Floor-standing tower, horn-loaded PA speaker, sealed/ported subwoofer — three builds for three use cases |
 
 > **Tower exit state:** You can design a speaker system for any use case using simulation tools, build it, measure it, and iterate.
 
@@ -205,7 +205,7 @@ The towers converge in Part 6 (System Design), where you combine speakers + amps
 |----------|-------|--------------|
 | A | [Glossary](./appendices/appendix-glossary.md) | 200+ terms from impedance to Thiele-Small to slew rate, cross-referenced to chapters |
 | B | [Component Suppliers](./appendices/appendix-suppliers.md) | Organized by category with notes on strengths, pricing, and shipping |
-| C | [Recommended Reading & Communities](./appendices/appendix-resources.md) | Books, YouTube, forums, courses — annotated, not just links |
+| C | [Recommended Reading, Channels, and Communities](./appendices/appendix-resources.md) | Books, YouTube, forums, courses — annotated, not just links |
 
 ---
 

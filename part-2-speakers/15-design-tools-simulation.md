@@ -12,7 +12,7 @@
 
 > **Part 2 — Speakers** | Prerequisites: Chapter 14 | Difficulty: Inter→Adv
 
-If Chapters 11-14 gave you the theory, this chapter gives you the tools to turn theory into design. Speaker design without simulation is like software development without a compiler -- you can theorize all day, but until you run the code, you do not know if it works.
+If Chapters 11-14 gave you the theory, this chapter gives you the tools to turn theory into design. Speaker design without simulation is like software development without a compiler -- you can theorize all day, but until you run the code, you don't know if it works.
 
 The beautiful thing about modern speaker design tools is that they let you make every mistake virtually. Want to see what happens if you tune the port 10 Hz too low? Simulate it. Curious if a 3rd-order crossover sounds better than a 4th-order? Simulate both and compare. These tools will save you hundreds of dollars in wasted materials and hundreds of hours of trial-and-error by letting you converge on a near-optimal design before you cut a single piece of wood.
 
@@ -26,11 +26,11 @@ This chapter walks through the three essential tools -- WinISD for enclosure mod
 - The simulation-reality gap and iterative methodology
 
 ### Related Chapters
-- [Ch 3: Simulation Tools](../part-0-electronics/03-simulation-tools.md) -- general simulation skills from Part 0
+- [Ch 3: Simulation and Analysis Tools](../part-0-electronics/03-simulation-analysis-tools.md) -- general simulation skills from Part 0
 - [Ch 12: The Language of Speakers](12-language-of-speakers.md) -- the parameters you enter into these tools
 - [Ch 14: Cabinet Design](14-cabinet-design.md) -- the designs you model with these tools
 - [Ch 16: Build: Bookshelf Speakers](16-build-bookshelf-speakers.md) -- applying these tools to a real build
-- [Ch 36: Room Acoustics](../part-6-system-design/36-room-acoustics.md) -- room measurement with REW
+- [Ch 36: Room Acoustics and Treatment](../part-6-system-design/36-room-acoustics-treatment.md) -- room measurement with REW
 
 ---
 
@@ -42,7 +42,7 @@ WinISD (Windows ISD -- Integrated Speaker Design) is the standard free tool for 
 
 WinISD is a Windows application, but runs well under Wine on macOS and Linux. Download it from the official site (search "WinISD pro alpha"). The "pro alpha" version is the one you want -- it has the most features despite the perpetual "alpha" label.
 
-On first launch, WinISD includes a built-in driver database, but it is somewhat dated. For the best results, enter your driver's T-S parameters manually from the manufacturer's datasheet.
+On first launch, WinISD includes a built-in driver database, but it's somewhat dated. For the best results, enter your driver's T-S parameters manually from the manufacturer's datasheet.
 
 ### 1.2 Creating a New Project
 
@@ -51,7 +51,7 @@ On first launch, WinISD includes a built-in driver database, but it is somewhat 
    - Fs, Qts, Qes, Qms, Vas, Xmax, BL, Re, Le, Sd, Mms
    - Also enter Pe (power handling), Dd (effective diameter), and any other available parameters
 3. **Choose enclosure type**: Sealed (Closed), Ported (Vented), or Band-pass
-4. **Enter number of drivers**: Typically 1 for a single woofer, 2 if you are using dual woofers
+4. **Enter number of drivers**: Typically 1 for a single woofer, 2 if you're using dual woofers
 5. **Click OK**: WinISD generates an initial design based on default optimization
 
 ### 1.3 Understanding the Plots
@@ -183,7 +183,7 @@ VituixCAD needs two data files per driver:
 
 **ZMA (Impedance Data)**: A text file with three columns: frequency, impedance magnitude, impedance phase. Contains the driver's impedance curve.
 
-If the manufacturer does not provide these files, you can measure them yourself using REW (Section 3). If you cannot measure, you can use VituixCAD's built-in driver modeling to generate approximate curves from T-S parameters, but measured data is always better.
+If the manufacturer doesn't provide these files, you can measure them yourself using REW (Section 3). If you can't measure, you can use VituixCAD's built-in driver modeling to generate approximate curves from T-S parameters, but measured data is always better.
 
 ### 2.3 Setting Up a Project
 
@@ -221,7 +221,7 @@ VituixCAD displays an impressive array of information simultaneously:
 
 **Step response**: Time-domain behavior. Shows the impulse response of the system -- how it responds to a sudden transient.
 
-**Estimated SPL in room (PIR)**: VituixCAD's "Predicted In-Room" response, which combines on-axis and off-axis data with a model of typical room reflections. This is arguably the most useful single curve, as it predicts what you will actually hear.
+**Estimated SPL in room (PIR)**: VituixCAD's "Predicted In-Room" response, which combines on-axis and off-axis data with a model of typical room reflections. This is arguably the most useful single curve, as it predicts what you'll actually hear.
 
 ### 2.6 Optimization
 
@@ -239,17 +239,17 @@ VituixCAD's optimizer is where the magic happens. Here is how to use it:
 
 4. **Run the optimizer**: VituixCAD searches for component values that minimize the deviation from the target. This typically takes a few seconds.
 
-5. **Evaluate the result**: Look at ALL the plots, not just on-axis. A flat on-axis response with a terrible off-axis response is not a good design. Iterate: adjust the target or topology and re-optimize.
+5. **Evaluate the result**: Look at ALL the plots, not just on-axis. A flat on-axis response with a terrible off-axis response isn't a good design. Iterate: adjust the target or topology and re-optimize.
 
 6. **Snap to standard values**: Real components come in standard values (e.g., 1.0 uF, 1.5 uF, 2.2 uF, 3.3 uF, 4.7 uF, 6.8 uF, 10 uF for capacitors). Snap each optimized value to the nearest standard value and re-simulate to verify the response is still acceptable.
 
 ### 2.7 Common Pitfalls
 
-- **Trusting the optimizer blindly**: The optimizer finds a mathematical optimum, but that does not mean it sounds good. Always check the off-axis response and impedance. An optimizer might achieve a flat on-axis response by creating a deep off-axis cancellation -- technically optimal by the target metric, but terrible in practice.
+- **Trusting the optimizer blindly**: The optimizer finds a mathematical optimum, but that doesn't mean it sounds good. Always check the off-axis response and impedance. An optimizer might achieve a flat on-axis response by creating a deep off-axis cancellation -- technically optimal by the target metric, but terrible in practice.
 
 - **Too many free variables**: If you let the optimizer adjust 12 components simultaneously with no constraints, it might find an exotic solution with wildly impractical values (0.3 uF capacitors, 0.02 mH inductors). Constrain the search or use a sensible topology.
 
-- **Ignoring the crossover frequency**: The optimizer might shift the effective crossover frequency far from your intended value. If you designed for 2.5 kHz and the optimizer moves it to 4 kHz, the woofer is operating in its breakup region -- a problem the optimizer's target does not capture.
+- **Ignoring the crossover frequency**: The optimizer might shift the effective crossover frequency far from your intended value. If you designed for 2.5 kHz and the optimizer moves it to 4 kHz, the woofer is operating in its breakup region -- a problem the optimizer's target doesn't capture.
 
 - **Using bad driver data**: Garbage in, garbage out. If the FRD/ZMA files are inaccurate (measured in a reflective room, with a bad microphone, or simulated from T-S parameters), the optimized crossover will be wrong.
 
@@ -328,7 +328,7 @@ What to worry about:
 
 ### 3.6 The Iterative Cycle
 
-If the measurement does not match the simulation:
+If the measurement doesn't match the simulation:
 1. Identify the discrepancy
 2. Hypothesize the cause (component tolerance? Baffle effect not modeled? Room reflection?)
 3. Update the VituixCAD model with the measured driver data (import your measurements as the driver data)
@@ -354,9 +354,9 @@ XSim is useful when:
 
 ### 4.2 Differences from VituixCAD
 
-- XSim does not simulate baffle diffraction (you must include it in your driver data or account for it separately)
+- XSim doesn't simulate baffle diffraction (you must include it in your driver data or account for it separately)
 - XSim's optimizer is less sophisticated
-- XSim does not compute off-axis response or power response
+- XSim doesn't compute off-axis response or power response
 - XSim has a simpler, more intuitive interface that is less overwhelming for beginners
 
 For serious speaker design, VituixCAD is the better tool. For quick experiments and learning, XSim is a fine starting point.
@@ -381,7 +381,7 @@ Mitigation: Measure both drivers and use the averaged data. For stereo pairs, tr
 
 Mitigation: Measure the driver in its actual enclosure and use that measurement in VituixCAD.
 
-**Enclosure resonances**: Simulations do not model panel resonances. If your cabinet is resonant, the measurement will show features the simulation does not predict.
+**Enclosure resonances**: Simulations don't model panel resonances. If your cabinet is resonant, the measurement will show features the simulation doesn't predict.
 
 Mitigation: Build solid, well-braced cabinets (Chapter 14).
 
@@ -413,7 +413,7 @@ This is no different from the software development cycle: design → implement �
 
 ### 5.3 When Good Enough Is Good Enough
 
-Perfectionism is a trap. At some point, you are chasing 0.5 dB deviations that are inaudible in a real room with real music. Here are reasonable targets:
+Perfectionism is a trap. At some point, you're chasing 0.5 dB deviations that are inaudible in a real room with real music. Here are reasonable targets:
 
 - **On-axis response**: Within plus or minus 2 dB of target from 500 Hz to 15 kHz
 - **Impedance minimum**: Above 80% of nominal (e.g., above 3.2 ohms for a 4-ohm speaker)

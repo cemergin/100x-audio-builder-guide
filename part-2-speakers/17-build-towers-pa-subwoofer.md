@@ -12,7 +12,7 @@
 
 > **Part 2 — Speakers** | Prerequisites: Chapter 16 | Difficulty: Inter→Adv
 
-You built your bookshelf speakers in Chapter 16. They sound great for a nearfield listening setup in a small room. But now you want more. More bass for that floor-standing "anchor" in your living room system. More raw SPL for an outdoor party that does not sound like a phone speaker on a picnic table. And more low-end for the subsonic rumble that no bookshelf speaker can touch.
+You built your bookshelf speakers in Chapter 16. They sound great for a nearfield listening setup in a small room. But now you want more. More bass for that floor-standing "anchor" in your living room system. More raw SPL for an outdoor party that doesn't sound like a phone speaker on a picnic table. And more low-end for the subsonic rumble that no bookshelf speaker can touch.
 
 This chapter covers three builds, each designed for a different purpose and each introducing new concepts beyond the bookshelf build. Build A is a floor-standing tower for home hi-fi -- deeper bass, more authority, and a more complex crossover. Build B is a PA speaker for parties and events -- high SPL, durability, and a horn-loaded compression driver for the first time. Build C is a dedicated subwoofer -- the one driver that only does one thing but does it with authority that shakes the walls.
 
@@ -28,11 +28,11 @@ Each build stands alone, but together with the bookshelf speakers from Chapter 1
 - [Ch 16: Build: Bookshelf Speakers](16-build-bookshelf-speakers.md) -- the foundational build this chapter extends
 - [Ch 14: Cabinet Design](14-cabinet-design.md) -- enclosure theory for all three builds
 - [Ch 13: Crossover Design](13-crossover-design.md) -- crossover theory for towers and PA
-- [Ch 18: Amplifier Matching](../part-3-amplifiers/18-amplifier-matching.md) -- amplifier requirements for each build
-- [Ch 27: Active Crossovers and DSP](../part-4-digital-audio/27-active-crossovers-dsp.md) -- DSP integration for subwoofer and PA
-- [Ch 35: Power Amplifiers](../part-3-amplifiers/35-power-amplifiers.md) -- amplifier builds for these speakers
-- [Ch 38: System Design](../part-6-system-design/38-system-design.md) -- combining these builds into complete systems
-- [Ch 39: Live Sound](../part-6-system-design/39-live-sound.md) -- deploying PA speakers at events
+- [Ch 18: How Amplifiers Work](../part-3-amplifiers/18-how-amplifiers-work.md) -- amplifier requirements for each build
+- [Ch 27: DSP Fundamentals for Audio](../part-4-digital-audio/27-dsp-fundamentals.md) -- DSP integration for subwoofer and PA
+- [Ch 35: Matching Amplifiers to Speakers](../part-6-system-design/35-matching-amps-to-speakers.md) -- matching amplifiers to these speaker builds
+- [Ch 38: Complete System Build: Home Hi-Fi](../part-6-system-design/38-complete-build-home-hifi.md) -- combining these builds into complete systems
+- [Ch 39: Complete System Build: Party PA](../part-6-system-design/39-complete-build-party-pa.md) -- deploying PA speakers at events
 
 ---
 

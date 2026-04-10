@@ -29,10 +29,10 @@ If you survived Part 0's coverage of transistors, op-amps, and basic circuit ana
 - Amplifier classes: A, AB, B, D, G, and H
 
 ### Related Chapters
-- [Ch 1: Components](../part-0-electronics/01-components.md) — resistors, capacitors, and transistors refresher
-- [Ch 3: Simulation](../part-0-electronics/03-simulation.md) — SPICE techniques for amplifier analysis
-- [Ch 6: Gain Stages in Pedals](../part-1-guitar-pedals/06-gain-stages.md) — simpler gain stage examples
-- [Ch 12: Speaker Impedance](../part-2-speakers/12-speaker-impedance.md) — the load your amp must drive
+- [Ch 1: Components and What They Do to Signals](../part-0-electronics/01-components-and-signals.md) — resistors, capacitors, and transistors refresher
+- [Ch 3: Simulation and Analysis Tools](../part-0-electronics/03-simulation-analysis-tools.md) — SPICE techniques for amplifier analysis
+- [Ch 6: Gain Stages and Clipping Circuits](../part-1-guitar-pedals/06-gain-stages-clipping-circuits.md) — simpler gain stage examples
+- [Ch 12: The Language of Speakers](../part-2-speakers/12-language-of-speakers.md) — the load your amp must drive
 - [Ch 19: Solid-State Amplifier Design](19-solid-state-amplifier-design.md) — putting this theory into practice
 - [Ch 20: Tube Amplifier Theory](20-tube-amplifier-theory.md) — a different approach to the same problem
 
@@ -360,7 +360,7 @@ The amp holds the voltage across the speaker constant regardless of the impedanc
 **With a tube amp (Zout = 4 ohm, DF = 2):**
 At resonance, the speaker impedance is 40 ohms. The amplifier output impedance is 4 ohms. The voltage divider effect: the speaker sees 40/(40+4) = 91% of the amp's output voltage at resonance, but at 200 Hz (where speaker impedance might be 6 ohms), it sees only 6/(6+4) = 60%. The frequency response is no longer flat — there's a peak near resonance. Bass near resonance is boosted, bass above resonance is cut. The result: colored, resonant bass that may sound "warm" and "big" or "boomy" and "loose" depending on the speaker, the box, and your taste.
 
-This is why matching amplifiers to speakers matters — covered in depth in [Ch 35](../part-6-system-design/35-matching-amps-speakers.md).
+This is why matching amplifiers to speakers matters — covered in depth in [Ch 35](../part-6-system-design/35-matching-amps-to-speakers.md).
 
 ### 6.3 The Practical Reality
 
@@ -372,7 +372,7 @@ This is why thick speaker cables matter more than exotic amplifier specs. Use 12
 
 Some speakers are designed to be driven by tube amps and actually *expect* a higher source impedance. If you drive a speaker designed for tube amps with a high-damping-factor solid-state amp, the bass might sound thin and overdamped. Conversely, driving a modern hi-fi speaker (designed for solid-state) with a tube amp can produce flabby bass.
 
-This interaction between amplifier output impedance and speaker design is explored further in [Ch 35: Matching Amps to Speakers](../part-6-system-design/35-matching-amps-speakers.md).
+This interaction between amplifier output impedance and speaker design is explored further in [Ch 35: Matching Amplifiers to Speakers](../part-6-system-design/35-matching-amps-to-speakers.md).
 
 ---
 
@@ -621,7 +621,7 @@ Open LTSpice and simulate a basic Class AB output stage:
 4. Observe the output waveform
 5. Adjust the bias and watch crossover distortion appear and disappear
 
-This 30-minute exercise will teach you more about Class AB operation than hours of reading. See [Ch 3: Simulation](../part-0-electronics/03-simulation.md) for detailed SPICE setup and techniques.
+This 30-minute exercise will teach you more about Class AB operation than hours of reading. See [Ch 3: Simulation and Analysis Tools](../part-0-electronics/03-simulation-analysis-tools.md) for detailed SPICE setup and techniques.
 
 ---
 

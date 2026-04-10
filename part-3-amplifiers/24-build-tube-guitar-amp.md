@@ -51,10 +51,10 @@ The 5F1 uses cathode bias (self-adjusting, forgiving), has no negative feedback 
 ### Related Chapters
 - [Ch 20: Tube Amplifier Theory](20-tube-amplifier-theory.md) — the theory behind every circuit in this chapter
 - [Ch 21: Power Supply Design](21-power-supply-design.md) — understanding the B+ supply
-- [Ch 22: Safety](22-safety-mains-high-voltage.md) — MANDATORY. Read before building. Read again before testing.
-- [Ch 6: Gain Stages in Pedals](../part-1-guitar-pedals/06-gain-stages.md) — simpler gain stage concepts
-- [Ch 35: Matching Amps to Speakers](../part-6-system-design/35-matching-amps-speakers.md) — speaker cab pairing
-- [Ch 39: System Builds](../part-6-system-design/39-system-builds.md) — integrating this amp into a rig
+- [Ch 22: Safety: Working with Mains and High Voltage](22-safety-mains-high-voltage.md) — MANDATORY. Read before building. Read again before testing.
+- [Ch 6: Gain Stages and Clipping Circuits](../part-1-guitar-pedals/06-gain-stages-clipping-circuits.md) — simpler gain stage concepts
+- [Ch 35: Matching Amplifiers to Speakers](../part-6-system-design/35-matching-amps-to-speakers.md) — speaker cab pairing
+- [Ch 39: Complete System Build: Party PA](../part-6-system-design/39-complete-build-party-pa.md) — integrating this amp into a rig
 
 ---
 

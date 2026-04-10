@@ -32,11 +32,11 @@ Both builds involve **mains electricity**. Follow every safety procedure from Ch
 ### Related Chapters
 - [Ch 19: Solid-State Amplifier Design](19-solid-state-amplifier-design.md) — the theory behind both designs
 - [Ch 21: Power Supply Design](21-power-supply-design.md) — supply design principles
-- [Ch 22: Safety](22-safety-mains-high-voltage.md) — MANDATORY reading before this chapter
-- [Ch 12: Speaker Impedance](../part-2-speakers/12-speaker-impedance.md) — understanding the load
-- [Ch 31: PCB Design](../part-5-pcb-professional/31-pcb-design.md) — if you want to design your own boards
-- [Ch 35: Matching Amps to Speakers](../part-6-system-design/35-matching-amps-speakers.md) — choosing speakers for your new amps
-- [Ch 38: System Builds](../part-6-system-design/38-system-builds.md) — integrating these amps into complete systems
+- [Ch 22: Safety: Working with Mains and High Voltage](22-safety-mains-high-voltage.md) — MANDATORY reading before this chapter
+- [Ch 12: The Language of Speakers](../part-2-speakers/12-language-of-speakers.md) — understanding the load
+- [Ch 31: PCB Design for Audio](../part-5-pcb-professional/31-pcb-design-for-audio.md) — if you want to design your own boards
+- [Ch 35: Matching Amplifiers to Speakers](../part-6-system-design/35-matching-amps-to-speakers.md) — choosing speakers for your new amps
+- [Ch 38: Complete System Build: Home Hi-Fi](../part-6-system-design/38-complete-build-home-hifi.md) — integrating these amps into complete systems
 
 ---
 
@@ -674,11 +674,11 @@ These two amplifiers are starting points, not endpoints. Here are natural next s
 - Build a dedicated subwoofer amp with integrated crossover
 - Create a multi-amplifier PA rack with multiple TPA3255 boards
 - Add DSP-based speaker processing ([Ch 29](../part-4-digital-audio/29-dsp-digital.md))
-- Build a powered speaker by mounting the amp inside a speaker cabinet ([Ch 38](../part-6-system-design/38-system-builds.md))
+- Build a powered speaker by mounting the amp inside a speaker cabinet ([Ch 38](../part-6-system-design/38-complete-build-home-hifi.md))
 
 **For deeper understanding:**
 - Design a discrete Class AB amplifier from scratch using the principles from [Ch 19](19-solid-state-amplifier-design.md)
-- Design your own PCB for the LM3886 ([Ch 31](../part-5-pcb-professional/31-pcb-design.md))
+- Design your own PCB for the LM3886 ([Ch 31](../part-5-pcb-professional/31-pcb-design-for-audio.md))
 - Measure your amps with more sophisticated equipment (Audio Precision, QuantAsylum QA401)
 
 ---

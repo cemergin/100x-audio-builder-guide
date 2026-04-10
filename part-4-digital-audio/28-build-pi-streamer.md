@@ -34,9 +34,9 @@ By the end of this chapter, you'll have a working streamer that plays Spotify, A
 - [Ch 25: Digital Audio Fundamentals](25-digital-audio-fundamentals.md) -- why we chose this DAC architecture
 - [Ch 26: Streaming Architectures and Protocols](26-streaming-architectures-protocols.md) -- the software stack
 - [Ch 27: DSP Fundamentals for Audio](27-dsp-fundamentals.md) -- the processing this Pi will do in Chapter 29
-- [Ch 23: Build: Chip Amp and Class D](../part-3-amplifiers/23-chip-amp-class-d.md) -- the amplifier this streamer drives
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) -- the amplifier this streamer drives
 - [Ch 29: Build: Active Crossover and Room Correction](29-build-active-crossover-room-correction.md) -- adding DSP to this build
-- [Ch 32: Enclosure Design](../part-5-pcb-professional/32-enclosure-design.md) -- case design principles
+- [Ch 32: Enclosure Design and Fabrication](../part-5-pcb-professional/32-enclosure-design-fabrication.md) -- case design principles
 
 ---
 

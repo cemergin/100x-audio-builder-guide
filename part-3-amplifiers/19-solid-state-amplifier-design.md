@@ -31,11 +31,11 @@ Fair warning: this chapter gets into the weeds. We'll be reading datasheets, cal
 
 ### Related Chapters
 - [Ch 18: How Amplifiers Work](18-how-amplifiers-work.md) — the theory behind everything here
-- [Ch 1: Components](../part-0-electronics/01-components.md) — transistor fundamentals refresher
-- [Ch 3: Simulation](../part-0-electronics/03-simulation.md) — simulate these circuits before building
+- [Ch 1: Components and What They Do to Signals](../part-0-electronics/01-components-and-signals.md) — transistor fundamentals refresher
+- [Ch 3: Simulation and Analysis Tools](../part-0-electronics/03-simulation-analysis-tools.md) — simulate these circuits before building
 - [Ch 21: Power Supply Design](21-power-supply-design.md) — what feeds the amplifier
-- [Ch 23: Build: Chip Amp and Class D](23-build-chip-amp-class-d.md) — building the amps we design here
-- [Ch 31: PCB Design](../part-5-pcb-professional/31-pcb-design.md) — layout considerations for amp circuits
+- [Ch 23: Build: Chip Amp and Class D Amp](23-build-chip-amp-class-d.md) — building the amps we design here
+- [Ch 31: PCB Design for Audio](../part-5-pcb-professional/31-pcb-design-for-audio.md) — layout considerations for amp circuits
 
 ---
 

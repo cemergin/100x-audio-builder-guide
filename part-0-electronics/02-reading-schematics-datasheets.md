@@ -702,7 +702,7 @@ Whether you use KiCad, EAGLE, or pencil and paper, follow these conventions:
 
 The best way to get better at reading schematics is to read lots of them:
 
-1. **Guitar pedal schematics**: Search for schematics of classic pedals (Tube Screamer TS-808/TS-9, Big Muff Pi, Fuzz Face, ProCo RAT, Boss DS-1, MXR Distortion+, Boss BD-2 Blues Driver, Klon Centaur). These are well-documented, widely analyzed online, and simple enough to fully understand with the knowledge from Chapters 0-1.
+1. **Guitar pedal schematics**: Search for schematics of classic pedals (Tube Screamer TS808/TS9, Big Muff Pi, Fuzz Face, ProCo RAT, Boss DS-1, MXR Distortion+, Boss BD-2 Blues Driver, Klon Centaur). These are well-documented, widely analyzed online, and simple enough to fully understand with the knowledge from Chapters 0-1.
 
 2. **Amplifier schematics**: Fender (Deluxe Reverb, Twin Reverb, Champ), Marshall (JTM45, JCM800), and Vox (AC15, AC30) amplifier schematics are freely available. They're more complex but follow the same block structure: preamp stages, tone stack, phase inverter, power stage, power supply.
 
@@ -714,7 +714,7 @@ The best way to get better at reading schematics is to read lots of them:
 
 ### 10.2 A Reading Challenge
 
-Pick a classic circuit (the Tube Screamer TS-808 is ideal -- it's well-documented, uses concepts from this chapter and the previous one, and is arguably the most analyzed pedal circuit in existence). Print the schematic. Without looking at anyone's analysis:
+Pick a classic circuit (the Tube Screamer TS808 is ideal -- it's well-documented, uses concepts from this chapter and the previous one, and is arguably the most analyzed pedal circuit in existence). Print the schematic. Without looking at anyone's analysis:
 
 1. Identify the power supply section (the virtual ground divider, the voltage regulator if present)
 2. Trace the signal path from input to output
@@ -799,7 +799,7 @@ Questions:
 
 ### 11.5 Reading Challenge: The Tube Screamer
 
-If you haven't already, download or print the Ibanez TS-808 Tube Screamer schematic (freely available online). As an exercise:
+If you haven't already, download or print the Ibanez TS808 Tube Screamer schematic (freely available online). As an exercise:
 
 1. Locate the virtual ground (two 10kΩ resistors creating a 4.5V reference)
 2. Trace the signal from input jack to U1A (the input buffer)
@@ -809,7 +809,7 @@ If you haven't already, download or print the Ibanez TS-808 Tube Screamer schema
 6. Trace the signal through the volume pot to the output buffer (Q2, a transistor buffer, not an op-amp)
 7. Find the electronic bypass switching circuit (the JFETs and their control logic)
 
-This exercise, done thoroughly, teaches more about schematic reading than any amount of abstract instruction. The TS-808 is simple enough to fully understand but complex enough to exercise every skill in this chapter.
+This exercise, done thoroughly, teaches more about schematic reading than any amount of abstract instruction. The TS808 is simple enough to fully understand but complex enough to exercise every skill in this chapter.
 
 ---
 

@@ -28,13 +28,13 @@ This chapter covers the full spectrum of audio power supply design — from the 
 - Grounding topologies: star ground, ground plane, hybrid
 
 ### Related Chapters
-- [Ch 1: Components](../part-0-electronics/01-components.md) — capacitors, diodes, and transformers
+- [Ch 1: Components and What They Do to Signals](../part-0-electronics/01-components-and-signals.md) — capacitors, diodes, and transformers
 - [Ch 19: Solid-State Amplifier Design](19-solid-state-amplifier-design.md) — what the supply feeds
 - [Ch 20: Tube Amplifier Theory](20-tube-amplifier-theory.md) — high-voltage supply requirements
-- [Ch 22: Safety](22-safety-mains-high-voltage.md) — CRITICAL for high-voltage work
-- [Ch 23: Build: Chip Amp and Class D](23-build-chip-amp-class-d.md) — supply builds for both amps
-- [Ch 24: Build: Tube Guitar Amp](24-build-tube-guitar-amp.md) — building the B+ supply
-- [Ch 31: PCB Design](../part-5-pcb-professional/31-pcb-design.md) — layout techniques for power supplies
+- [Ch 22: Safety: Working with Mains and High Voltage](22-safety-mains-high-voltage.md) — CRITICAL for high-voltage work
+- [Ch 23: Build: Chip Amp and Class D Amp](23-build-chip-amp-class-d.md) — supply builds for both amps
+- [Ch 24: Build: Tube Guitar Amplifier](24-build-tube-guitar-amp.md) — building the B+ supply
+- [Ch 31: PCB Design for Audio](../part-5-pcb-professional/31-pcb-design-for-audio.md) — layout techniques for power supplies
 
 ---
 
@@ -740,7 +740,7 @@ Most DSP chips and microcontrollers need:
 
 In digital audio, power supply noise can modulate the clock signal, causing **jitter** — timing variation that degrades audio quality. This is particularly important for DACs and ADCs. If your project includes digital audio conversion, use a separate, well-filtered supply for the clock oscillator.
 
-This topic intersects with [Ch 29: DSP and Digital Audio](../part-4-digital-audio/29-dsp-digital.md), where we'll explore digital audio power supply requirements in more detail.
+This topic intersects with [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md), where we'll explore digital audio power supply requirements in more detail.
 
 ---
 

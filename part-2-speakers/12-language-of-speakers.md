@@ -12,11 +12,11 @@
 
 > **Part 2 — Speakers** | Prerequisites: Chapter 11 | Difficulty: Intermediate
 
-In Chapter 11 you learned what happens inside a speaker physically. Now we need to quantify it. Every driver you can buy comes with a datasheet full of numbers, graphs, and acronyms -- and if you cannot read that datasheet, you are designing blind. You would never integrate a software library without reading its API docs, and Thiele-Small parameters are exactly that: **the driver's API specification.** They tell you what the driver can do, what it needs from its environment (the enclosure), and where its limits are, all without opening the box.
+In Chapter 11 you learned what happens inside a speaker physically. Now we need to quantify it. Every driver you can buy comes with a datasheet full of numbers, graphs, and acronyms -- and if you can't read that datasheet, you're designing blind. You wouldn't integrate a software library without reading its API docs, and Thiele-Small parameters are exactly that: **the driver's API specification.** They tell you what the driver can do, what it needs from its environment (the enclosure), and where its limits are, all without opening the box.
 
-This chapter is dense. There are a lot of parameters, and each one matters. But by the end, you will be able to pick up any driver datasheet and know exactly what you are looking at. You will know which numbers matter most for a sealed enclosure versus a ported one. You will know why one woofer is perfect for a bookshelf speaker and another belongs in a subwoofer. And you will have the vocabulary to have intelligent conversations about speaker design with anyone.
+This chapter is dense. There are a lot of parameters, and each one matters. But by the end, you'll be able to pick up any driver datasheet and know exactly what you're looking at. You'll know which numbers matter most for a sealed enclosure versus a ported one. You'll know why one woofer is perfect for a bookshelf speaker and another belongs in a subwoofer. And you'll have the vocabulary to have intelligent conversations about speaker design with anyone.
 
-We are going to take every important spec, explain what it means physically, what its numerical value tells you about the driver, and how it affects your design decisions. Let us get into it.
+We're going to take every important spec, explain what it means physically, what its numerical value tells you about the driver, and how it affects your design decisions. Let's get into it.
 
 ### In This Chapter
 - SPL and sensitivity: what the loudness numbers actually mean
@@ -28,7 +28,7 @@ We are going to take every important spec, explain what it means physically, wha
 - Reading and comparing real driver datasheets
 
 ### Related Chapters
-- [Ch 0: Impedance and AC Basics](../part-0-electronics/00-impedance-ac-basics.md) -- the electrical foundation for impedance curves
+- [Ch 0: Electricity Through the Lens of Sound](../part-0-electronics/00-electricity-through-sound.md) -- the electrical foundation for impedance curves
 - [Ch 11: How Speakers Work](11-how-speakers-work.md) -- the physical systems these specs describe
 - [Ch 13: Crossover Design](13-crossover-design.md) -- uses impedance and sensitivity specs directly
 - [Ch 14: Cabinet Design](14-cabinet-design.md) -- uses Thiele-Small parameters directly
@@ -64,11 +64,11 @@ Measured by applying 1 watt of electrical power to the driver and measuring SPL 
 **Standard 2: dB/2.83V/m (decibels per 2.83 volts per meter)**
 Measured by applying 2.83 volts RMS to the driver and measuring SPL at 1 meter. Why 2.83 volts? Because 2.83V into an 8-ohm load equals exactly 1 watt (P = V^2/R = 2.83^2/8 = 1W).
 
-**Here is where it gets tricky**: for an 8-ohm driver, both standards give the same number. But for a 4-ohm driver, 2.83V produces 2 watts (2.83^2/4 = 2W), so the dB/2.83V/m number is 3 dB higher than the dB/W/m number. The driver is not actually more efficient -- it is just receiving more power.
+**Here is where it gets tricky**: for an 8-ohm driver, both standards give the same number. But for a 4-ohm driver, 2.83V produces 2 watts (2.83^2/4 = 2W), so the dB/2.83V/m number is 3 dB higher than the dB/W/m number. The driver isn't actually more efficient -- it's just receiving more power.
 
 Why does this matter? When comparing drivers with different impedances:
 - Use **dB/W/m** to compare true electro-acoustic efficiency (how much sound per watt)
-- Use **dB/2.83V/m** to compare what you will actually hear from the same amplifier (because amplifiers are essentially voltage sources)
+- Use **dB/2.83V/m** to compare what you'll actually hear from the same amplifier (because amplifiers are essentially voltage sources)
 
 Most modern datasheets specify 2.83V/m. When you see "sensitivity: 87 dB" on a 4-ohm driver, that driver's true efficiency is only 84 dB/W/m. Always check which standard is being used.
 
@@ -95,7 +95,7 @@ You learned in Part 0 that impedance in AC circuits depends on frequency. A spea
 
 ### 2.2 Anatomy of an Impedance Curve
 
-If you measure a woofer's impedance across frequency and plot it, you will see a distinctive shape:
+If you measure a woofer's impedance across frequency and plot it, you'll see a distinctive shape:
 
 **The Resonance Peak**: A large, sharp peak at the driver's free-air resonance frequency (Fs). At Fs, the driver's mechanical resonance causes the voice coil's back-EMF to peak, making the electrical impedance shoot up. A typical woofer with a nominal impedance of 8 ohms might have a resonance peak of 30-80 ohms.
 
@@ -109,7 +109,7 @@ If you measure a woofer's impedance across frequency and plot it, you will see a
 
 The impedance curve matters for several reasons:
 
-1. **Amplifier compatibility**: The amplifier must be rated to drive the minimum impedance. A speaker that dips to 3 ohms is a difficult load -- some amplifiers cannot deliver enough current and will clip, overheat, or engage protection circuits.
+1. **Amplifier compatibility**: The amplifier must be rated to drive the minimum impedance. A speaker that dips to 3 ohms is a difficult load -- some amplifiers can't deliver enough current and will clip, overheat, or engage protection circuits.
 
 2. **Crossover design**: A passive crossover designed for a flat 8-ohm load will behave differently when the actual impedance is 5 ohms at one frequency and 30 ohms at another. The crossover frequency and slope will shift. This is why impedance compensation networks (Zobel circuits, notch filters) are essential -- we cover them in Chapter 13.
 
@@ -123,11 +123,11 @@ The impedance curve matters for several reasons:
 
 In the 1960s and 70s, Neville Thiele and Richard Small developed a set of parameters that completely characterize a driver's low-frequency behavior in a mathematically predictable way. Before their work, speaker design was largely trial and error. After it, you could model a driver in an enclosure on paper (and eventually in software) before building anything.
 
-Think of T-S parameters as a driver's API specification. They tell you what the driver can do, what constraints it operates under, and what it needs from its "host" (the enclosure). You do not need to open the driver to use them -- just like you do not need to read a library's source code to use its API.
+Think of T-S parameters as a driver's API specification. They tell you what the driver can do, what constraints it operates under, and what it needs from its "host" (the enclosure). You don't need to open the driver to use them -- just like you don't need to read a library's source code to use its API.
 
 ### 3.1 Fs — Free-Air Resonance Frequency
 
-**What it is**: The frequency at which the driver naturally resonates when mounted in free air (no enclosure). It is determined by the moving mass and the suspension compliance -- heavier cone = lower Fs, stiffer suspension = higher Fs.
+**What it is**: The frequency at which the driver naturally resonates when mounted in free air (no enclosure). It's determined by the moving mass and the suspension compliance -- heavier cone = lower Fs, stiffer suspension = higher Fs.
 
 **Unit**: Hertz (Hz)
 
@@ -138,7 +138,7 @@ Think of T-S parameters as a driver's API specification. They tell you what the 
 - **Medium Fs (35-60 Hz)**: Typical woofer for bookshelf or tower speakers. Good bass potential in a reasonably sized box.
 - **High Fs (60-100+ Hz)**: Midrange driver or small woofer. Will not produce deep bass regardless of enclosure.
 
-**Design implication**: Fs sets the lower bound of what the driver can do. You cannot get a driver with Fs = 70 Hz to produce meaningful output at 30 Hz. An enclosure can extend response somewhat below Fs, but there is a limit.
+**Design implication**: Fs sets the lower bound of what the driver can do. You can't get a driver with Fs = 70 Hz to produce meaningful output at 30 Hz. An enclosure can extend response somewhat below Fs, but there is a limit.
 
 ### 3.2 Qts — Total Q Factor
 
@@ -207,7 +207,7 @@ In a ported enclosure, Vas still determines the optimal box volume, but the rela
 
 **Design implication**: Xmax determines maximum output, especially at low frequencies where the driver needs to move a lot of air. The maximum SPL at a given frequency is determined by Xmax and cone area (Sd). This is particularly important for subwoofers and PA woofers, where running out of excursion (bottoming out) causes severe distortion and can damage the driver.
 
-In simulation tools like WinISD, you can plot cone excursion versus frequency and make sure you are not exceeding Xmax at your desired output level. This is one of the most useful simulations you can run.
+In simulation tools like WinISD, you can plot cone excursion versus frequency and make sure you're not exceeding Xmax at your desired output level. This is one of the most useful simulations you can run.
 
 ### 3.7 BL — Force Factor (BL Product)
 
@@ -244,7 +244,7 @@ BL and moving mass (Mms) together determine the driver's efficiency. The figure 
 
 **What the number tells you**: For an "8 ohm" driver, Re is typically 5.5-7 ohms. For a "4 ohm" driver, Re is typically 3-3.5 ohms.
 
-**Design implication**: Re determines the minimum impedance the amplifier sees (it cannot go lower than Re except in bizarre reactive situations). It also affects Qes -- lower Re means more electrical damping (lower Qes) for a given BL.
+**Design implication**: Re determines the minimum impedance the amplifier sees (it can't go lower than Re except in bizarre reactive situations). It also affects Qes -- lower Re means more electrical damping (lower Qes) for a given BL.
 
 ### 3.10 Other Useful Parameters
 
@@ -261,7 +261,7 @@ BL and moving mass (Mms) together determine the driver's efficiency. The figure 
 - 50 < EBP < 90: Works in either sealed or ported
 - EBP > 90: Driver prefers a ported enclosure
 
-This is a rough guide, not a hard rule. But it is useful for quick screening.
+This is a rough guide, not a hard rule. But it's useful for quick screening.
 
 ---
 
@@ -269,7 +269,7 @@ This is a rough guide, not a hard rule. But it is useful for quick screening.
 
 ### 4.1 On-Axis Frequency Response
 
-The on-axis frequency response graph is the "hero spec" -- it is what most datasheets show prominently. It plots SPL (vertical axis, in dB) versus frequency (horizontal axis, in Hz) measured directly in front of the driver at 1 meter distance, with a specified input level.
+The on-axis frequency response graph is the "hero spec" -- it's what most datasheets show prominently. It plots SPL (vertical axis, in dB) versus frequency (horizontal axis, in Hz) measured directly in front of the driver at 1 meter distance, with a specified input level.
 
 What to look for in a driver's raw frequency response:
 
@@ -299,7 +299,7 @@ When comparing two drivers, be careful about the reference level:
 - A response measured at a constant voltage (2.83V) reflects what you hear from a voltage-source amplifier
 - A response normalized to 1W (impedance-compensated) reflects true electro-acoustic efficiency
 
-For home audio design with solid-state amplifiers (which are essentially voltage sources), constant-voltage measurements are more relevant. For PA design where you are thinking about amplifier power budgets, 1W sensitivity matters more.
+For home audio design with solid-state amplifiers (which are essentially voltage sources), constant-voltage measurements are more relevant. For PA design where you're thinking about amplifier power budgets, 1W sensitivity matters more.
 
 ---
 
@@ -324,7 +324,7 @@ For PA speakers, higher distortion is acceptable because the listening environme
 
 When two frequencies are present simultaneously, the non-linearities in the driver create sum and difference frequencies. Playing 1000 Hz and 1100 Hz simultaneously produces not only those frequencies but also 100 Hz (difference), 2100 Hz (sum), and other combinations.
 
-IMD is particularly insidious because the distortion products are not harmonically related to the signal -- they are musically unrelated frequencies that sound harsh and unnatural. This is one reason multi-way speakers often sound cleaner than full-range drivers: in a 2-way system, the woofer does not have to simultaneously reproduce a 100 Hz bass note and a 3,000 Hz vocal, so IMD between those frequencies is eliminated.
+IMD is particularly insidious because the distortion products aren't harmonically related to the signal -- they're musically unrelated frequencies that sound harsh and unnatural. This is one reason multi-way speakers often sound cleaner than full-range drivers: in a 2-way system, the woofer doesn't have to simultaneously reproduce a 100 Hz bass note and a 3,000 Hz vocal, so IMD between those frequencies is eliminated.
 
 ### 5.3 Distortion vs. Frequency Graphs
 
@@ -341,7 +341,7 @@ Some datasheets include a "distortion vs. frequency" graph, showing 2nd harmonic
 
 A speaker driver can fail in two completely different ways, and its power handling is limited by whichever threshold is reached first:
 
-**Thermal failure**: The voice coil overheats. The wire insulation softens, coils shift, and eventually the wire shorts or the former deforms. This is the dominant failure mode at frequencies above the driver's operating range, where the cone cannot move much (due to its mass) and all the electrical energy is converted to heat in the voice coil. It is also the long-term failure mode at any frequency -- continuous high power eventually cooks the coil.
+**Thermal failure**: The voice coil overheats. The wire insulation softens, coils shift, and eventually the wire shorts or the former deforms. This is the dominant failure mode at frequencies above the driver's operating range, where the cone can't move much (due to its mass) and all the electrical energy is converted to heat in the voice coil. It's also the long-term failure mode at any frequency -- continuous high power eventually cooks the coil.
 
 **Mechanical failure**: The cone exceeds its maximum excursion. The voice coil bottoms out against the back plate, the surround tears, or the spider cracks. This is the dominant failure mode at low frequencies, where the driver is making large excursions. It often manifests as a loud "crack" or "pop" -- and the driver may survive a single event but repeated bottoming destroys it.
 
@@ -391,7 +391,7 @@ Power handling:       40W RMS
 Reading this datasheet:
 - **Fs = 55 Hz**: Moderate. Will not hit 30 Hz but should give useful bass into the 50s Hz range in a box.
 - **Qts = 0.46**: On the higher side. Could work in either sealed or ported. EBP = 55/0.53 = 104, which suggests ported might be favorable.
-- **Vas = 8.5 liters**: Small. Good news -- this driver does not need a big box. A 7-12 liter enclosure is realistic for a bookshelf speaker.
+- **Vas = 8.5 liters**: Small. Good news -- this driver doesn't need a big box. A 7-12 liter enclosure is realistic for a bookshelf speaker.
 - **Xmax = 5.75 mm**: Moderate. Fine for bookshelf levels but will not produce room-shaking bass.
 - **Sensitivity = 84.6 dB (2.83V/m)**: Low. But remember, this is a 4-ohm driver, so the true 1W sensitivity is even lower (about 81.6 dB). You will need a capable amplifier. But for a bookshelf speaker that will be listened to at moderate levels in a small room, this is fine.
 - **Le = 0.32 mH**: Low. Good high-frequency extension, less impedance compensation needed.
@@ -422,7 +422,7 @@ Reading this datasheet:
 - **Xmax = 4.3 mm**: Short for a 12" driver. This is a PA woofer designed for efficiency, not deep bass extension. It relies on cone area, not excursion.
 - **Sensitivity = 97 dB**: A full 12 dB more sensitive than Woofer A. At the same amplifier power, this is roughly 16 times louder. THIS is why PA speakers use large drivers -- efficiency.
 - **BL = 12.8 Tm**: A much stronger motor. This translates directly to that high sensitivity.
-- **Le = 1.04 mH**: Higher. The impedance rises significantly at high frequencies, which means this driver's usable range does not extend as high. You would cross over to a compression driver at 1.5-2 kHz.
+- **Le = 1.04 mH**: Higher. The impedance rises significantly at high frequencies, which means this driver's usable range doesn't extend as high. You would cross over to a compression driver at 1.5-2 kHz.
 
 ### 7.3 The Comparison Exercise
 
@@ -448,11 +448,11 @@ When evaluating tweeters, the key specs are different:
 In this chapter, you learned:
 
 - SPL is measured in decibels; sensitivity ratings use either 1W or 2.83V reference (and the distinction matters for different impedances)
-- The impedance curve reveals resonance frequency, minimum impedance, and enclosure behavior -- it is far more informative than the nominal rating
+- The impedance curve reveals resonance frequency, minimum impedance, and enclosure behavior -- it's far more informative than the nominal rating
 - Thiele-Small parameters are the driver's complete low-frequency specification: Fs (resonance), Qts/Qes/Qms (damping), Vas (compliance volume), Xmax (excursion), BL (motor strength), Le (inductance), Re (resistance)
 - Frequency response graphs show usable bandwidth, breakup behavior, and off-axis performance
 - Distortion increases at low frequencies (excursion limited) and high power levels
 - Power handling has two limits: thermal (voice coil heat) and mechanical (excursion limit), and it varies with frequency
 - Datasheet comparison is the foundation of driver selection for any build
 
-You now have the vocabulary to describe any driver's behavior precisely. In Chapter 13, we will use this knowledge to design the crossover network that splits the signal between drivers -- the component that, more than anything else, determines how a multi-way speaker actually sounds.
+You now have the vocabulary to describe any driver's behavior precisely. In Chapter 13, we'll use this knowledge to design the crossover network that splits the signal between drivers -- the component that, more than anything else, determines how a multi-way speaker actually sounds.

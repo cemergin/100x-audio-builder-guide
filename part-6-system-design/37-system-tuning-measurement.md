@@ -32,8 +32,8 @@ The goal is not a perfectly flat frequency response. The goal is a system that s
 ### Related Chapters
 - [Ch 12: The Language of Speakers](../part-2-speakers/12-language-of-speakers.md) — speaker measurement fundamentals
 - [Ch 18: How Amplifiers Work](../part-3-amplifiers/18-how-amplifiers-work.md) — distortion specs and what they mean
-- [Ch 29: DSP with CamillaDSP](../part-4-digital-audio/29-dsp-camilladsp.md) — applying corrections based on measurements
-- [Ch 34: Testing Procedures](../part-5-pcb-professional/34-testing-procedures.md) — systematic testing methodology
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) — applying corrections based on measurements
+- [Ch 34: Testing, Quality Control, and Documentation](../part-5-pcb-professional/34-testing-qc-documentation.md) — systematic testing methodology
 - [Ch 35: Matching Amps to Speakers](35-matching-amps-to-speakers.md) — power and impedance specs to verify
 - [Ch 36: Room Acoustics and Treatment](36-room-acoustics-treatment.md) — treatment decisions based on measurements
 - [Ch 38: Complete Build: Home Hi-Fi](38-complete-build-home-hifi.md) — applying these techniques to the final system

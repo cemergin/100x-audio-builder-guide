@@ -29,8 +29,8 @@ This chapter covers how rooms affect sound, how to position speakers to minimize
 ### Related Chapters
 - [Ch 11: How Speakers Work](../part-2-speakers/11-how-speakers-work.md) — room interaction with speakers
 - [Ch 12: The Language of Speakers](../part-2-speakers/12-language-of-speakers.md) — frequency response, off-axis behavior
-- [Ch 29: DSP with CamillaDSP](../part-4-digital-audio/29-dsp-camilladsp.md) — digital room correction to complement physical treatment
-- [Ch 33: Professional Finishing](../part-5-pcb-professional/33-professional-finishing.md) — making treatment panels look good in your room
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) — digital room correction to complement physical treatment
+- [Ch 33: Professional Finishing and Aesthetics](../part-5-pcb-professional/33-professional-finishing-aesthetics.md) — making treatment panels look good in your room
 - [Ch 35: Matching Amps to Speakers](35-matching-amps-to-speakers.md) — power calculations depend on room characteristics
 - [Ch 37: System Tuning and Measurement](37-system-tuning-measurement.md) — detailed measurement techniques for evaluating treatment
 

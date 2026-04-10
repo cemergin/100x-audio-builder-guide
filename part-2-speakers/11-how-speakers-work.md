@@ -12,9 +12,9 @@
 
 > **Part 2 — Speakers** | Prerequisites: Part 0 | Difficulty: Beginner
 
-You have been using speakers your entire life, but have you ever stopped to think about what is actually happening inside one? A speaker is, at its core, a device that converts electrical energy into air movement -- and by controlling that air movement precisely enough, it recreates music, voices, explosions, and every other sound you have ever heard through a playback system. That is borderline magic, and it is accomplished with remarkably simple physics.
+You've been using speakers your entire life, but have you ever stopped to think about what's actually happening inside one? A speaker is, at its core, a device that converts electrical energy into air movement -- and by controlling that air movement precisely enough, it recreates music, voices, explosions, and every other sound you've ever heard through a playback system. That's borderline magic, and it's accomplished with remarkably simple physics.
 
-In this chapter, we are going to take the speaker apart -- conceptually -- and understand every piece of the puzzle. We will start with the electromagnetic driver itself (the thing most people call "a speaker"), then zoom out to the enclosure it lives in, and finally zoom all the way out to the room where you are listening. By the end, you will understand why a bare driver screwed to a board sounds terrible, why your bookshelf speakers sound different when you move them to the corner, and why a PA system at a concert uses completely different hardware than your home stereo.
+In this chapter, we're going to take the speaker apart -- conceptually -- and understand every piece of the puzzle. We'll start with the electromagnetic driver itself (the thing most people call "a speaker"), then zoom out to the enclosure it lives in, and finally zoom all the way out to the room where you're listening. By the end, you'll understand why a bare driver screwed to a board sounds terrible, why your bookshelf speakers sound different when you move them to the corner, and why a PA system at a concert uses completely different hardware than your home stereo.
 
 If Part 0 gave you the vocabulary of electronics, this chapter gives you the vocabulary of acoustics. Everything in Part 2 builds on what you learn here.
 
@@ -29,11 +29,11 @@ If Part 0 gave you the vocabulary of electronics, this chapter gives you the voc
 - The room as part of the system
 
 ### Related Chapters
-- [Ch 0: Impedance and AC Basics](../part-0-electronics/00-impedance-ac-basics.md) -- impedance fundamentals that apply to speaker loads
-- [Ch 1: Capacitors and Inductors](../part-0-electronics/01-capacitors-inductors.md) -- the components used in crossover networks
+- [Ch 0: Electricity Through the Lens of Sound](../part-0-electronics/00-electricity-through-sound.md) -- impedance fundamentals that apply to speaker loads
+- [Ch 1: Components and What They Do to Signals](../part-0-electronics/01-components-and-signals.md) -- the components used in crossover networks
 - [Ch 12: The Language of Speakers](12-language-of-speakers.md) -- the specifications that quantify everything in this chapter
 - [Ch 14: Cabinet Design](14-cabinet-design.md) -- deep dive into enclosure types
-- [Ch 36: Room Acoustics](../part-6-system-design/36-room-acoustics.md) -- advanced treatment of room interaction
+- [Ch 36: Room Acoustics and Treatment](../part-6-system-design/36-room-acoustics-treatment.md) -- advanced treatment of room interaction
 
 ---
 
@@ -143,7 +143,7 @@ A **full-range driver** attempts to cover the entire frequency spectrum with a s
 
 Full-range drivers are typically 3" to 8" in diameter with a lightweight, stiff cone (often paper) and a large, carefully designed dustcap or "whizzer cone" -- a small secondary cone on top of the main cone that decouples from the main cone at high frequencies and radiates treble.
 
-**Advantages**: No crossover needed (the crossover introduces its own problems, as you will learn in Chapter 13). Perfect time alignment (one source for all frequencies). Simpler system.
+**Advantages**: No crossover needed (the crossover introduces its own problems, as you'll learn in Chapter 13). Perfect time alignment (one source for all frequencies). Simpler system.
 
 **Trade-offs**: Compromised bass (not enough cone area or excursion for deep bass), compromised treble (the cone is too large to be an ideal tweeter), and narrowing dispersion at high frequencies (the cone "beams" -- more on this in Section 4).
 
@@ -153,7 +153,7 @@ Full-range drivers are the darling of certain audiophile communities (especially
 
 If conventional drivers are like directly-coupled output stages, compression drivers with horns are like transformer-coupled stages -- they use acoustic impedance matching to dramatically increase efficiency.
 
-A **compression driver** is a specialized driver with a small diaphragm (typically 1" to 4" diameter, often titanium or phenolic) and a very powerful motor (high BL product). The diaphragm does not radiate directly into the room. Instead, it fires into a small chamber (the **compression chamber**) that narrows the acoustic output through a small opening (the **throat**) into a **horn**.
+A **compression driver** is a specialized driver with a small diaphragm (typically 1" to 4" diameter, often titanium or phenolic) and a very powerful motor (high BL product). The diaphragm doesn't radiate directly into the room. Instead, it fires into a small chamber (the **compression chamber**) that narrows the acoustic output through a small opening (the **throat**) into a **horn**.
 
 The horn is a flared tube that gradually expands from the throat to a much larger opening (the **mouth**). This gradual expansion transforms the high-pressure, low-volume air movement at the throat into lower-pressure, higher-volume air movement at the mouth. The result: dramatically higher efficiency.
 
@@ -177,13 +177,13 @@ Screw a woofer to a flat board, wire it up, and play music. What do you hear? Th
 
 When a cone moves forward, it creates a positive pressure wave in front (compression) and simultaneously a negative pressure wave behind (rarefaction). At low frequencies, where the wavelength is much larger than the cone, these two waves wrap around the edge of the board and meet. Since they are exactly out of phase, they cancel each other out.
 
-This is called **acoustic short-circuit**, and it is the fundamental reason bare drivers have no bass. The front wave and back wave cancel below a frequency determined by the size of the baffle (the board the driver is mounted on). For a typical 12" baffle, cancellation becomes severe below about 450 Hz.
+This is called **acoustic short-circuit**, and it's the fundamental reason bare drivers have no bass. The front wave and back wave cancel below a frequency determined by the size of the baffle (the board the driver is mounted on). For a typical 12" baffle, cancellation becomes severe below about 450 Hz.
 
 Think of it this way: the driver is working hard, pushing air forward and pulling it backward, but the net result in the room is near zero because the two waves cancel. It is like trying to fill a bathtub with the drain open.
 
 ### 3.2 What an Enclosure Does
 
-An enclosure (cabinet, box -- we use these terms interchangeably) solves the cancellation problem by isolating the front wave from the back wave. The simplest approach: seal the driver in a box. Now the back wave is trapped inside the box and cannot reach the front to cancel.
+An enclosure (cabinet, box -- we use these terms interchangeably) solves the cancellation problem by isolating the front wave from the back wave. The simplest approach: seal the driver in a box. Now the back wave is trapped inside the box and can't reach the front to cancel.
 
 But there is more to it than just "prevent cancellation." The trapped air inside a sealed box acts as a spring -- it compresses when the cone moves inward and expands when the cone moves outward. This spring interacts with the driver's mechanical spring (the suspension) to change the system's resonant frequency and damping behavior. Different enclosure types manage the back wave in different ways:
 
@@ -192,7 +192,7 @@ But there is more to it than just "prevent cancellation." The trapped air inside
 - **Transmission line**: Gradually absorbs the back wave through a long, stuffed line.
 - **Horn-loaded**: Uses the back wave to drive a horn for increased efficiency.
 
-We will explore all of these in detail in Chapter 14. For now, just understand: the enclosure is not a passive container. It is an active part of the acoustic system. Choosing the right enclosure for a driver is as critical as choosing the right driver in the first place.
+We'll explore all of these in detail in Chapter 14. For now, just understand: the enclosure isn't a passive container. It's an active part of the acoustic system. Choosing the right enclosure for a driver is as critical as choosing the right driver in the first place.
 
 ### 3.3 The Infinite Baffle Thought Experiment
 
@@ -206,7 +206,7 @@ Understanding the infinite baffle concept helps you see that the purpose of any 
 
 ## 4. Radiation Patterns and Dispersion
 
-Sound does not come out of a speaker like light from a laser -- it spreads out. But how it spreads depends dramatically on the frequency and the size of the driver.
+Sound doesn't come out of a speaker like light from a laser -- it spreads out. But how it spreads depends dramatically on the frequency and the size of the driver.
 
 ### 4.1 The Relationship Between Wavelength and Driver Size
 
@@ -217,13 +217,13 @@ Some numbers to ground this:
 - 1,000 Hz has a wavelength of about 34 cm (13.4 inches). A 10" woofer is comparable in size, so it starts to beam at this frequency.
 - 10,000 Hz has a wavelength of about 3.4 cm (1.3 inches). Even a 1" tweeter is comparable in size, so treble beams noticeably.
 
-This is why your woofer sounds the same whether you are directly in front of it or off to the side, but your tweeter sounds noticeably duller when you move off-axis. The high frequencies are being directed forward in a beam while the lows go everywhere.
+This is why your woofer sounds the same whether you're directly in front of it or off to the side, but your tweeter sounds noticeably duller when you move off-axis. The high frequencies are being directed forward in a beam while the lows go everywhere.
 
 ### 4.2 Why Dispersion Matters
 
 Dispersion matters for two reasons:
 
-1. **Listening window**: If you are not sitting exactly on-axis (directly in front of the speaker), the off-axis frequency response determines what you hear. Since most people are not surgically positioned in a single sweet spot, good off-axis response means the speaker sounds good over a wider area.
+1. **Listening window**: If you're not sitting exactly on-axis (directly in front of the speaker), the off-axis frequency response determines what you hear. Since most people aren't surgically positioned in a single sweet spot, good off-axis response means the speaker sounds good over a wider area.
 
 2. **Room interaction**: The sound that bounces off walls, ceiling, and floor (early reflections and reverberation) is predominantly the off-axis sound. Even at the sweet spot, a significant portion of what you hear is reflected sound. If the off-axis response is dramatically different from the on-axis response (e.g., the highs drop off a cliff 30 degrees off-axis), the reflected sound will be "colored" differently from the direct sound, and the speaker will sound unnatural in a room.
 
@@ -292,7 +292,7 @@ The relationship between on-axis response and power response is called the **dir
 
 ## 6. Phase and Time Alignment
 
-When two drivers reproduce the same frequency (which happens in the crossover region where both are operating), their outputs need to arrive at your ears at the same time and in the same phase. If they do not, cancellation or reinforcement occurs, creating dips or peaks in the response.
+When two drivers reproduce the same frequency (which happens in the crossover region where both are operating), their outputs need to arrive at your ears at the same time and in the same phase. If they don't, cancellation or reinforcement occurs, creating dips or peaks in the response.
 
 ### 6.1 What Phase Means in This Context
 
@@ -315,7 +315,7 @@ Solutions include:
 
 Poor time alignment causes:
 - A dip or bump in the frequency response at the crossover point
-- Poor imaging (the sound does not "snap" to a precise location in space)
+- Poor imaging (the sound doesn't "snap" to a precise location in space)
 - Phase response that varies with vertical listening position (tilt your head up or down and the sound changes character)
 
 Good time alignment is one of the things that separates a "sounds fine" speaker from a "sounds amazing" speaker. You may not consciously notice it, but your brain's spatial processing absolutely does.
@@ -351,9 +351,9 @@ For example, in a room that is 4 meters long, the first axial mode occurs at app
 f = c / (2 * L) = 343 / (2 * 4) = 42.9 Hz
 ```
 
-At 43 Hz, there is a pressure peak at each wall and a null in the center of the room. If you sit at the center, you will hear almost no 43 Hz energy. Move your chair a foot and suddenly the bass is back. This is not the speaker's fault -- it is physics.
+At 43 Hz, there is a pressure peak at each wall and a null in the center of the room. If you sit at the center, you'll hear almost no 43 Hz energy. Move your chair a foot and suddenly the bass is back. This isn't the speaker's fault -- it's physics.
 
-Room modes are a major reason why speaker measurements made in an anechoic chamber (a room designed to have no reflections) do not perfectly predict how a speaker sounds in your room. They are also a major reason room treatment and EQ (covered in Chapter 36) are important parts of any serious listening setup.
+Room modes are a major reason why speaker measurements made in an anechoic chamber (a room designed to have no reflections) don't perfectly predict how a speaker sounds in your room. They're also a major reason room treatment and EQ (covered in Chapter 36) are important parts of any serious listening setup.
 
 ### 7.3 Early Reflections
 
@@ -372,13 +372,13 @@ As a speaker builder, you need to keep the room in mind at every stage:
 - **During crossover tuning**: If you can only measure in your room (not an anechoic chamber), you need to account for room effects in your measurements. REW (Room EQ Wizard, covered in Chapter 15) helps you do this.
 - **After building**: Room treatment (absorption panels, bass traps) and EQ (parametric EQ or DSP, covered in Part 4) are the final stages of making your system sound great.
 
-The speaker and the room are a system. You cannot fully optimize one without considering the other.
+The speaker and the room are a system. You can't fully optimize one without considering the other.
 
 ---
 
 ## 8. Putting It All Together: How a Complete Speaker System Works
 
-Let us trace the signal through a complete 2-way bookshelf speaker (the kind we will build in Chapter 16):
+Let's trace the signal through a complete 2-way bookshelf speaker (the kind we'll build in Chapter 16):
 
 1. **Amplifier output** sends the full-range audio signal to the speaker's input terminals.
 2. **Passive crossover network** inside the cabinet splits the signal. The low-pass section (inductors) sends bass and midrange to the woofer. The high-pass section (capacitors) sends treble to the tweeter. The crossover also includes impedance compensation, level matching, and baffle step correction.
@@ -391,7 +391,7 @@ Let us trace the signal through a complete 2-way bookshelf speaker (the kind we 
 9. **Room** adds boundary reinforcement, modes, and reflections that color the final sound.
 10. **Your ears** receive the combined direct and reflected sound. Your brain interprets it as music.
 
-Every step in this chain matters. Over the next six chapters, we will learn to optimize each one.
+Every step in this chain matters. Over the next six chapters, we'll learn to optimize each one.
 
 ---
 
@@ -408,4 +408,4 @@ In this chapter, you learned:
 - Phase and time alignment at the crossover point are critical for accurate combined response
 - The room dramatically affects what you hear through boundary reinforcement, room modes, and reflections
 
-In Chapter 12, we will learn the formal language of speakers -- the specifications and parameters that quantify everything we discussed qualitatively here. You will learn to read a driver datasheet the way a software engineer reads an API specification: understanding what every number means and how it affects your design decisions.
+In Chapter 12, we'll learn the formal language of speakers -- the specifications and parameters that quantify everything we discussed qualitatively here. You'll learn to read a driver datasheet the way a software engineer reads an API specification: understanding what every number means and how it affects your design decisions.

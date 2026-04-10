@@ -18,13 +18,13 @@
 
 **Active Component** — A component that can amplify or control current flow, requiring external power. Transistors, op-amps, and vacuum tubes are active. Contrast with passive components. *(See: Ch 1)*
 
-**Active Crossover** — A crossover network that operates at line level (before amplification), using active components like op-amps. Each frequency band gets its own power amplifier. *(See: Ch 15)*
+**Active Crossover** — A crossover network that operates at line level (before amplification), using active components like op-amps. Each frequency band gets its own power amplifier. *(See: Ch 29)*
 
-**ADC (Analog-to-Digital Converter)** — A circuit that converts a continuous analog signal into discrete digital samples. Resolution is measured in bits; sampling speed in Hz. *(See: Ch 26)*
+**ADC (Analog-to-Digital Converter)** — A circuit that converts a continuous analog signal into discrete digital samples. Resolution is measured in bits; sampling speed in Hz. *(See: Ch 25)*
 
 **Admittance** — The reciprocal of impedance (Y = 1/Z), measured in siemens. How easily current flows through a component or circuit. *(See: Ch 0)*
 
-**Aliasing** — Distortion that occurs when a signal is sampled at less than twice its highest frequency (below the Nyquist rate). Produces false low-frequency artifacts. *(See: Ch 26)*
+**Aliasing** — Distortion that occurs when a signal is sampled at less than twice its highest frequency (below the Nyquist rate). Produces false low-frequency artifacts. *(See: Ch 25)*
 
 **Amplifier** — A circuit that increases the amplitude (voltage, current, or power) of a signal. Types include Class A, AB, B, D, and many others. *(See: Ch 18)*
 
@@ -52,11 +52,11 @@
 
 **Bias** — A DC voltage or current applied to an active device to set its operating point. In tube amps, bias determines idle current through the output tubes. *(See: Ch 18, Ch 20)*
 
-**Bi-amping** — Using separate amplifiers for the low-frequency and high-frequency sections of a speaker, with an active crossover dividing the signal before amplification. *(See: Ch 15)*
+**Bi-amping** — Using separate amplifiers for the low-frequency and high-frequency sections of a speaker, with an active crossover dividing the signal before amplification. *(See: Ch 29, Ch 35)*
 
 **Bipolar Junction Transistor (BJT)** — A three-terminal semiconductor device (base, collector, emitter) that amplifies current. NPN and PNP types. Used in gain stages and buffers. *(See: Ch 1, Ch 6)*
 
-**Bit Depth** — The number of bits used to represent each audio sample in digital audio. 16-bit = 96 dB dynamic range; 24-bit = 144 dB. *(See: Ch 26)*
+**Bit Depth** — The number of bits used to represent each audio sample in digital audio. 16-bit = 96 dB dynamic range; 24-bit = 144 dB. *(See: Ch 25)*
 
 **Blocking Capacitor** — See AC Coupling. *(See: Ch 18)*
 
@@ -86,13 +86,13 @@
 
 **CE Marking** — European conformity marking indicating a product meets EU safety, health, and environmental directives. Required for products sold in the EU. *(See: Ch 42)*
 
-**Chip Amp** — Colloquial term for an integrated circuit power amplifier, such as the LM3886 or TPA3255. A complete amplifier on a single IC. *(See: Ch 22)*
+**Chip Amp** — Colloquial term for an integrated circuit power amplifier, such as the LM3886 or TPA3255. A complete amplifier on a single IC. *(See: Ch 23)*
 
 **Class A Amplifier** — An amplifier topology where the output device conducts for the full 360 degrees of the signal cycle. Low distortion, low efficiency (25-50%), high heat. *(See: Ch 18)*
 
 **Class AB Amplifier** — A compromise topology where each output device conducts for slightly more than half the signal cycle. Moderate distortion, moderate efficiency (50-70%). The most common topology for tube and solid-state audio amplifiers. *(See: Ch 18)*
 
-**Class D Amplifier** — An amplifier that uses pulse-width modulation (PWM) to switch output devices on and off rapidly. Very high efficiency (85-95%), compact, and cool-running. Not "digital" despite the name. *(See: Ch 22)*
+**Class D Amplifier** — An amplifier that uses pulse-width modulation (PWM) to switch output devices on and off rapidly. Very high efficiency (85-95%), compact, and cool-running. Not "digital" despite the name. *(See: Ch 23)*
 
 **Clipping** — Distortion that occurs when an amplifier's output signal exceeds its maximum voltage swing, flattening the peaks of the waveform. Can be soft (gradual) or hard (abrupt). *(See: Ch 5, Ch 6)*
 
@@ -100,7 +100,7 @@
 
 **CMRR (Common Mode Rejection Ratio)** — A measure of how well a differential amplifier or balanced input rejects noise that appears equally on both input conductors. Higher is better. *(See: Ch 33)*
 
-**Cold Solder Joint** — A defective solder connection caused by insufficient heat, resulting in a gray, grainy appearance instead of a smooth, shiny joint. Causes intermittent connections and noise. *(See: Ch 3)*
+**Cold Solder Joint** — A defective solder connection caused by insufficient heat, resulting in a gray, grainy appearance instead of a smooth, shiny joint. Causes intermittent connections and noise. *(See: Ch 4)*
 
 **Compliance** — How easily a speaker cone moves, measured in mm/N. The reciprocal of stiffness. Part of the Thiele-Small parameters (Cms or Vas). *(See: Ch 12)*
 
@@ -116,15 +116,15 @@
 
 ## D
 
-**DAC (Digital-to-Analog Converter)** — A circuit that converts discrete digital samples back into a continuous analog signal. The final stage before analog amplification in digital audio systems. *(See: Ch 26)*
+**DAC (Digital-to-Analog Converter)** — A circuit that converts discrete digital samples back into a continuous analog signal. The final stage before analog amplification in digital audio systems. *(See: Ch 25)*
 
-**Damping Factor** — The ratio of speaker impedance to amplifier output impedance. Higher damping factor means the amplifier has better control over speaker cone movement. Typically 50-1000 for solid-state, 10-50 for tube amps. *(See: Ch 18, Ch 22)*
+**Damping Factor** — The ratio of speaker impedance to amplifier output impedance. Higher damping factor means the amplifier has better control over speaker cone movement. Typically 50-1000 for solid-state, 10-50 for tube amps. *(See: Ch 18, Ch 35)*
 
 **Damping Material** — Material placed inside a speaker enclosure (polyfill, acoustic foam, fiberglass) to absorb internal reflections, reduce standing waves, and make the enclosure appear acoustically larger. *(See: Ch 13)*
 
 **dB (Decibel)** — A logarithmic unit for expressing ratios. In audio: +3 dB = double the power; +6 dB = double the voltage; +10 dB = subjectively "twice as loud." *(See: Ch 0)*
 
-**dBFS (Decibels Full Scale)** — A measurement of signal level relative to the maximum digital level (0 dBFS). All valid digital audio levels are 0 or negative. *(See: Ch 26)*
+**dBFS (Decibels Full Scale)** — A measurement of signal level relative to the maximum digital level (0 dBFS). All valid digital audio levels are 0 or negative. *(See: Ch 25)*
 
 **dBSPL (Decibels Sound Pressure Level)** — A measurement of acoustic pressure relative to the threshold of human hearing (20 micropascals). Normal conversation is ~60 dBSPL; pain threshold is ~120 dBSPL. *(See: Ch 12)*
 
@@ -182,11 +182,11 @@
 
 **Filter** — A circuit that passes some frequencies while attenuating others. Types: low-pass, high-pass, band-pass, band-reject (notch). Crossovers are filters. *(See: Ch 5, Ch 14)*
 
-**FLAC (Free Lossless Audio Codec)** — A compressed digital audio format that preserves all original data (lossless). Typical compression ratio of 50-70% of original file size. *(See: Ch 26)*
+**FLAC (Free Lossless Audio Codec)** — A compressed digital audio format that preserves all original data (lossless). Typical compression ratio of 50-70% of original file size. *(See: Ch 25)*
 
 **Fletcher-Munson Curves** — See Equal Loudness Contours. Historical curves showing that human perception of loudness varies with frequency. We are less sensitive to low and very high frequencies at lower volumes. *(See: Ch 12)*
 
-**Flux** — A chemical agent used in soldering to clean oxide from metal surfaces, allowing solder to flow and bond properly. Available as rosin-core (inside the solder), liquid, or paste. *(See: Ch 3)*
+**Flux** — A chemical agent used in soldering to clean oxide from metal surfaces, allowing solder to flow and bond properly. Available as rosin-core (inside the solder), liquid, or paste. *(See: Ch 4)*
 
 **Frequency** — The number of cycles per second of a periodic signal, measured in hertz (Hz). Human hearing range: approximately 20 Hz to 20 kHz. *(See: Ch 0)*
 
@@ -210,7 +210,7 @@
 
 **Ground Loop** — A condition where multiple ground paths create a loop that acts as an antenna for electromagnetic interference, causing audible hum (typically 50/60 Hz). *(See: Ch 33)*
 
-**Ground Plane** — A large, continuous copper area on a PCB connected to ground. Provides low-impedance return path, reduces noise, and improves shielding. *(See: Ch 30)*
+**Ground Plane** — A large, continuous copper area on a PCB connected to ground. Provides low-impedance return path, reduces noise, and improves shielding. *(See: Ch 31)*
 
 ---
 
@@ -218,11 +218,11 @@
 
 **Harmonic Distortion** — Distortion that adds integer multiples of the fundamental frequency. Second harmonic (2x) sounds warm; third harmonic (3x) sounds edgy. Even harmonics are generally more pleasing than odd. *(See: Ch 5, Ch 6)*
 
-**HASL (Hot Air Solder Leveling)** — A common, inexpensive PCB surface finish. Adequate for most DIY work but less flat than ENIG. *(See: Ch 30)*
+**HASL (Hot Air Solder Leveling)** — A common, inexpensive PCB surface finish. Adequate for most DIY work but less flat than ENIG. *(See: Ch 31)*
 
 **Headroom** — The margin between the normal operating level and the maximum level before clipping. More headroom = cleaner signal at high volumes. *(See: Ch 5, Ch 18)*
 
-**Heat Sink** — A metal structure (usually finned aluminum) that dissipates heat from a component. Essential for power transistors, voltage regulators, and power amp ICs. *(See: Ch 22)*
+**Heat Sink** — A metal structure (usually finned aluminum) that dissipates heat from a component. Essential for power transistors, voltage regulators, and power amp ICs. *(See: Ch 23)*
 
 **Henry (H)** — The SI unit of inductance. Speaker crossover inductors are typically measured in millihenries (mH). *(See: Ch 1)*
 
@@ -238,7 +238,7 @@
 
 **I2C (Inter-Integrated Circuit)** — A serial communication protocol used between ICs on a PCB. Two wires: SDA (data) and SCL (clock). Used for DAC/ADC control, OLED displays, and sensor reading. *(See: Ch 27)*
 
-**I2S (Inter-IC Sound)** — A serial bus for carrying digital audio data between ICs. Separate clock and data lines. The standard interface between a DAC chip and a digital source. *(See: Ch 26)*
+**I2S (Inter-IC Sound)** — A serial bus for carrying digital audio data between ICs. Separate clock and data lines. The standard interface between a DAC chip and a digital source. *(See: Ch 25)*
 
 **Impedance** — The total opposition to current flow in an AC circuit, combining resistance and reactance. Measured in ohms. Speaker impedance is nominally 4, 8, or 16 ohms but varies with frequency. *(See: Ch 0, Ch 12)*
 
@@ -258,13 +258,13 @@
 
 **JFET (Junction Field Effect Transistor)** — A type of FET that uses a reverse-biased p-n junction as its gate. Prized in audio for tube-like characteristics. Common in guitar effect input stages. *(See: Ch 1, Ch 6)*
 
-**Jitter** — Small timing variations in a digital signal's clock. Causes errors in DAC reconstruction, manifesting as noise and distortion in the analog output. Lower jitter = better sound. *(See: Ch 26)*
+**Jitter** — Small timing variations in a digital signal's clock. Causes errors in DAC reconstruction, manifesting as noise and distortion in the analog output. Lower jitter = better sound. *(See: Ch 25)*
 
 ---
 
 ## K
 
-**KiCad** — A free, open-source PCB design software suite. Industry-capable, widely used by DIY audio builders. *(See: Ch 30)*
+**KiCad** — A free, open-source PCB design software suite. Industry-capable, widely used by DIY audio builders. *(See: Ch 31)*
 
 ---
 
@@ -284,7 +284,7 @@
 
 **Low-Pass Filter (LPF)** — A filter that passes frequencies below a cutoff frequency while attenuating those above. Used in crossovers to route low frequencies to woofers. *(See: Ch 14)*
 
-**LTspice** — A free SPICE circuit simulation program from Analog Devices. Used for designing and testing audio circuits before building them. *(See: Ch 4)*
+**LTspice** — A free SPICE circuit simulation program from Analog Devices. Used for designing and testing audio circuits before building them. *(See: Ch 3)*
 
 ---
 
@@ -322,7 +322,7 @@
 
 **Notch Filter** — A narrow band-reject filter that attenuates a specific frequency while passing all others. Used for removing hum or resonances. *(See: Ch 27)*
 
-**Nyquist Frequency** — Half the sampling rate of a digital audio system. The highest frequency that can be accurately represented. At 44.1 kHz sampling: Nyquist = 22.05 kHz. *(See: Ch 26)*
+**Nyquist Frequency** — Half the sampling rate of a digital audio system. The highest frequency that can be accurately represented. At 44.1 kHz sampling: Nyquist = 22.05 kHz. *(See: Ch 25)*
 
 ---
 
@@ -360,7 +360,7 @@
 
 **Passive Radiator** — An unpowered speaker cone (no motor) that radiates sound driven by the air pressure inside a sealed enclosure, functioning similarly to a port. *(See: Ch 13)*
 
-**PCB (Printed Circuit Board)** — A board with copper traces that provide electrical connections between components. Can be single-layer, double-layer, or multi-layer. *(See: Ch 30)*
+**PCB (Printed Circuit Board)** — A board with copper traces that provide electrical connections between components. Can be single-layer, double-layer, or multi-layer. *(See: Ch 31)*
 
 **PCBA (Printed Circuit Board Assembly)** — The process of soldering components onto a PCB. When outsourced, refers to the service of having a manufacturer populate your boards. *(See: Ch 40, Ch 43)*
 
@@ -390,7 +390,7 @@
 
 **Push-Pull** — An output stage topology using two active devices operating in anti-phase, each handling one half of the signal swing. Cancels even-order harmonics. Standard for most tube and solid-state power amplifiers. *(See: Ch 20)*
 
-**PWM (Pulse Width Modulation)** — A technique for encoding analog values in digital signals by varying the duty cycle. Used in Class D amplifiers. *(See: Ch 22)*
+**PWM (Pulse Width Modulation)** — A technique for encoding analog values in digital signals by varying the duty cycle. Used in Class D amplifiers. *(See: Ch 23)*
 
 ---
 
@@ -432,11 +432,11 @@
 
 ## S
 
-**Sample Rate** — The number of times per second an analog signal is measured (sampled) to create a digital representation. CD quality: 44.1 kHz. Studio quality: 96 kHz or 192 kHz. *(See: Ch 26)*
+**Sample Rate** — The number of times per second an analog signal is measured (sampled) to create a digital representation. CD quality: 44.1 kHz. Studio quality: 96 kHz or 192 kHz. *(See: Ch 25)*
 
 **Saturation** — The condition where an active device (transistor, tube, transformer core) reaches its maximum output. In tube amps, saturation creates warm, musical distortion. *(See: Ch 18)*
 
-**Schematic** — A diagram showing the electrical connections and components of a circuit using standardized symbols. The blueprint for building a circuit. *(See: Ch 4)*
+**Schematic** — A diagram showing the electrical connections and components of a circuit using standardized symbols. The blueprint for building a circuit. *(See: Ch 2)*
 
 **Sealed Enclosure** — See Closed Back. *(See: Ch 13)*
 
@@ -444,13 +444,13 @@
 
 **Series Circuit** — Components connected end-to-end so that the same current flows through each. Total resistance is the sum of individual resistances. *(See: Ch 0)*
 
-**Signal-to-Noise Ratio (SNR)** — The ratio of the desired signal level to the background noise level, expressed in dB. Higher is better. CD quality: ~96 dB. *(See: Ch 18, Ch 26)*
+**Signal-to-Noise Ratio (SNR)** — The ratio of the desired signal level to the background noise level, expressed in dB. Higher is better. CD quality: ~96 dB. *(See: Ch 18, Ch 25)*
 
 **Slew Rate** — The maximum rate of change of an amplifier's output voltage, measured in V/us (volts per microsecond). Limits the amplifier's ability to accurately reproduce fast transients. *(See: Ch 18)*
 
-**SMD/SMT (Surface Mount Device/Technology)** — Components designed to solder directly onto the surface of a PCB, without through-hole leads. Smaller, enabling denser circuits. Harder to hand-solder but ideal for automated assembly. *(See: Ch 30)*
+**SMD/SMT (Surface Mount Device/Technology)** — Components designed to solder directly onto the surface of a PCB, without through-hole leads. Smaller, enabling denser circuits. Harder to hand-solder but ideal for automated assembly. *(See: Ch 31)*
 
-**Solder** — A metal alloy (typically tin-lead or lead-free tin-silver-copper) that melts at relatively low temperatures to create electrical and mechanical connections. *(See: Ch 3)*
+**Solder** — A metal alloy (typically tin-lead or lead-free tin-silver-copper) that melts at relatively low temperatures to create electrical and mechanical connections. *(See: Ch 4)*
 
 **SpeakON** — Neutrik's locking speaker connector, designed for high-current speaker connections. The professional standard for speaker-to-amplifier connections. *(See: Ch 33)*
 
@@ -470,9 +470,9 @@
 
 **Thiele-Small Parameters** — A set of electromechanical parameters that characterize a speaker driver's behavior: Fs (resonant frequency), Qts (total Q), Vas (equivalent volume), Xmax (maximum excursion), Sd (effective cone area), and others. Used for enclosure design. *(See: Ch 12)*
 
-**Through-Hole** — Components with wire leads that pass through holes in the PCB and are soldered on the opposite side. Easier to hand-solder than SMD. *(See: Ch 3, Ch 30)*
+**Through-Hole** — Components with wire leads that pass through holes in the PCB and are soldered on the opposite side. Easier to hand-solder than SMD. *(See: Ch 3, Ch 31)*
 
-**Toroid (Toroidal Transformer)** — A transformer wound on a doughnut-shaped core. Lower stray magnetic field, lighter, and more efficient than EI transformers. Standard for quality audio power supplies. *(See: Ch 22)*
+**Toroid (Toroidal Transformer)** — A transformer wound on a doughnut-shaped core. Lower stray magnetic field, lighter, and more efficient than EI transformers. Standard for quality audio power supplies. *(See: Ch 21)*
 
 **Transconductance** — The relationship between input voltage and output current in an amplifying device. Measured in siemens (S) or millisiemens (mS). Key specification for vacuum tubes and FETs. *(See: Ch 18)*
 
@@ -548,7 +548,7 @@
 
 ## Z
 
-**Zobel Network** — A series resistor-capacitor network connected across a speaker driver or amplifier output to compensate for the rising impedance caused by voice coil inductance. Stabilizes the load for the crossover or amplifier. *(See: Ch 14, Ch 22)*
+**Zobel Network** — A series resistor-capacitor network connected across a speaker driver or amplifier output to compensate for the rising impedance caused by voice coil inductance. Stabilizes the load for the crossover or amplifier. *(See: Ch 13, Ch 14)*
 
 ---
 

@@ -30,12 +30,12 @@ This chapter covers the DSP concepts you'll need to turn your Pi streamer into a
 
 ### Related Chapters
 - [Ch 0: Electricity Through the Lens of Sound](../part-0-electronics/00-electricity-through-sound.md) -- the analog equivalent of what we're doing digitally
-- [Ch 13: Passive Crossover Design](../part-2-speakers/13-passive-crossover-design.md) -- what DSP crossovers replace
-- [Ch 15: Speaker Measurement](../part-2-speakers/15-speaker-measurement.md) -- measurements that feed into DSP corrections
+- [Ch 13: Crossover Design](../part-2-speakers/13-crossover-design.md) -- what DSP crossovers replace
+- [Ch 15: Design Tools and Simulation](../part-2-speakers/15-design-tools-simulation.md) -- measurements that feed into DSP corrections
 - [Ch 25: Digital Audio Fundamentals](25-digital-audio-fundamentals.md) -- the digital signal we're processing
 - [Ch 28: Build: Pi Streamer with Physical Controls](28-build-pi-streamer.md) -- the hardware running this DSP
 - [Ch 29: Build: Active Crossover and Room Correction](29-build-active-crossover-room-correction.md) -- applying these concepts
-- [Ch 36: Room Acoustics](../part-6-system-design/36-room-acoustics.md) -- the room problems DSP can (and can't) fix
+- [Ch 36: Room Acoustics and Treatment](../part-6-system-design/36-room-acoustics-treatment.md) -- the room problems DSP can (and can't) fix
 
 ---
 

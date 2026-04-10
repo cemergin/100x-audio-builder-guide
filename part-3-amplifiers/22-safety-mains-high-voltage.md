@@ -42,10 +42,10 @@ Let's build that discipline.
 - Legal considerations for selling equipment
 
 ### Related Chapters
-- [Ch 4: Safety Fundamentals](../part-0-electronics/04-safety.md) — low-voltage safety basics
+- [Ch 4: Your Workbench, Tools, and Safety](../part-0-electronics/04-workbench-tools-safety.md) — low-voltage safety basics
 - [Ch 21: Power Supply Design](21-power-supply-design.md) — the circuits that produce dangerous voltages
-- [Ch 24: Build: Tube Guitar Amp](24-build-tube-guitar-amp.md) — where you'll need all of this
-- [Ch 23: Build: Chip Amp and Class D](23-build-chip-amp-class-d.md) — mains safety for solid-state builds
+- [Ch 24: Build: Tube Guitar Amplifier](24-build-tube-guitar-amp.md) — where you'll need all of this
+- [Ch 23: Build: Chip Amp and Class D Amp](23-build-chip-amp-class-d.md) — mains safety for solid-state builds
 
 ---
 

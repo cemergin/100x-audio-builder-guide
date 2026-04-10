@@ -12,11 +12,11 @@
 
 > **Part 2 — Speakers** | Prerequisites: Chapter 15 | Difficulty: Intermediate
 
-This is it. Five chapters of theory, specifications, design techniques, and simulation tools -- and now we build. In this chapter, you are going to design and construct a pair of 2-way bookshelf speakers from raw drivers, passive crossover components, and MDF panels. These will not be a kit with pre-cut parts and a pre-designed crossover. You are going to make every decision yourself, based on everything you have learned.
+This is it. Five chapters of theory, specifications, design techniques, and simulation tools -- and now we build. In this chapter, you're going to design and construct a pair of 2-way bookshelf speakers from raw drivers, passive crossover components, and MDF panels. These won't be a kit with pre-cut parts and a pre-designed crossover. You're going to make every decision yourself, based on everything you've learned.
 
-By the end, you will have a pair of speakers that you designed, built, measured, and tuned -- speakers whose every component value you can explain and justify. When someone asks "why did you use that crossover frequency?" or "why is the port tuned to that frequency?", you will have a real answer, not "because the kit instructions said so." That is the difference between following a recipe and knowing how to cook.
+By the end, you'll have a pair of speakers that you designed, built, measured, and tuned -- speakers whose every component value you can explain and justify. When someone asks "why did you use that crossover frequency?" or "why is the port tuned to that frequency?", you'll have a real answer, not "because the kit instructions said so." That's the difference between following a recipe and knowing how to cook.
 
-Let us build something worth listening to.
+Let's build something worth listening to.
 
 ### In This Chapter
 - Design brief: what we are building and why
@@ -33,9 +33,9 @@ Let us build something worth listening to.
 - [Ch 13: Crossover Design](13-crossover-design.md) -- crossover theory behind our design
 - [Ch 14: Cabinet Design](14-cabinet-design.md) -- enclosure theory behind our design
 - [Ch 15: Design Tools and Simulation](15-design-tools-simulation.md) -- the tools we use for design
-- [Ch 17: Build: Towers, PA, and Sub](17-build-towers-pa-subwoofer.md) -- the next builds
-- [Ch 18: Amplifier Matching](../part-3-amplifiers/18-amplifier-matching.md) -- pairing these with an amp
-- [Ch 32: Professional Cabinet Finishing](../part-5-pcb-professional/32-cabinet-finishing.md) -- advanced finishing options
+- [Ch 17: Build: Floor-Standing Towers, PA Speakers, and Subwoofer](17-build-towers-pa-subwoofer.md) -- the next builds
+- [Ch 18: How Amplifiers Work](../part-3-amplifiers/18-how-amplifiers-work.md) -- pairing these with an amp
+- [Ch 32: Enclosure Design and Fabrication](../part-5-pcb-professional/32-enclosure-design-fabrication.md) -- advanced finishing options
 
 ---
 

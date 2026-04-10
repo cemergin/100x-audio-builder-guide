@@ -34,10 +34,10 @@ This chapter covers the theory — how tubes work, how to analyze them, and the 
 ### Related Chapters
 - [Ch 18: How Amplifiers Work](18-how-amplifiers-work.md) — amplifier classes and distortion theory
 - [Ch 19: Solid-State Amplifier Design](19-solid-state-amplifier-design.md) — contrast with transistor approaches
-- [Ch 6: Gain Stages in Pedals](../part-1-guitar-pedals/06-gain-stages.md) — simpler single-tube-like gain stages
+- [Ch 6: Gain Stages and Clipping Circuits](../part-1-guitar-pedals/06-gain-stages-clipping-circuits.md) — simpler single-tube-like gain stages
 - [Ch 21: Power Supply Design](21-power-supply-design.md) — the high-voltage B+ supply
-- [Ch 22: Safety](22-safety-mains-high-voltage.md) — CRITICAL reading before building anything
-- [Ch 24: Build: Tube Guitar Amp](24-build-tube-guitar-amp.md) — applying this theory
+- [Ch 22: Safety: Working with Mains and High Voltage](22-safety-mains-high-voltage.md) — CRITICAL reading before building anything
+- [Ch 24: Build: Tube Guitar Amplifier](24-build-tube-guitar-amp.md) — applying this theory
 
 ---
 
@@ -364,7 +364,7 @@ You can simulate tube circuits in LTSpice using tube models. The Koren models an
 - Predict distortion character
 - Test different operating points quickly
 
-This is enormously useful before committing to a build. See [Ch 3: Simulation](../part-0-electronics/03-simulation.md) for SPICE setup.
+This is enormously useful before committing to a build. See [Ch 3: Simulation and Analysis Tools](../part-0-electronics/03-simulation-analysis-tools.md) for SPICE setup.
 
 ---
 

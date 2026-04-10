@@ -12,11 +12,11 @@
 
 > **Part 2 — Speakers** | Prerequisites: Chapter 13 | Difficulty: Intermediate
 
-The cabinet is not a box that holds the driver. The cabinet IS part of the speaker. Its internal volume, shape, and tuning fundamentally change the driver's bass response, and its construction determines whether you hear music or the cabinet resonating along with it. A driver that sounds mediocre in one enclosure can sound extraordinary in another, and vice versa.
+The cabinet isn't a box that holds the driver. The cabinet IS part of the speaker. Its internal volume, shape, and tuning fundamentally change the driver's bass response, and its construction determines whether you hear music or the cabinet resonating along with it. A driver that sounds mediocre in one enclosure can sound extraordinary in another, and vice versa.
 
 Think of the enclosure as the runtime environment for the driver. The same application (driver) behaves very differently depending on the container it runs in (sealed vs. ported vs. horn), just as the same code behaves differently in a resource-constrained container versus one with unlimited memory. Choosing the right enclosure for your driver -- and building it properly -- is as important as choosing the right driver in the first place.
 
-In this chapter, we will cover every major enclosure type, understand the physics behind each one, learn when to choose which, and then dive into the practical construction details that separate a resonant, rattling box from a dead-silent acoustic instrument.
+In this chapter, we'll cover every major enclosure type, understand the physics behind each one, learn when to choose which, and then dive into the practical construction details that separate a resonant, rattling box from a dead-silent acoustic instrument.
 
 ### In This Chapter
 - Sealed (acoustic suspension) enclosures
@@ -36,8 +36,8 @@ In this chapter, we will cover every major enclosure type, understand the physic
 - [Ch 13: Crossover Design](13-crossover-design.md) -- baffle step compensation ties to cabinet width
 - [Ch 15: Design Tools and Simulation](15-design-tools-simulation.md) -- WinISD enclosure modeling
 - [Ch 16: Build: Bookshelf Speakers](16-build-bookshelf-speakers.md) -- applying these principles
-- [Ch 32: Professional Cabinet Finishing](../part-5-pcb-professional/32-cabinet-finishing.md) -- advanced finishing techniques
-- [Ch 33: Woodworking for Audio](../part-5-pcb-professional/33-woodworking-audio.md) -- construction skills
+- [Ch 32: Enclosure Design and Fabrication](../part-5-pcb-professional/32-enclosure-design-fabrication.md) -- advanced enclosure techniques
+- [Ch 33: Professional Finishing and Aesthetics](../part-5-pcb-professional/33-professional-finishing-aesthetics.md) -- finishing and aesthetics
 
 ---
 
@@ -160,9 +160,9 @@ WinISD can plot the air velocity in the port versus frequency, so you can verify
 - **Steep rolloff below tuning**: Below Fb, the response falls at 24 dB/octave (4th order) instead of sealed's 12 dB/octave. The bass drops off a cliff.
 - **Uncontrolled excursion below tuning**: Below Fb, the port stops loading the cone, and excursion increases rapidly. The driver can easily exceed Xmax below the tuning frequency, causing distortion or damage. A subsonic filter (high-pass filter below Fb) is recommended.
 - **Port noise**: Turbulence in the port can be audible, especially at high levels.
-- **Group delay**: Ported systems have more group delay than sealed, meaning bass is slightly "late" relative to the direct-radiator's output. Whether this is audible is debated, but it is measurable.
+- **Group delay**: Ported systems have more group delay than sealed, meaning bass is slightly "late" relative to the direct-radiator's output. Whether this is audible is debated, but it's measurable.
 - **More complex to build**: The port must be precisely tuned, the box must be larger, and port placement within the box matters.
-- **Transient response**: The resonant nature of the port means the system rings slightly at the tuning frequency. Transient response is not as tight as sealed.
+- **Transient response**: The resonant nature of the port means the system rings slightly at the tuning frequency. Transient response isn't as tight as sealed.
 
 ### 2.7 Choosing the Tuning Frequency
 
@@ -201,7 +201,7 @@ At the open end of the line (the terminus), some low-frequency energy escapes an
 TL enclosures are best for:
 - Audiophile home speakers where bass quality is paramount
 - Situations where deep bass extension is desired without the transient response compromise of ported designs
-- Projects where cabinet size is not a constraint (floor-standing speakers)
+- Projects where cabinet size isn't a constraint (floor-standing speakers)
 - Enthusiasts who enjoy the design challenge
 
 TL enclosures are not practical for:
@@ -269,7 +269,7 @@ In a band-pass enclosure, the driver fires into a sealed chamber on one side and
 Band-pass enclosures are used almost exclusively for subwoofers where:
 - The natural band-pass behavior eliminates the need for an external low-pass filter
 - Maximum output in a narrow frequency band is desired (e.g., car audio subwoofers)
-- The driver does not need to be visible (it is fully enclosed)
+- The driver doesn't need to be visible (it's fully enclosed)
 
 For general speaker building, band-pass is rarely the best choice. Sealed and ported designs are more versatile and easier to design correctly.
 
@@ -317,7 +317,7 @@ The diffraction ripples are typically plus or minus 1-3 dB at frequencies where 
 
 **Flush mounting**: Mounting the driver so its front surface is flush with the baffle (rather than surface-mounted) reduces the diffraction from the driver flange.
 
-**Narrow baffle**: A narrow baffle pushes the diffraction frequency higher, above the crossover region where it is less audible. This is one reason why many modern speakers have narrow front baffles.
+**Narrow baffle**: A narrow baffle pushes the diffraction frequency higher, above the crossover region where it's less audible. This is one reason why many modern speakers have narrow front baffles.
 
 VituixCAD models baffle diffraction, so you can simulate the effect of different baffle dimensions and driver placements before building.
 
@@ -348,7 +348,7 @@ Panel resonance is the reason a cheap speaker sounds "boxy" and a good speaker s
 For a well-built bookshelf speaker with 18mm MDF walls:
 - Front and back panels (the largest) should have at least one horizontal brace connecting them
 - Side panels may benefit from one brace each if they are large
-- The top and bottom are inherently smaller and stiffer (they are the narrowest dimension) and often do not need bracing
+- The top and bottom are inherently smaller and stiffer (they are the narrowest dimension) and often don't need bracing
 
 For a floor-standing tower:
 - Much taller side panels need multiple braces
@@ -412,7 +412,7 @@ Internal damping material serves two purposes: it absorbs the driver's back wave
 **Thickness**: 18mm (3/4") for most speaker cabinets. 25mm (1") for subwoofers and very large enclosures. 12mm (1/2") only for very small speakers or non-structural internal panels.
 
 **Advantages**:
-- Dense (about 750 kg/m^3) and acoustically "dead" -- does not ring when tapped
+- Dense (about 750 kg/m^3) and acoustically "dead" -- doesn't ring when tapped
 - Uniform -- no grain, no voids, no knots. CNC machines and router bits love it.
 - Easy to work with hand tools and power tools
 - Takes paint and vinyl wrap beautifully (smooth surface)
@@ -420,10 +420,10 @@ Internal damping material serves two purposes: it absorbs the driver's back wave
 
 **Disadvantages**:
 - Heavy (a medium-sized speaker cabinet weighs 10-20 kg)
-- Swells and disintegrates when exposed to water (do not leave it in a damp garage)
+- Swells and disintegrates when exposed to water (don't leave it in a damp garage)
 - Produces very fine dust when cut that is unhealthy to breathe -- always use a dust mask
 - Not structural on its own (screw-holding strength is mediocre; use glued joints)
-- Cannot be left unfinished (looks bad and is not water-resistant)
+- Can't be left unfinished (looks bad and isn't water-resistant)
 
 ### 10.2 Baltic Birch Plywood
 
@@ -541,4 +541,4 @@ In this chapter, you learned:
 - MDF is the standard material for home speakers; Baltic birch plywood is preferred for PA and natural-finish builds
 - Cabinet volume calculations must account for wall thickness, bracing, and component displacement
 
-In Chapter 15, we will put all of these concepts into practice with simulation tools. You will learn to model enclosures in WinISD, design crossovers in VituixCAD, and measure real speakers with REW. The simulation tools are where theory becomes design.
+In Chapter 15, we'll put all of these concepts into practice with simulation tools. You'll learn to model enclosures in WinISD, design crossovers in VituixCAD, and measure real speakers with REW. The simulation tools are where theory becomes design.

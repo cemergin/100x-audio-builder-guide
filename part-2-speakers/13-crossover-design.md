@@ -14,9 +14,9 @@
 
 If the drivers are the instruments in an orchestra, the crossover is the conductor. It decides who plays what and when, and a bad conductor can ruin the performance of even the finest musicians. The crossover network is the single most important determinant of how a multi-way speaker sounds -- more important than the drivers, more important than the cabinet. A mediocre driver with a brilliant crossover will outperform a brilliant driver with a mediocre crossover, every time.
 
-Here is why: raw drivers have peaks, dips, resonances, and impedance variations that make them sound terrible on their own. The crossover does not just split frequencies -- it compensates for the drivers' imperfections, matches their levels, corrects for baffle geometry, and blends their outputs into a seamless, coherent whole. It is the software layer that turns raw hardware into a polished product.
+Here's why: raw drivers have peaks, dips, resonances, and impedance variations that make them sound terrible on their own. The crossover doesn't just split frequencies -- it compensates for the drivers' imperfections, matches their levels, corrects for baffle geometry, and blends their outputs into a seamless, coherent whole. It's the software layer that turns raw hardware into a polished product.
 
-In this chapter, we will cover passive crossovers from first principles -- the circuit topologies, the filter math, the practical compensation networks -- and then briefly introduce active crossovers as the alternative approach that eliminates many of the passive crossover's limitations. By the end, you will understand every component in a crossover schematic and know why it is there.
+In this chapter, we'll cover passive crossovers from first principles -- the circuit topologies, the filter math, the practical compensation networks -- and then briefly introduce active crossovers as the alternative approach that eliminates many of the passive crossover's limitations. By the end, you'll understand every component in a crossover schematic and know why it's there.
 
 ### In This Chapter
 - Why multi-way speakers need crossovers
@@ -29,11 +29,11 @@ In this chapter, we will cover passive crossovers from first principles -- the c
 - Crossover simulation in VituixCAD
 
 ### Related Chapters
-- [Ch 1: Capacitors and Inductors](../part-0-electronics/01-capacitors-inductors.md) -- the components that make crossovers work
+- [Ch 1: Components and What They Do to Signals](../part-0-electronics/01-components-and-signals.md) -- the components that make crossovers work
 - [Ch 12: The Language of Speakers](12-language-of-speakers.md) -- the driver specs that inform crossover design
 - [Ch 15: Design Tools and Simulation](15-design-tools-simulation.md) -- VituixCAD deep dive
-- [Ch 27: Active Crossovers and DSP](../part-4-digital-audio/27-active-crossovers-dsp.md) -- the digital alternative
-- [Ch 29: DSP Speaker Processing](../part-4-digital-audio/29-dsp-speaker-processing.md) -- advanced DSP for speaker systems
+- [Ch 27: DSP Fundamentals for Audio](../part-4-digital-audio/27-dsp-fundamentals.md) -- digital crossover and DSP concepts
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) -- the digital crossover alternative in practice
 
 ---
 
@@ -46,7 +46,7 @@ No single driver can optimally reproduce the full 20 Hz - 20 kHz range. As we le
 - A woofer's large, heavy cone cannot change direction fast enough for high frequencies. Above a certain point, the cone "breaks up" -- different parts of the cone vibrate independently, producing resonance peaks and harsh-sounding distortion.
 - A tweeter's tiny, light diaphragm cannot move enough air for low frequencies. Feed bass to a tweeter and it will either produce inaudible levels of bass, bottom out mechanically, or overheat thermally. Or all three.
 
-The crossover solves this by routing low frequencies to the woofer and high frequencies to the tweeter. But it is far more than a simple frequency splitter.
+The crossover solves this by routing low frequencies to the woofer and high frequencies to the tweeter. But it's far more than a simple frequency splitter.
 
 ### 1.2 The Crossover's Real Job
 
@@ -121,7 +121,7 @@ C1 = 1 / (2 * pi * Fc * R)
 
 **When to use it**: When phase purity is paramount and you have drivers with naturally smooth, well-behaved response over a very wide overlap region. First-order crossovers are popular with audiophiles who prioritize time-domain accuracy (transient response).
 
-**Trade-offs**: The gentle slope means the woofer must behave well far above Fc and the tweeter must handle significant energy far below Fc. Breakup peaks in the woofer will not be adequately suppressed. The tweeter receives more low-frequency energy, increasing its thermal and mechanical stress.
+**Trade-offs**: The gentle slope means the woofer must behave well far above Fc and the tweeter must handle significant energy far below Fc. Breakup peaks in the woofer won't be adequately suppressed. The tweeter receives more low-frequency energy, increasing its thermal and mechanical stress.
 
 ### 3.2 Second Order (12 dB/octave)
 
@@ -151,7 +151,7 @@ Input ──[||]───┬──── Tweeter (+)
 
 **Phase behavior**: Each filter introduces 180 degrees of phase shift at the crossover frequency. This means the two drivers are 360 degrees apart -- effectively in phase, but with one inverted. In practice, you typically wire the tweeter with reversed polarity (swap + and -) to correct for this.
 
-**Alignments** (we will discuss these below): Butterworth, Linkwitz-Riley, and Bessel alignments are available at 2nd order, each with different trade-offs.
+**Alignments** (we'll discuss these below): Butterworth, Linkwitz-Riley, and Bessel alignments are available at 2nd order, each with different trade-offs.
 
 **When to use it**: A good general-purpose choice. Steeper than 1st order for better driver protection and breakup suppression, but simpler than higher orders.
 
@@ -163,7 +163,7 @@ Input ──[||]───┬──── Tweeter (+)
 
 **Phase behavior**: The drivers are 270 degrees apart at Fc (equivalently 90 degrees with reversed polarity on one driver). The combined response can be made flat in amplitude, but there is a phase shift through the crossover region.
 
-**When to use it**: When you need steep rolloff (e.g., the woofer has breakup peaks close to Fc) but do not want the complexity of 4th order. The asymmetric phase behavior means the vertical radiation pattern (lobing) is not symmetric -- it tilts slightly.
+**When to use it**: When you need steep rolloff (e.g., the woofer has breakup peaks close to Fc) but don't want the complexity of 4th order. The asymmetric phase behavior means the vertical radiation pattern (lobing) isn't symmetric -- it tilts slightly.
 
 **Butterworth 3rd order** is the most common implementation. It produces a flat summed response with the tweeter wired in reversed polarity.
 
@@ -286,7 +286,7 @@ The RLC series circuit has low impedance at the resonance frequency, "shorting o
 
 ### 5.3 When Compensation Is Necessary
 
-- **Zobel on the woofer**: Almost always necessary. Without it, the low-pass filter's slope is reduced at high frequencies, and the woofer does not roll off as steeply as intended.
+- **Zobel on the woofer**: Almost always necessary. Without it, the low-pass filter's slope is reduced at high frequencies, and the woofer doesn't roll off as steeply as intended.
 - **Notch filter on the tweeter**: Necessary when the tweeter's resonance impedance peak is within or near the crossover frequency range. If the crossover frequency is far above the tweeter's Fs (e.g., crossing at 3 kHz with a tweeter Fs of 600 Hz), the peak may not cause problems and can sometimes be ignored.
 - **Notch filter on the woofer**: Sometimes needed if the woofer's impedance peak (due to the enclosure resonance) falls near the crossover frequency.
 
@@ -334,7 +334,7 @@ R2 = 6 * 1.778 / (1.778 - 1) = 6 * 2.284 = 13.7 ohms → use 15 ohms
 
 ### 6.3 Power Rating Considerations
 
-The L-pad resistors dissipate power -- the power you are throwing away to reduce the tweeter level. For a tweeter receiving 10W from the amplifier with a 5 dB L-pad, about 7W is dissipated in the resistors. Use power resistors (at least 10W rated, wire-wound or ceramic).
+The L-pad resistors dissipate power -- the power you're throwing away to reduce the tweeter level. For a tweeter receiving 10W from the amplifier with a 5 dB L-pad, about 7W is dissipated in the resistors. Use power resistors (at least 10W rated, wire-wound or ceramic).
 
 ### 6.4 Alternatives to L-Pads
 
@@ -409,7 +409,7 @@ This is why some speakers sound thin when moved away from the wall -- they were 
 
 > **What happens if you ignore baffle step compensation?**
 >
-> The speaker sounds thin, lean, and bright. There is not enough bass relative to the midrange and treble. Many DIY builders who follow textbook crossover formulas without accounting for baffle step end up with bright-sounding speakers and blame the drivers or the crossover topology, when the real problem is the missing BSC.
+> The speaker sounds thin, lean, and bright. There isn't enough bass relative to the midrange and treble. Many DIY builders who follow textbook crossover formulas without accounting for baffle step end up with bright-sounding speakers and blame the drivers or the crossover topology, when the real problem is the missing BSC.
 
 ---
 
@@ -433,7 +433,7 @@ This is called **bi-amping** (two amplifiers) for a 2-way system, or **tri-ampin
 
 **No insertion loss**: Passive crossover inductors have DC resistance that wastes power (sometimes 1-2 dB of loss). Active crossovers operate at line level where losses are negligible.
 
-**No impedance interaction**: The crossover filters do not "see" the driver's impedance, so there is no need for Zobel networks or notch filters. The filters behave exactly as designed.
+**No impedance interaction**: The crossover filters don't "see" the driver's impedance, so there's no need for Zobel networks or notch filters. The filters behave exactly as designed.
 
 **Independent amplifier control**: Each amplifier drives its driver directly, providing maximum damping (amplifier output impedance drives the driver with no series components in the way). This gives the amplifier full control over the cone's motion.
 
@@ -447,16 +447,16 @@ This is called **bi-amping** (two amplifiers) for a 2-way system, or **tri-ampin
 
 **More wiring**: Each driver needs its own amplifier cable run. The crossover and additional amplifiers need to be housed somewhere.
 
-**No "plug and play"**: With passive crossovers inside the cabinet, you connect one amplifier cable and you are done. With active crossovers, you need to set up the crossover, adjust the gains, and manage the separate amplifier channels.
+**No "plug and play"**: With passive crossovers inside the cabinet, you connect one amplifier cable and you're done. With active crossovers, you need to set up the crossover, adjust the gains, and manage the separate amplifier channels.
 
 ### 8.4 When to Use Active Crossovers
 
 - **PA systems**: Almost all professional PA systems use active crossovers (usually DSP). The advantages in power efficiency, adjustability, and driver protection are overwhelming at high SPL levels.
 - **Subwoofer integration**: The subwoofer crossover is almost always active (the plate amplifier in a powered subwoofer includes an active low-pass filter).
 - **High-end home systems**: Some audiophiles bi-amp their speakers with active crossovers for superior performance.
-- **DSP-corrected systems**: If you are using DSP for room correction (Part 4), adding crossover duty to the DSP is trivial.
+- **DSP-corrected systems**: If you're using DSP for room correction (Part 4), adding crossover duty to the DSP is trivial.
 
-We will explore active crossovers in depth in Part 4, Chapters 27 and 29. For the builds in this Part, we will use passive crossovers -- they are self-contained, require no additional electronics, and teach you the fundamentals that apply even when you go active.
+We'll explore active crossovers in depth in Part 4, Chapters 27 and 29. For the builds in this Part, we'll use passive crossovers -- they're self-contained, require no additional electronics, and teach you the fundamentals that apply even when you go active.
 
 ---
 
@@ -484,14 +484,14 @@ Designing a crossover by hand using textbook formulas gives you a starting point
 
 5. **Optimize**: VituixCAD has an automatic optimizer that adjusts component values to hit a target response. You define the target (e.g., flat on-axis, smooth off-axis) and the optimizer searches for the best component values.
 
-6. **Iterate**: Examine the result. Are there compromises you do not like? Adjust the target or the topology and optimize again.
+6. **Iterate**: Examine the result. Are there compromises you don't like? Adjust the target or the topology and optimize again.
 
 ### 9.2 Tips for Effective Simulation
 
 - **Start with measured driver data**, not just T-S parameters. The FRD/ZMA files contain the complete picture -- breakup peaks, off-axis behavior, impedance anomalies.
 - **Always include impedance compensation** in your initial topology. Even if the optimizer can work around it, starting with a Zobel on the woofer gives the optimizer a better starting point.
 - **Look at off-axis response**, not just on-axis. A crossover that looks perfect on-axis might have a huge off-axis dip at the crossover frequency.
-- **Check the impedance curve** of the complete system. Make sure it does not dip below 4 ohms (or whatever your amplifier can handle). Make sure it does not have wild swings that would cause an amplifier with non-zero output impedance to modulate the response.
+- **Check the impedance curve** of the complete system. Make sure it doesn't dip below 4 ohms (or whatever your amplifier can handle). Make sure it doesn't have wild swings that would cause an amplifier with non-zero output impedance to modulate the response.
 - **Simulate at the intended listening position**. If the speaker will be on a shelf at ear level, simulate the on-axis response. If it will be on stands below ear level, simulate the 10-15 degree above-axis response.
 
 We will do a complete VituixCAD walkthrough in Chapter 15 and put it into practice in Chapter 16 when we build our bookshelf speakers.
@@ -511,4 +511,4 @@ In this chapter, you learned:
 - Active crossovers eliminate passive crossover compromises but require multiple amplifiers
 - VituixCAD is the essential simulation tool for crossover design
 
-In Chapter 14, we move from the crossover to the box itself. The cabinet is not a passive container -- it is an active part of the acoustic system that determines the speaker's bass response, efficiency, and transient behavior. We will cover sealed, ported, transmission line, and horn-loaded designs.
+In Chapter 14, we move from the crossover to the box itself. The cabinet isn't a passive container -- it's an active part of the acoustic system that determines the speaker's bass response, efficiency, and transient behavior. We'll cover sealed, ported, transmission line, and horn-loaded designs.

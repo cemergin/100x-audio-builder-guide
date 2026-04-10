@@ -33,12 +33,12 @@ Then we go further: we measure the room with a calibrated microphone, analyze th
 - Before/after verification
 
 ### Related Chapters
-- [Ch 13: Passive Crossover Design](../part-2-speakers/13-passive-crossover-design.md) -- what we're replacing with DSP
-- [Ch 15: Speaker Measurement](../part-2-speakers/15-speaker-measurement.md) -- measurement fundamentals that apply here
-- [Ch 23: Build: Chip Amp and Class D](../part-3-amplifiers/23-chip-amp-class-d.md) -- the amplifiers driving each driver
+- [Ch 13: Crossover Design](../part-2-speakers/13-crossover-design.md) -- what we're replacing with DSP
+- [Ch 15: Design Tools and Simulation](../part-2-speakers/15-design-tools-simulation.md) -- measurement fundamentals that apply here
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) -- the amplifiers driving each driver
 - [Ch 27: DSP Fundamentals for Audio](27-dsp-fundamentals.md) -- the theory behind this build
 - [Ch 28: Build: Pi Streamer with Physical Controls](28-build-pi-streamer.md) -- the streamer we're modifying
-- [Ch 36: Room Acoustics](../part-6-system-design/36-room-acoustics.md) -- understanding the room problems we're correcting
+- [Ch 36: Room Acoustics and Treatment](../part-6-system-design/36-room-acoustics-treatment.md) -- understanding the room problems we're correcting
 
 ---
 

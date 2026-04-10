@@ -33,14 +33,14 @@ The system we build in this chapter is opinionated. It uses an active crossover 
 - The integration walkthrough: connect, calibrate, verify, listen
 
 ### Related Chapters
-- [Ch 16: Building Your First 2-Way Bookshelf Speaker](../part-2-speakers/16-bookshelf-speaker-build.md) — the speakers
-- [Ch 17: PA and Subwoofer Builds](../part-2-speakers/17-pa-subwoofer-build.md) — floor-standing tower alternative
-- [Ch 23: Building Power Amplifiers](../part-3-amplifiers/23-building-power-amplifiers.md) — the LM3886 gainclone
-- [Ch 28: Pi Streamer Build](../part-4-digital-audio/28-pi-streamer-build.md) — the source
-- [Ch 29: DSP with CamillaDSP](../part-4-digital-audio/29-dsp-camilladsp.md) — crossover and room correction
-- [Ch 30: Control Hub](../part-4-digital-audio/30-control-hub.md) — system control and automation
-- [Ch 33: Professional Finishing](../part-5-pcb-professional/33-professional-finishing.md) — enclosure and finish quality
-- [Ch 34: Testing Procedures](../part-5-pcb-professional/34-testing-procedures.md) — systematic verification
+- [Ch 16: Build: Bookshelf Speakers](../part-2-speakers/16-build-bookshelf-speakers.md) — the speakers
+- [Ch 17: Build: Towers, PA, and Subwoofer](../part-2-speakers/17-build-towers-pa-subwoofer.md) — floor-standing tower alternative
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) — the LM3886 gainclone
+- [Ch 28: Build: Pi Streamer with Physical Controls](../part-4-digital-audio/28-build-pi-streamer.md) — the source
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) — crossover and room correction
+- [Ch 30: Build: The Full Control Hub](../part-4-digital-audio/30-build-full-control-hub.md) — system control and automation
+- [Ch 33: Professional Finishing and Aesthetics](../part-5-pcb-professional/33-professional-finishing-aesthetics.md) — enclosure and finish quality
+- [Ch 34: Testing, Quality Control, and Documentation](../part-5-pcb-professional/34-testing-qc-documentation.md) — systematic verification
 - [Ch 35: Matching Amps to Speakers](35-matching-amps-to-speakers.md) — amp-speaker compatibility verification
 - [Ch 36: Room Acoustics and Treatment](36-room-acoustics-treatment.md) — room setup
 - [Ch 37: System Tuning and Measurement](37-system-tuning-measurement.md) — final tuning

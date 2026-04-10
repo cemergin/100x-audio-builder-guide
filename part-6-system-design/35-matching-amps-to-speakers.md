@@ -31,10 +31,10 @@ These are not hand-wavy questions. They have math behind them. And the math is s
 ### Related Chapters
 - [Ch 11: How Speakers Work](../part-2-speakers/11-how-speakers-work.md) — driver fundamentals and impedance behavior
 - [Ch 18: How Amplifiers Work](../part-3-amplifiers/18-how-amplifiers-work.md) — amp classes, output impedance, damping factor theory
-- [Ch 16: Building Your First 2-Way Bookshelf Speaker](../part-2-speakers/16-bookshelf-speaker-build.md) — the home hi-fi speaker we will pair with amps
-- [Ch 17: PA and Subwoofer Builds](../part-2-speakers/17-pa-subwoofer-build.md) — the PA speakers for the party system
-- [Ch 23: Building Power Amplifiers](../part-3-amplifiers/23-building-power-amplifiers.md) — the LM3886 gainclone and TPA3255 Class D we built
-- [Ch 29: DSP with CamillaDSP](../part-4-digital-audio/29-dsp-camilladsp.md) — active crossover and room correction
+- [Ch 16: Build: Bookshelf Speakers](../part-2-speakers/16-build-bookshelf-speakers.md) — the home hi-fi speaker we will pair with amps
+- [Ch 17: Build: Towers, PA, and Subwoofer](../part-2-speakers/17-build-towers-pa-subwoofer.md) — the PA speakers for the party system
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) — the LM3886 gainclone and TPA3255 Class D we built
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) — active crossover and room correction
 - [Ch 36: Room Acoustics and Treatment](36-room-acoustics-treatment.md) — the room shapes your power requirements
 
 ---

@@ -31,12 +31,12 @@ This chapter traces the complete signal path for a party PA system built from co
 
 ### Related Chapters
 - [Ch 5: How Effects Shape Sound](../part-1-guitar-pedals/05-how-effects-shape-sound.md) — guitar through the PA via DI box
-- [Ch 17: PA and Subwoofer Builds](../part-2-speakers/17-pa-subwoofer-build.md) — the PA speakers and subwoofers
-- [Ch 23: Building Power Amplifiers](../part-3-amplifiers/23-building-power-amplifiers.md) — the TPA3255 Class D amps
-- [Ch 28: Pi Streamer Build](../part-4-digital-audio/28-pi-streamer-build.md) — the source
-- [Ch 29: DSP with CamillaDSP](../part-4-digital-audio/29-dsp-camilladsp.md) — crossover, limiter, and system protection
-- [Ch 33: Professional Finishing](../part-5-pcb-professional/33-professional-finishing.md) — rugged enclosure design
-- [Ch 34: Testing Procedures](../part-5-pcb-professional/34-testing-procedures.md) — pre-event testing protocol
+- [Ch 17: Build: Towers, PA, and Subwoofer](../part-2-speakers/17-build-towers-pa-subwoofer.md) — the PA speakers and subwoofers
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) — the TPA3255 Class D amps
+- [Ch 28: Build: Pi Streamer with Physical Controls](../part-4-digital-audio/28-build-pi-streamer.md) — the source
+- [Ch 29: Build: Active Crossover and Room Correction](../part-4-digital-audio/29-build-active-crossover-room-correction.md) — crossover, limiter, and system protection
+- [Ch 33: Professional Finishing and Aesthetics](../part-5-pcb-professional/33-professional-finishing-aesthetics.md) — rugged enclosure design
+- [Ch 34: Testing, Quality Control, and Documentation](../part-5-pcb-professional/34-testing-qc-documentation.md) — pre-event testing protocol
 - [Ch 35: Matching Amps to Speakers](35-matching-amps-to-speakers.md) — power and impedance calculations for PA
 - [Ch 36: Room Acoustics and Treatment](36-room-acoustics-treatment.md) — venue acoustics
 - [Ch 37: System Tuning and Measurement](37-system-tuning-measurement.md) — system measurement and EQ

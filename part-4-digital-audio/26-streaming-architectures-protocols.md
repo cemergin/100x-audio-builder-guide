@@ -33,7 +33,7 @@ By the end of this chapter, you'll understand the major streaming protocols, kno
 - [Ch 27: DSP Fundamentals for Audio](27-dsp-fundamentals.md) -- processing that can be applied at the renderer
 - [Ch 28: Build: Pi Streamer with Physical Controls](28-build-pi-streamer.md) -- installing and configuring this software
 - [Ch 30: Build: The Full Control Hub](30-build-full-control-hub.md) -- multi-room and source switching
-- [Ch 39: System Integration](../part-6-system-design/39-system-integration.md) -- whole-home audio architecture
+- [Ch 39: Complete Build: Party PA](../part-6-system-design/39-complete-build-party-pa.md) -- whole-home audio architecture
 
 ---
 

@@ -32,10 +32,10 @@ This is the culmination of Part 4. By the end, you'll have a system that a non-t
 - [Ch 26: Streaming Architectures and Protocols](26-streaming-architectures-protocols.md) -- multi-room protocols
 - [Ch 28: Build: Pi Streamer with Physical Controls](28-build-pi-streamer.md) -- the streamer we're evolving
 - [Ch 29: Build: Active Crossover and Room Correction](29-build-active-crossover-room-correction.md) -- the DSP pipeline
-- [Ch 23: Build: Chip Amp and Class D](../part-3-amplifiers/23-chip-amp-class-d.md) -- the amplifiers in the system
-- [Ch 32: Enclosure Design](../part-5-pcb-professional/32-enclosure-design.md) -- building the case for this hub
-- [Ch 38: System Design](../part-6-system-design/38-system-design.md) -- the overall audio system this hub controls
-- [Ch 39: System Integration](../part-6-system-design/39-system-integration.md) -- integrating the hub into a whole-home system
+- [Ch 23: Build: Chip Amp and Class D Amp](../part-3-amplifiers/23-build-chip-amp-class-d.md) -- the amplifiers in the system
+- [Ch 32: Enclosure Design and Fabrication](../part-5-pcb-professional/32-enclosure-design-fabrication.md) -- building the case for this hub
+- [Ch 38: Complete Build: Home Hi-Fi](../part-6-system-design/38-complete-build-home-hifi.md) -- the overall audio system this hub controls
+- [Ch 39: Complete Build: Party PA](../part-6-system-design/39-complete-build-party-pa.md) -- integrating the hub into a whole-home system
 
 ---
 
