@@ -175,7 +175,70 @@ SPL = 87 + 10 × log10(50) - 9.5 = 87 + 17 - 9.5 = 94.5 dB peak
 
 That is plenty for a 30 m² room at normal-to-enthusiastic listening levels. You will only run out of headroom if you really crank it with dynamic music. For most people, 50 watts into a reasonably sensitive speaker is more than enough for home hi-fi.
 
-### 2.3 Worked Example: Party PA
+### 2.3 More Worked Examples
+
+Let's run the SPL budget calculation for several real-world scenarios, so you develop an intuition for how the numbers work.
+
+**Scenario A: Jazz bar / intimate cocktail lounge (40 m², 30 seated guests)**
+
+- Target SPL: 85 dB average, 95 dB peaks (jazz has significant dynamic range)
+- Speaker sensitivity: 87 dB/W/m (the Chapter 16 bookshelf speakers)
+- Listening distance: 5 meters (back of the bar)
+- Headroom: 15 dB (jazz has wide dynamics -- a brush on a snare is 15 dB below a trumpet fortissimo)
+
+```
+Required dB = 95 - 87 + 14 + 15 = 37 dB above 1 watt
+Required power = 10^(37 / 10) = 10^3.7 = 5,012 watts
+```
+
+That is a ridiculous number for a jazz bar, and it illustrates why headroom matters. In practice, you would not need 5,000 watts because: (a) room gain at 5 meters in a 40 m² room adds 6-8 dB; (b) two speakers playing adds 3 dB; (c) a jazz trio will never actually produce a 95 dB peak at 5 meters -- that is loud enough to damage hearing. Realistically, an average SPL of 80-85 dB with 10 dB of headroom calls for about 50-100 watts per channel into 87 dB speakers. The LM3886 gainclone at 50W handles this comfortably.
+
+**Scenario B: House party (80 m² living room / open plan, 40-60 standing guests)**
+
+- Target SPL: 100 dB at 6 meters (the far wall, above conversational noise)
+- Speaker sensitivity: 93 dB/W/m (a larger bookshelf or tower with a 10" woofer)
+- Listening distance: 6 meters
+- Headroom: 6 dB (party music is typically compressed, 6 dB crest factor)
+
+```
+Required dB = 100 - 93 + 15.6 + 6 = 28.6 dB above 1 watt
+Required power = 10^(28.6 / 10) = 10^2.86 = 724 watts
+```
+
+With room gain indoors (easily 6-8 dB in an 80 m² space), the effective requirement drops to about 200-300 watts. A single TPA3255 board per channel (175W into 4 ohms) gets you there, especially if you add a subwoofer to handle the lowest octave.
+
+**Scenario C: Outdoor festival stage for 200 people (open field)**
+
+- Target SPL: 110 dB at 20 meters
+- Speaker sensitivity: 100 dB/W/m (large-format horn-loaded PA, like an 18Sound ND3ST on a horn)
+- Listening distance: 20 meters
+- Headroom: 6 dB (heavily compressed festival music)
+
+```
+Required dB = 110 - 100 + 26 + 6 = 42 dB above 1 watt
+Required power = 10^(42 / 10) = 10^4.2 = 15,849 watts
+```
+
+This is why festivals have amp racks the size of refrigerators. Even with multiple speaker stacks (four tops per side adds 6 dB), you still need thousands of watts per speaker. Our DIY system from this guide tops out at about 100 people outdoors. For 200+, you are in professional rental territory -- Crown, QSC, or Powersoft amplifiers pushing 2,000-5,000 watts per channel into line array elements.
+
+> **What happens if... you try to use the home hi-fi system for a 60-person house party?** At 50W into 87 dB speakers at 6 meters: 87 + 17 - 15.6 = 88.4 dB peak. That is barely above conversation level (75-80 dB) in a crowded room. Nobody can hear the music over the noise. You crank the volume knob all the way up, the amp clips on every beat, and the sound turns harsh and distorted. The tweeter may survive because the passive crossover capacitor limits how much bass (turned into square-wave harmonics by clipping) reaches it. The woofer absorbs the punishment until the voice coil overheats. The system was never designed for this, and forcing it does not end well. Use the PA system.
+
+### 2.4 Amp-Speaker Pairing Comparison
+
+Here is a quick reference table pairing specific amp builds from this guide with specific speaker builds, showing what you get:
+
+| Amp | Speaker | Min Impedance OK? | Peak SPL @ 3m | Peak SPL @ 10m | Best Use Case |
+|-----|---------|-------------------|---------------|----------------|---------------|
+| LM3886 (50W/8Ω) | Ch 16 Bookshelf (87 dB, 4.5Ω min) | Yes (4.5 > 4) | 94.5 dB | 84.5 dB | Living room hi-fi |
+| LM3886 (68W/4Ω) | Ch 16 Bookshelf (87 dB, 4.5Ω min) | Yes | 95.3 dB | 85.3 dB | Larger living room |
+| TPA3255 (175W/4Ω) | Ch 17 PA Top (97 dB, 3.5Ω min) | Marginal* | 119.4 dB | 99.4 dB | Party PA tops |
+| TPA3255 (175W/4Ω) | Ch 17 Subwoofer (95 dB, 3.8Ω min) | Marginal* | 117.4 dB | 97.4 dB | Party PA subs |
+| 2x LM3886 bi-amped | Ch 16 Bookshelf (87 dB, woofer 5Ω, tweeter 6Ω) | Yes | 94.5 dB per driver | 84.5 dB per driver | Audiophile active system |
+| TPA3255 (175W/4Ω) | Ch 17 Tower (90 dB, 3.8Ω min) | Marginal* | 112.4 dB | 102.4 dB | Large room or small venue |
+
+*\*Marginal means the minimum impedance dips slightly below the amp's rated 4-ohm load. It will work at moderate levels but may trigger thermal protection at sustained full power. Monitor amp temperature.*
+
+### 2.5 Worked Example: Party PA
 
 Now let's calculate for the PA speakers from Chapter 17 at an outdoor party for 80 people.
 
@@ -363,7 +426,73 @@ Source → DAC → DSP Crossover
 
 This is standard in professional PA systems and high-end home audio. Every driver gets exactly the frequencies it can reproduce, amplified by a dedicated amp optimized for that frequency range. The PA system we build in Chapter 39 uses this approach with a separate sub amp, top woofer amp, and compression driver amp.
 
-### 4.5 A Warning About Active Crossovers and Tweeters
+### 4.5 Practical Bi-Amping Setup: Step by Step
+
+Here is what the physical setup actually looks like for the active bi-amp system we build in Chapter 38:
+
+**Equipment needed:**
+- 1x Raspberry Pi with CamillaDSP (Chapter 29)
+- 1x multi-channel USB audio interface (Behringer UMC404HD or similar, 4+ outputs)
+- 2x LM3886 amplifier boards (Chapter 23), each providing 2 channels
+- 4x RCA or TRS interconnect cables (DAC outputs to amp inputs)
+- 4x speaker cables (amp outputs to individual driver terminals)
+- 2x modified speakers with separate woofer and tweeter binding posts
+
+**Signal routing in CamillaDSP:**
+
+```
+Input L ──┬── LR4 Low-pass 2.5 kHz ──── Output 1 (left woofer)
+           └── LR4 High-pass 2.5 kHz ── Output 2 (left tweeter)
+
+Input R ──┬── LR4 Low-pass 2.5 kHz ──── Output 3 (right woofer)
+           └── LR4 High-pass 2.5 kHz ── Output 4 (right tweeter)
+```
+
+**Level matching between drivers:**
+The tweeter is almost always more sensitive than the woofer. A typical 1" dome tweeter might produce 90 dB/W/m while the matching 6.5" woofer produces 87 dB/W/m. Without correction, the tweeter is 3 dB louder and the sound is tilted bright. In CamillaDSP, apply a -3 dB gain offset on the tweeter channels. Measure at 1 meter to verify.
+
+**Time alignment:**
+The tweeter's acoustic center is usually 2-5 cm in front of the woofer's (because the tweeter dome is shallow while the woofer cone is deep). This offset means high-frequency sound arrives at the listener slightly before the bass -- about 0.07-0.15 ms earlier. Add a delay of 0.1-0.15 ms to the tweeter channels in CamillaDSP:
+
+```yaml
+# CamillaDSP delay section for tweeter channels
+pipeline:
+  - type: Filter
+    channel: 1  # left tweeter
+    names:
+      - tweeter_delay
+  - type: Filter
+    channel: 3  # right tweeter
+    names:
+      - tweeter_delay
+
+filters:
+  tweeter_delay:
+    type: Delay
+    parameters:
+      delay: 0.12  # milliseconds — adjust based on measurement
+      unit: ms
+```
+
+Verify alignment by measuring the step response at 1 meter: the initial positive-going edge from the tweeter and the later positive-going edge from the woofer should overlap when delay is correct.
+
+### 4.6 Practical Tri-Amping: The PA System
+
+For the party PA in Chapter 39, we use a simpler version of active multi-amping:
+
+```
+Input L ──┬── LR4 Low-pass 120 Hz ──── Output 1 (left subwoofer)
+           └── LR4 High-pass 120 Hz ── Output 3 (left top)
+
+Input R ──┬── LR4 Low-pass 120 Hz ──── Output 2 (right subwoofer)
+           └── LR4 High-pass 120 Hz ── Output 4 (right top)
+```
+
+The PA tops themselves contain both a 12" woofer and a compression driver on a horn, split internally by a passive crossover at around 2 kHz. You could go full tri-amp (subs/mids/highs on separate channels), but that requires six amp channels and six speaker cables per side. For a portable party system, the two-way active split (subs vs tops) is the practical sweet spot: you get independent bass control (which matters most at a party) while keeping the setup manageable.
+
+True tri-amping makes sense for a permanent installation -- a club, a church, or a large home theater -- where you set it up once and leave it. For a field party, every extra cable and amp channel is another thing to troubleshoot in the dark.
+
+### 4.7 A Warning About Active Crossovers and Tweeters
 
 When you remove the passive crossover and wire an amp directly to a tweeter, there is no capacitor protecting the tweeter from low frequencies. If your DSP crashes, resets to default settings, or you accidentally load a wrong configuration, full-range signal goes straight to the tweeter. A tweeter can handle maybe 1/10 of a second of full-power bass before the voice coil smokes.
 
@@ -423,7 +552,29 @@ An active speaker contains its own amplifier(s) and an electronic crossover (ana
 - You are building a guitar cabinet (the whole point is the amp's character into a passive speaker)
 - You are building speakers for a non-technical user who does not want to configure DSP
 
-### 5.4 The Hybrid Approach We Use in This Guide
+### 5.4 Converting Passive Speakers to Active: The Practical Checklist
+
+If you built passive speakers in Chapter 16 and want to convert them to active for the Chapter 38 system, here is the complete process:
+
+**What you need:**
+- A second pair of binding posts (or a bi-amp plate with four terminals)
+- 10 uF non-polarized film capacitor (safety high-pass for tweeter)
+- Wire (16 AWG minimum for internal connections)
+- A drill and the appropriate bit for the binding post holes
+- Soldering iron and solder
+
+**Steps:**
+1. Remove the rear panel (or access the speaker interior through the woofer cutout by removing the woofer).
+2. Disconnect the passive crossover from both drivers. Label the wires: woofer +/-, tweeter +/-.
+3. If space allows, leave the passive crossover inside the cabinet (you may want to revert someday). Just disconnect it from the drivers and binding posts.
+4. Drill holes for the second pair of binding posts. Position them near the existing pair -- label one pair "WOOFER" and the other "TWEETER."
+5. Wire the woofer directly to the WOOFER binding posts (red to +, black to -).
+6. Wire the tweeter to the TWEETER binding posts, but insert the 10 uF film capacitor in series with the positive lead. This capacitor is a safety high-pass that protects the tweeter from accidental bass signal.
+7. Reassemble the speaker. Test each driver independently by connecting a battery (1.5V AA) to each binding post pair -- you should see/feel the driver move forward (positive connection) or backward (negative connection).
+
+This modification is fully reversible. If you ever want to return to passive operation, reconnect the passive crossover and remove the extra binding posts.
+
+### 5.5 The Hybrid Approach We Use in This Guide
 
 For the home hi-fi system in Chapter 38, we use a hybrid approach:
 - CamillaDSP on the Pi handles the active crossover and room correction
@@ -466,7 +617,24 @@ The LM3886 gainclone from Chapter 23 is Class AB. At 50W into 8 ohms, it is more
 
 Could you use a Class D amp for home hi-fi? Absolutely. Modern Class D amplifiers from manufacturers like Purifi, Hypex, and ICEpower measure as well as or better than the best Class AB designs. The old prejudice against Class D for critical listening is fading fast. But the LM3886 is easier to build, requires no specialized modules, and sounds excellent.
 
-### 6.4 Tube for Guitar (Character)
+### 6.4 Class D Myths and Realities (2026 Update)
+
+The prejudice against Class D amplifiers for critical listening was once justified. Early Class D designs (pre-2010) had audible switching noise, poor high-frequency performance, and harsh clipping behavior. But the technology has matured dramatically. Modern Class D amplifier modules from Purifi (Eigentakt), Hypex (nCore, Nilai), and ICEpower measure as well as or better than the best Class AB designs in every measurable parameter -- THD+N, IMD, frequency response, noise floor, and damping factor.
+
+**What the measurements show for current Class D designs:**
+- THD+N at 1W / 4 ohms: 0.0005-0.005% (inaudible by any standard)
+- Damping factor: 200-800+ (as good as any Class AB)
+- Noise floor: -100 to -115 dBA (below the noise floor of most recording studios)
+- Frequency response: 20 Hz - 20 kHz ±0.1 dB (ruler flat)
+
+**What remains different:**
+- Clipping behavior: Class D clips hard and ugly. Class AB clips somewhat less harshly (output devices enter saturation before hard rail-clipping). But if your system is designed with adequate headroom and a limiter (for PA), you should never clip.
+- Output filter interaction: Every Class D amp has an LC output filter that interacts with the speaker's impedance curve. Poorly designed Class D amps (or loads with extremely reactive impedance) can exhibit frequency response deviations at very high frequencies (above 15 kHz). High-quality modules like the Purifi 1ET400A are designed to be load-invariant.
+- Electromagnetic interference: Class D amps switch at 300-600 kHz and can radiate RF noise. This is rarely audible but can interfere with sensitive radio equipment nearby. Keep Class D amps away from FM/AM tuners and wireless microphone receivers.
+
+For the TPA3255 used in this guide: it is an excellent Class D amplifier IC that measures well (THD+N around 0.01% at typical listening levels), has high efficiency, and costs very little. It is perfectly suitable for both PA and home hi-fi use. The only reason we use the LM3886 (Class AB) for the home system is that it is simpler to build from discrete components, requires no specialized module, and provides a learning experience in linear amplifier design.
+
+### 6.5 Tube for Guitar (Character)
 
 We covered this in Part 1 and Part 3, but it bears repeating in the context of system design: tube amplifiers are not about fidelity. They are about *character*. The low damping factor, the soft clipping, the harmonic richness -- these are features when the goal is to make an electric guitar sound exciting.
 
@@ -496,7 +664,24 @@ You would not use a tube amp for a PA system (too heavy, too fragile, wrong dist
 - **Coverage**: For 50 people in a 200 m² space (indoor), adequate. For 100 people outdoor, consider adding a second pair of tops.
 - **Verdict**: Efficient, lightweight, loud. The DSP handles crossover between subs and tops (Chapter 29), plus limiter protection. Two TPA3255 boards = four channels = two tops + two subs.
 
-### 7.3 The Upgrade Path
+### 7.3 The Budget System: When Money Is Tight
+
+Not everyone has the budget for multiple LM3886 boards and a USB audio interface. Here is a minimal system that still sounds excellent:
+
+**Budget home hi-fi ($350-500 total):**
+- 1x TPA3255 Class D board ($25-40 for a Chinese board from AliExpress -- yes, in this case AliExpress is fine because TPA3255 boards are commodity items and even the cheap ones measure well)
+- 1x Raspberry Pi + DAC HAT ($65-85)
+- 1x pair bookshelf speakers from Chapter 16 ($150-250)
+- 1x pair 14 AWG speaker cable ($5)
+- CamillaDSP for room correction (free)
+
+The TPA3255 delivers 175W into 4 ohms -- far more than you need for a living room. Class D efficiency means it runs cool with no heatsink worries. The sound quality of modern TPA3255 boards is genuinely excellent: THD+N under 0.01% at normal listening levels, SNR above 100 dB. Will an audiophile A/B testing at matched levels prefer the LM3886? Maybe. Will anyone notice the difference during normal listening? Almost certainly not.
+
+The point is: do not let the "perfect" system prevent you from building a "good" system. A $400 DIY system with DSP room correction will outperform a $2,000 commercial system in an untreated room. The room correction is the secret weapon, and it is free.
+
+> **What happens if... you use a Bluetooth receiver instead of the Pi as your source?** It works. A $15 Bluetooth 5.0 receiver with aptX codec support outputs acceptable audio quality. You lose: DSP room correction, the ability to use CamillaDSP, high-resolution streaming support, and wired network streaming. You gain: simplicity (pair phone, play music, done). For a bedroom system, a guest room, or a workshop background music system, this is a perfectly valid approach. For critical listening, use the Pi.
+
+### 7.4 The Upgrade Path
 
 Once your basic system is running, the upgrade path is clear:
 
@@ -516,4 +701,36 @@ The amp-speaker matching process boils down to four questions:
 3. **Is the damping factor appropriate?** High DF for tight bass in hi-fi, less critical for PA and horns.
 4. **What topology fits the application?** Class D for PA power and efficiency, Class AB for home hi-fi, tubes for guitar.
 
-Answer those four questions and you will never have a mismatched system. In the next chapter, we will tackle the component that has the most influence on what you hear and the least to do with your electronics: the room.
+Answer those four questions and you will never have a mismatched system.
+
+### Quick Reference: The Numbers That Matter
+
+Keep this card on your workbench:
+
+```
+IMPEDANCE
+  Speaker minimum impedance must be ≥ amp's minimum rated load
+  Two speakers in parallel: Z_total = Z/2
+  Three speakers in parallel: Z_total = Z/3
+
+POWER
+  Doubling amp power = +3 dB SPL
+  +3 dB speaker sensitivity = same as doubling amp power
+  Doubling distance = -6 dB SPL
+  
+  Required power (dB) = Target SPL - Sensitivity + Distance Loss + Headroom
+  Required power (watts) = 10^(required dB / 10)
+
+DAMPING FACTOR
+  DF = Speaker impedance / (Amp output impedance + Cable resistance)
+  Cable resistance dominates for solid-state amps
+  DF > 20 for home hi-fi, DF > 10 for PA
+
+HEADROOM GUIDELINES
+  Classical/jazz: 15-20 dB
+  Rock/pop: 10-12 dB
+  EDM/compressed: 6-8 dB
+  PA with limiter: 3-6 dB (limiter handles peaks)
+```
+
+In the next chapter, we will tackle the component that has the most influence on what you hear and the least to do with your electronics: the room.

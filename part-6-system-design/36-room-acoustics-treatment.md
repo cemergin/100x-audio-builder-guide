@@ -235,7 +235,39 @@ Here is the complete build for a 2' × 4' × 4" absorption panel:
 
 5. **Attach hanging hardware.** French cleats are the strongest option for heavy panels. Z-clips work for lighter ones. The panel should sit flat against the wall with a small air gap (even 1-2 inches) behind it -- this air gap extends the effective depth and improves low-frequency absorption.
 
-**Cost per panel:** approximately $20-40 in materials, depending on your area. Commercial acoustic panels of equivalent quality cost $100-300 each.
+### 3.4 Detailed Materials List and Costs
+
+Here is a complete shopping list for building four 2' x 4' x 4" absorption panels, with approximate 2026 US prices:
+
+| Item | Qty for 4 Panels | Source | Est. Cost |
+|------|-------------------|--------|-----------|
+| Rockwool ComfortBoard 80 (2" x 24" x 48") | 8 boards (2 per panel, stacked) | Home Depot / Lowes | $8-12 per board ($64-96 total) |
+| 1x4 lumber (8-foot sticks, select pine or poplar) | 8 sticks | Home Depot / lumber yard | $3-5 per stick ($24-40 total) |
+| Wood screws (#8 x 2-1/2" coarse thread) | 24 | Hardware store | $6 per box |
+| Acoustically transparent fabric (60" wide) | 5 yards (enough for 4 panels with waste) | Guilford of Maine online or JoAnn Fabrics (burlap) | $8-15/yard ($40-75 total) |
+| T50 staples (3/8" or 1/2") | 1 box (1,250 ct) | Hardware store | $5 |
+| French cleats or Z-clips (pairs) | 4 pairs | Amazon / hardware store | $3-5 per pair ($12-20 total) |
+| Carpenter's glue (optional, for frame assembly) | 1 bottle | Hardware store | $5 |
+
+**Total for 4 panels: approximately $160-250** depending on material choices and local pricing.
+
+**Cost per panel: approximately $40-62.**
+
+Commercial acoustic panels of equivalent quality (4" thick Rockwool in a fabric-wrapped frame) cost $100-300 each. You save 40-60% by building your own, and the quality is identical or better because you control the absorber thickness and mounting air gap.
+
+**Fabric sourcing tips:** Guilford of Maine (available online through acoustic supply retailers) is the industry standard -- their FR701 fabric is used in professional studios worldwide. It comes in dozens of colors and passes the blow test easily. For budget builds, burlap from JoAnn Fabrics works fine acoustically but has a rougher texture and fewer color options. Muslin (unbleached cotton from a fabric store) is the cheapest option at $3-5/yard but only comes in off-white.
+
+### 3.5 Cutting Guide
+
+**Frame pieces (per panel):**
+- 2x long rails: 48" each (cut from 8-foot sticks, one stick yields 2 rails)
+- 2x short rails: 22-1/2" each (accounting for the 3/4" thickness of each long rail)
+- 1x cross-brace (optional): 22-1/2" (horizontal, centered at 24")
+
+**Insulation cutting:**
+Rockwool ComfortBoard cuts easily with a bread knife or a long serrated utility knife. Score one side, then snap -- it breaks cleanly. For stacked 2" boards (to make 4" depth), no adhesive is needed; just place one on top of the other inside the frame. They stay put by friction.
+
+If you need non-standard sizes (for a ceiling cloud or an odd-shaped wall), mark with a straight edge and cut with the bread knife. Rockwool generates dust -- wear a dust mask and gloves. The fibers are not as irritating as fiberglass, but they are not pleasant either.
 
 **Time per panel:** about 1-2 hours for your first one, 30-45 minutes once you have a rhythm.
 
@@ -273,7 +305,80 @@ Fill the entire corner triangle with insulation, floor to ceiling. No frame need
 
 A superchunk bass trap in all four vertical room corners is the single most effective acoustic treatment you can install. It treats room modes, reduces RT60, and smooths the bass response. If you do nothing else in this chapter, build four corner bass traps.
 
-### 4.3 How Much Treatment Is Too Much?
+### 4.3 Bass Trap Design Calculations
+
+How deep does a corner bass trap need to be to absorb a given frequency? The rule of thumb: an absorber is effective down to the frequency whose quarter-wavelength equals the absorber's depth from the wall.
+
+```
+f_low = c / (4 × depth)
+```
+
+Where depth is measured from the wall surface (the deepest point of the absorber material):
+
+| Absorber Depth | Lowest Effective Frequency |
+|----------------|---------------------------|
+| 4" (10 cm) | 343 / (4 × 0.10) = 858 Hz |
+| 6" (15 cm) | 343 / (4 × 0.15) = 572 Hz |
+| 8" (20 cm) | 343 / (4 × 0.20) = 429 Hz |
+| 12" (30 cm) | 343 / (4 × 0.30) = 286 Hz |
+| 16" (40 cm) | 343 / (4 × 0.40) = 214 Hz |
+| 24" (60 cm) | 343 / (4 × 0.60) = 143 Hz |
+
+Wait -- even a 24" deep bass trap only gets down to 143 Hz? How do corner traps work on 40 Hz modes?
+
+This is where the corner placement matters. In a corner, the pressure is at its maximum for all room modes. An absorber in a high-pressure zone works differently than one in the middle of a wall -- it absorbs by virtue of the pressure differential forcing air through the material, not just by intercepting particle velocity at the quarter-wavelength point. Corner placement effectively extends the absorber's range below what the depth alone would suggest. A well-built floor-to-ceiling superchunk in the corner provides meaningful absorption down to 60-80 Hz, even though the math says it should only work above 150 Hz.
+
+The superchunk design maximizes this effect because the entire triangle of corner space is filled with absorptive material. There is no air gap to resonate, no cavity to color the sound -- just pure broadband absorption.
+
+**Superchunk dimensions for a standard room corner:**
+
+If your room corners are 90 degrees (they almost always are), the triangle has two legs equal in length. For a corner bass trap that extends 16" (40 cm) along each wall:
+
+```
+Hypotenuse (the exposed face) = 16 × √2 = 22.6" (57 cm)
+Cross-sectional area = 0.5 × 16 × 16 = 128 sq inches per slice
+```
+
+Floor to ceiling (8 feet / 2.4 meters), you need to fill 128 sq inches × 96 inches = about 12,288 cubic inches of material per corner. That is approximately 7 cubic feet. For Rockwool, you will need about 3-4 bags of ComfortBoard or SafenSound batts, cut into triangles and stacked.
+
+**Materials for one floor-to-ceiling superchunk:**
+- Rockwool batts or boards: ~7 cubic feet ($40-60)
+- Acoustically transparent fabric: ~3 yards ($25-45)
+- Fabric support (tension wire, wooden strips, or a frame): $10-15
+- **Total per corner: $75-120**
+
+For all four corners: $300-480. Expensive in absolute terms, but this is the single most impactful acoustic investment you can make.
+
+> **What happens if... you only treat two corners instead of four?** You get roughly half the bass absorption. The two untreated corners continue to reflect and reinforce modes. The improvement is still noticeable -- two corner traps is infinitely better than zero -- but the bass smoothing is less complete. Prioritize the two front corners (behind the speakers) if you must choose, because they are closest to the source of bass energy.
+
+### 4.4 DIY Bass Trap: Complete Build
+
+Here is the step-by-step build for a floor-to-ceiling superchunk bass trap in one corner:
+
+**Materials per corner:**
+- 3-4 bags of Rockwool SafenSound or ComfortBoard batts (enough for ~7 cubic feet)
+- Acoustically transparent fabric, ~3 yards
+- Tension wire (picture-hanging wire or thin steel cable), ~12 feet
+- Screw eyes or small hooks, 4-6 (to mount the tension wire at the walls near the corner)
+- Optional: 1x4 lumber for a face frame (two pieces, floor-to-ceiling length)
+
+**Build process:**
+
+1. **Measure the corner.** Determine how far along each wall you want the trap to extend. 12-16 inches (30-40 cm) along each wall is the target. Measure from floor to ceiling.
+
+2. **Cut the insulation into triangles.** Each batt needs to be cut into a right triangle with two legs of 12-16 inches and a hypotenuse spanning the corner. Stack a batt on a flat surface, mark the diagonal cut line, and cut with a bread knife. You will cut dozens of triangles.
+
+3. **Stack the triangles in the corner.** Start from the floor and stack upward. Press each triangle into the corner. The friction between layers holds them in place. Continue until you reach the ceiling. The result is a solid column of insulation filling the corner from floor to ceiling.
+
+4. **Install the fabric.** Two approaches:
+   - **Tension wire method:** Install screw eyes in the walls near the corner. Run wire between them across the face of the insulation column. Drape fabric over the front, tucking behind the wire at top and bottom.
+   - **Face frame method:** Attach two 1x4 boards to each wall at the edges of the triangle, meeting at the exposed face. Wrap the fabric around the frame and staple to the back of the boards.
+
+5. **Secure and finish.** Trim excess fabric. The weight of 7+ cubic feet of Rockwool (25-40 lbs) keeps it stable. Add horizontal tension wires at 1/3 and 2/3 height for extra security.
+
+**Time per corner:** 1-2 hours for the first, 45-90 minutes once you have a rhythm. All four corners in a weekend.
+
+### 4.5 How Much Treatment Is Too Much?
 
 This is a real concern. Over-treatment makes a room sound dead, claustrophobic, and unnatural. You are not building an anechoic chamber -- you are building a room where music sounds good.
 
@@ -284,6 +389,8 @@ This is a real concern. Over-treatment makes a room sound dead, claustrophobic, 
 - Leave some reflective surfaces for liveliness, especially on the rear wall (or use diffusion instead of absorption there)
 - Target RT60 of 0.3-0.5 seconds for a home listening room
 - Measure after each phase of treatment (Chapter 37) -- stop when the measurements and your ears agree that the room sounds good
+
+> **What happens if... you over-treat the room and it sounds dead?** Remove panels from the rear wall first -- rear wall reflections contribute the most to the room's sense of space and liveliness. If it still sounds dead, remove ceiling panels next. Keep the bass traps in the corners (bass treatment is almost never excessive) and the first-reflection panels on the side walls. The goal is a room that sounds "controlled" but not "silent." If clapping your hands produces a short, dry "clap" with no tail at all, you have gone too far. A slight, smooth decay after the clap (0.3-0.4 seconds) is the sweet spot.
 
 ---
 
@@ -313,7 +420,56 @@ A QRD diffuser is a series of wells (slots) of different depths, calculated from
 
 **Alternatively: CNC route it.** If you have access to a CNC router (many makerspaces do), you can route the entire diffuser from a single thick panel of MDF. This gives cleaner results and is faster once you have the toolpath programmed.
 
-### 5.3 Skyline Diffuser
+### 5.3 QRD Diffuser: Worked Design Example
+
+Let's design a specific QRD diffuser for a typical home listening room rear wall.
+
+**Design parameters:**
+- Prime number N = 7
+- Design frequency: 600 Hz (good for a small room where low-midrange and up needs diffusion)
+- Speed of sound: 343 m/s
+- Wavelength at 600 Hz: 343/600 = 0.572 m
+
+**Unit depth (the smallest depth increment):**
+
+```
+d_unit = wavelength / (2 × N) = 0.572 / (2 × 7) = 0.0409 m = 4.09 cm
+```
+
+**Sequence for N = 7:**
+
+The quadratic residue sequence is n² mod N for n = 0, 1, 2, ..., N-1:
+
+| n | n² | n² mod 7 | Well depth (cm) |
+|---|-----|----------|----------------|
+| 0 | 0 | 0 | 0 (open, no well) |
+| 1 | 1 | 1 | 4.09 |
+| 2 | 4 | 4 | 16.36 |
+| 3 | 9 | 2 | 8.18 |
+| 4 | 16 | 2 | 8.18 |
+| 5 | 25 | 4 | 16.36 |
+| 6 | 36 | 1 | 4.09 |
+
+The deepest well is 16.36 cm (about 6.5 inches). This is the total depth of the diffuser from the back panel to the front edge of the dividers.
+
+**Well width:** For diffusion up to 4 kHz, the well width should be less than:
+
+```
+w_max = 343 / (2 × 4000) = 0.043 m = 4.3 cm
+```
+
+Use 4 cm wide wells with 0.5 cm dividers (thin strips of MDF or hardwood).
+
+**Overall dimensions (one period):**
+- Width: 7 wells × 4 cm + 8 dividers × 0.5 cm = 32 cm (12.6 inches)
+- Depth: 16.36 cm (6.5 inches)
+- Height: As tall as you want (60-120 cm is typical for a wall-mounted panel)
+
+**Build tip:** Cut a back panel from 3/4" MDF at 32 cm wide × your desired height. Cut seven divider strips at the maximum well depth (16.36 cm) × your desired height × 0.5 cm thick. Cut the well bottoms from MDF at the calculated depths (measured from the front edge of the dividers). Assemble with wood glue: back panel first, then dividers, then well bottoms. Clamp until dry. Sand and paint or stain.
+
+For a wider diffuser, repeat the 7-well sequence 2-3 times across the panel. A 3-period diffuser is about 96 cm (38 inches) wide -- suitable for centering on a rear wall.
+
+### 5.4 Skyline Diffuser
 
 A skyline (or cityscape) diffuser is a 2D variant: a grid of square columns at different heights. It scatters sound in two dimensions (horizontal and vertical) rather than one. It also looks visually striking -- like a miniature city skyline.
 
@@ -348,7 +504,31 @@ Place absorption panels at each marked point. For a typical stereo setup, you ne
 - 1-2 panels on the ceiling (a "cloud" panel centered above the listening position)
 - The floor is usually handled by carpet or a rug between speakers and listener
 
-### 6.2 Corners (Bass Traps)
+### 6.2 The Mirror Trick: Visual Guide
+
+For absolute clarity, here is a step-by-step visual description:
+
+Imagine your room from above (floor plan view). The speakers are at the front, the listener is at the back:
+
+```
+  Front Wall
+  [L]         [R]    ← speakers
+   ╲         ╱
+    ╲       ╱
+     ╲     ╱
+      ╲   ╱
+       ╲ ╱
+        X           ← listener
+
+Side   •             Side
+Wall   (panel here)  Wall
+```
+
+The "X" marks your listening position. The "dot" on the side wall marks where a first reflection panel goes. To find its exact position: have a friend slide a mirror along the side wall while you sit at the listening position. When you see the left speaker reflected in the mirror, mark that point. When you see the right speaker reflected in the mirror from a different position on the same wall, mark that point. You now have two panel positions on each side wall.
+
+Most rooms need panels at these four side-wall positions plus one or two ceiling panels directly above the midpoint between speakers and listener.
+
+### 6.3 Corners (Bass Traps)
 
 Put bass traps in the vertical corners of the room. All four if possible, but prioritize the corners behind the speakers first (the front corners of the room). These are where the bass modes interact with the speaker's output most directly.
 
@@ -460,6 +640,38 @@ An outdoor event in an open field is acoustically the simplest scenario. No wall
 
 No acoustic treatment needed. Just enough amp power, efficient speakers, and correct aiming. This is where the PA system from Chapter 39 shines -- it was designed for exactly this scenario.
 
+### 8.4 Warehouse Acoustics: The Worst of Both Worlds
+
+Warehouses and industrial spaces are popular for parties, and they present the most challenging acoustic scenario: a very large room with almost entirely hard, reflective surfaces. Concrete floors, metal walls, steel roof deck, no soft furnishings. RT60 can easily exceed 5 seconds.
+
+**Why warehouses sound terrible for music:**
+- Bass modes are extremely strong because the walls are rigid and reflective (drywall flexes and absorbs some bass; concrete and steel do not)
+- Flutter echo between parallel concrete walls is severe
+- Speech intelligibility drops to near zero -- shouted conversation is difficult at 3 meters
+- The reverberant field (reflected sound) overwhelms the direct sound at distances beyond 5-10 meters from the speakers
+
+**Practical strategies for warehouse parties:**
+
+1. **Carpet or rugs on the floor.** Even temporary floor covering absorbs a significant amount of mid and high-frequency energy. Renting carpet remnants for the listening area is cheap and surprisingly effective.
+
+2. **Hang heavy curtains or moving blankets on one wall.** You do not need to treat every surface. Breaking the parallelism between one pair of walls dramatically reduces flutter echo. Rent or borrow thick curtains (velvet or theater curtains are ideal -- they absorb well into the midrange) and hang them from the rafters using rope and clamps.
+
+3. **Reduce the effective room size.** If the warehouse is 2,000 sq ft but you only need 800 sq ft for the party, hang curtains or fabric dividers to section off the space. A smaller "room within the room" has shorter RT60 and more manageable acoustics.
+
+4. **Point speakers away from the nearest wall.** Every dB of sound that hits a hard wall reflects back and adds to the reverberant mess. Aim speakers along the longest axis of the space, away from the closest reflective surface.
+
+5. **Use delay speakers instead of cranking volume.** In a reverberant space, louder is not better -- it just feeds more energy into the reverberant field. Instead, use moderate main speaker levels and add delay speakers partway through the room (see Chapter 39, section 8.2). The delay speakers provide direct sound to the back of the crowd without increasing the overall energy in the room.
+
+6. **Cut sub bass.** Below 80-100 Hz, warehouse modes can create 20+ dB of bass buildup. Reduce sub level by 3-6 dB compared to your outdoor settings. If the bass sounds muddy and indistinct, you are feeding the modes. Pull it back until you can hear individual bass notes.
+
+### 8.5 Outdoor Considerations Beyond Wind and Distance
+
+**Ground reflection:** On grass or dirt, the ground absorbs some sound, especially mid and high frequencies. On concrete (a parking lot, a patio), the ground is fully reflective and acts as a mirror -- you get a strong ground bounce that arrives at the listener just milliseconds after the direct sound, causing comb filtering. If you are running sound on a hard outdoor surface, elevate the speakers higher (tops at 2+ meters instead of the standard 1.5 meters) so the ground reflection path is longer and the comb filtering shifts to a less audible frequency range.
+
+**Temperature gradients:** On a warm evening, the air near the ground is warmer than the air above. Sound bends upward (away from the warm ground). This means the sound "lifts" over the audience at longer distances. The crowd at 30+ meters hears less than you'd expect from the inverse square law alone. This effect is more pronounced on calm, clear evenings. On overcast or windy nights, turbulence mixes the air and the effect is smaller.
+
+**Humidity and high-frequency absorption:** Above 2 kHz, humid air absorbs sound more than dry air. At 10 kHz, the difference between 20% and 80% relative humidity can be 2-3 dB of extra absorption per 50 meters. For a field party at 50-100 meters, this means your high frequencies roll off more on a humid night. A subtle treble boost (+1-2 dB shelf above 5 kHz) in your CamillaDSP EQ compensates, but this is fine-tuning territory.
+
 ### 8.4 The Middle Ground: Your Garage or Basement
 
 Many of us end up using a garage, basement, or spare bedroom as both a listening room and an occasional party space. The treatment approach:
@@ -485,5 +697,41 @@ For a typical home listening room (15-30 m²), here is the minimum recommended t
 | Rear wall diffuser (QRD or skyline) | 1-2 | Rear wall, centered | $40-80 each (DIY) |
 
 **Total material cost: approximately $300-600.** This is less than most people spend on cables, and it makes a hundredfold bigger difference.
+
+### 9.2 Treatment Priority Order (If You Cannot Do Everything)
+
+If budget or space limits how much treatment you can install, prioritize in this order:
+
+1. **Bass traps in the two front corners** (behind the speakers). Biggest single impact on bass quality. Cost: $150-240.
+2. **First reflection panels on the two side walls** (2 panels, one per side). Biggest impact on stereo imaging and midrange clarity. Cost: $50-80.
+3. **Bass traps in the two rear corners.** Completes the bass treatment for all four vertical corners. Cost: $150-240.
+4. **Ceiling cloud above the listening position.** Treats the ceiling reflection, which is often the strongest early reflection. Cost: $25-40.
+5. **Remaining side wall panels** (2 more panels for the other first reflection points). Cost: $50-80.
+6. **Rear wall diffusion.** Adds spaciousness without deadening. Cost: $40-80.
+
+Stop after any step if the room sounds good to you and measures well. Many rooms need only steps 1-3 to be transformed.
+
+### 9.3 What to Expect: Before and After
+
+Here is what a typical room measurement looks like before and after treatment, so you know what to aim for:
+
+**Before treatment (typical untreated 5m x 4m x 2.5m room):**
+- Bass response: ±15 dB variation (20-200 Hz). Massive peaks at 34 Hz, 69 Hz, and 86 Hz. Deep nulls at 51 Hz and 103 Hz.
+- Midrange (200 Hz - 2 kHz): ±5 dB variation from comb filtering.
+- Treble (2-20 kHz): ±3 dB variation.
+- RT60: 0.7-0.9 seconds (too long for critical listening).
+- Waterfall plot: Bass modes ring for 400+ ms. 69 Hz resonance is clearly visible as a persistent ridge.
+
+**After treatment (same room, 4 corner bass traps + 4 side panels + ceiling cloud):**
+- Bass response: ±8 dB variation (mode peaks reduced by 5-8 dB, nulls unchanged).
+- Midrange: ±2-3 dB variation (reflections absorbed by side panels).
+- Treble: ±2 dB variation.
+- RT60: 0.35-0.45 seconds (ideal range).
+- Waterfall plot: Bass modes decay 2-3x faster. 69 Hz resonance reduced from a mountain to a hill.
+
+**After DSP correction on top of treatment:**
+- Bass response: ±3-4 dB variation (remaining peaks EQ'd down, nulls still present but less objectionable).
+- Overall response follows the Harman target curve within ±3 dB from 30 Hz to 16 kHz.
+- This is the combined power of physical treatment + DSP correction, and it is why we do both.
 
 Pair this treatment with measurement-based DSP correction from CamillaDSP (Chapter 29) and you have a room that lets your carefully built speakers and amplifiers actually sound the way they were designed to sound. In Chapter 37, we will measure the results and fine-tune the entire system.

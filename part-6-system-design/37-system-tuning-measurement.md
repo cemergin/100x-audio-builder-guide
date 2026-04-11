@@ -85,6 +85,16 @@ REW needs to know the absolute SPL level. Without calibration, the frequency res
 
 For our purposes, option 1 is fine. We are making relative comparisons (before treatment vs after treatment, position A vs position B), so absolute accuracy matters less than consistency.
 
+### 1.5 Common Setup Mistakes to Avoid
+
+**Mistake 1: Microphone pointing the wrong way.** The UMIK-1 is calibrated with the capsule facing upward (0-degree incidence). If you aim the mic directly at the speaker (90-degree incidence), the high-frequency response is wrong and you will EQ based on incorrect data. Point it at the ceiling for room measurements (omnidirectional pickup), or use the 90-degree calibration file if you intentionally aim it at the speaker for near-field measurements.
+
+**Mistake 2: Audio output going through the wrong device.** On macOS and Windows, the system audio output often defaults to the UMIK-1 (because it also has a tiny speaker output). Make sure REW's output device is set to your DAC/amp chain, not to the UMIK-1. If you hear the sweep coming from your UMIK-1 instead of your speakers, the output routing is wrong.
+
+**Mistake 3: Leaving the room noisy during measurement.** The UMIK-1 picks up everything. A refrigerator compressor running in the next room adds a 100-120 Hz hum to your measurement. An HVAC system adds broadband noise that raises the noise floor and masks low-level details in the response. Turn off everything you can for the duration of the measurement (5-10 minutes). The improvement in measurement quality is dramatic.
+
+**Mistake 4: Not loading the calibration file.** Without the calibration file, REW does not compensate for the mic's inherent response deviations. The UMIK-1 is quite flat, but it has a 2-3 dB rise above 10 kHz that will make your system appear to have excess treble if uncorrected. Always verify the calibration file is loaded before measuring.
+
 ---
 
 ## 2. Frequency Response Measurement
@@ -142,7 +152,65 @@ The raw measurement at your listening position will look like a roller coaster. 
 - **Treble roll-off**: At the listening position, the treble naturally rolls off above 8-10 kHz due to room absorption and off-axis speaker behavior. A gentle roll-off is normal and expected.
 - **Overall trend**: The response should generally follow a downward slope from bass to treble when measured at the listening position (more on this in section 8 on target curves).
 
-### 2.5 Multiple Measurement Positions
+### 2.5 Step-by-Step REW Measurement Procedure (Every Click)
+
+Here is the exact procedure, in exhaustive detail, for taking a frequency response measurement in REW. Follow this the first few times until it becomes second nature.
+
+**One-time setup (do this once per measurement session):**
+
+1. Connect your UMIK-1 to your computer via USB. It should appear as a USB audio input device.
+2. Launch REW. If this is your first time, it will ask you to configure audio settings.
+3. Go to **Preferences** (gear icon or Edit → Preferences).
+4. In the **Soundcard** tab:
+   - Set **Output Device** to your system's audio output (the one connected to your amp/speaker system).
+   - Set **Input Device** to "miniDSP UMIK-1."
+   - Leave sample rate at 48000 Hz (default).
+   - Click **Use Main Speaker** for output routing.
+5. In the **Mic/Meter** tab:
+   - Click **Browse** next to "C: weighted calibration file."
+   - Navigate to your UMIK-1's calibration file (a .txt file downloaded from the miniDSP website using your mic's serial number). Select it.
+   - Under "Calibration data," verify the mic sensitivity is loaded (it should show a value around -18 to -25 dBFS/Pa).
+6. Click **OK** to close Preferences.
+7. In the main REW window, switch to the **SPL Meter** tab. Click the play button. You should see the real-time SPL reading moving. If it shows -inf or does not respond, check that the UMIK-1 is recognized and the input device is set correctly.
+
+**Per-measurement procedure:**
+
+1. Place the UMIK-1 at the measurement position. For listening position measurements: on a microphone stand at seated ear height (approximately 90-100 cm), pointed straight up (the UMIK-1 is calibrated for vertical orientation -- the capsule faces up through the top of the mic). For near-field speaker measurements: on a stand at tweeter height, 1 meter from the speaker baffle, on-axis.
+2. Switch to the **Measure** tab (the button with a sine wave and arrow).
+3. In the measurement settings panel:
+   - **Start Freq**: 20 Hz
+   - **End Freq**: 20000 Hz
+   - **Level**: Start at -12 dBFS. You will adjust this.
+   - **Length**: 512k (gives good low-frequency resolution)
+   - **Sweeps**: 1 (increase to 2-3 for noisy environments to improve averaging)
+   - **Timing Reference**: Acoustic (default)
+   - **Output**: Left + Right (for both speakers) or Left / Right (for individual speaker measurement)
+4. Click **Check Levels**. REW will play a brief tone through your speakers and show the input level from the mic. The meter should read between -24 dBFS and -6 dBFS. If it is too low, increase the **Level** setting or increase your system volume. If it is clipping (above -3 dBFS), decrease the level. Target about -12 to -6 dBFS at the microphone.
+5. Ensure the room is quiet. No HVAC, no fans, no conversation.
+6. Click **Start Measuring**. REW plays the logarithmic sweep (you will hear a rising tone from very low to very high, taking about 5 seconds). Do not move, speak, or touch anything during the sweep.
+7. When the sweep finishes, the measurement appears as a new trace in the SPL graph. REW automatically names it with the date and time.
+8. **Rename the measurement**: Right-click the trace in the measurement list and rename it descriptively: "Living Room - LP Center - Both Speakers - 2026-04-10."
+9. Repeat for additional measurement positions (move the mic 15 cm in each direction for the cluster-average approach).
+
+### 2.6 Interpreting Specific Measurement Artifacts
+
+Once you have measurements, you need to know what the problems look like:
+
+**Comb filtering from reflections:** In the frequency response, you see a regular series of peaks and dips, evenly spaced on a linear frequency axis. The spacing tells you the time delay of the reflection:
+
+```
+Spacing (Hz) = 1 / delay (seconds)
+```
+
+If you see peaks and dips every 200 Hz, that is a reflection with a 5 ms delay, which corresponds to a path-length difference of about 1.7 meters (sound travels 0.343 meters per millisecond). Look for a reflective surface that creates a 1.7-meter longer path than the direct sound. That is your first reflection point -- treat it with an absorption panel.
+
+**Port noise visible in the distortion plot:** If your speaker has a bass reflex port, check the distortion (THD) measurement around the port tuning frequency (typically 40-60 Hz). A well-designed port shows clean distortion numbers (under 3% THD). A poorly designed port -- too narrow, too short, or with sharp internal edges -- shows a sudden spike in distortion (5-10%+) at frequencies where the air velocity in the port is highest (just above the tuning frequency at high SPL). This is "port chuffing." You can verify it by holding your hand near the port while playing a bass tone: if you feel turbulent, uneven air pulses (rather than smooth airflow), the port is chuffing. The fix is a larger-diameter port or flared port ends, as discussed in Chapter 15.
+
+**Crossover misalignment visible in phase:** In a near-field measurement of a two-way speaker, switch on the phase display (click "Show Phase" in the REW graph toolbar). At the crossover frequency, the phase should transition smoothly. If you see a sudden 90-180 degree jump accompanied by a dip in magnitude, the woofer and tweeter are partially canceling each other. This means either: (a) one driver is wired in reverse polarity (check wiring), (b) the crossover topology needs a polarity inversion on one driver, or (c) the acoustic offset between drivers is not compensated. In an active system, fix it with a polarity flip or delay adjustment in CamillaDSP. In a passive system, try reversing the tweeter's wiring polarity (swap + and -) and re-measure.
+
+**Cabinet resonance visible in waterfall:** In a 1-meter near-field waterfall plot, look for a narrow ridge that persists for 100+ ms in the 200-600 Hz range. This is usually a cabinet panel vibrating at its natural resonant frequency. Knock on each panel of the cabinet with your knuckle -- the one that produces the clearest "note" is the problem panel. Add internal bracing (a wooden brace glued to the resonating panel) and re-measure.
+
+### 2.7 Multiple Measurement Positions
 
 A single measurement at one position captures the room interaction at that exact point. Move the mic six inches and the bass response changes significantly (room modes are position-dependent).
 
@@ -263,7 +331,26 @@ REW shows the phase on the same graph as the frequency response (click "Show Pha
 
 For our active crossover setup (CamillaDSP from Chapter 29), phase alignment is straightforward: you design a Linkwitz-Riley crossover (which sums flat) and add delay to the closer driver to align acoustic centers. Measure, verify, adjust.
 
-### 6.3 Phase in Room Measurements
+### 6.3 Using Phase to Verify Crossover Alignment (Active Systems)
+
+For the active crossover system from Chapters 29 and 38, phase measurement at 1 meter is your primary tool for verifying that the woofer and tweeter are properly aligned. Here is the procedure:
+
+1. **Measure the woofer alone** (mute the tweeter channel in CamillaDSP). Take a 1-meter on-axis measurement. Note the phase at the crossover frequency (e.g., 2.5 kHz).
+
+2. **Measure the tweeter alone** (mute the woofer channel). Same position. Note the phase at 2.5 kHz.
+
+3. **Compare:** For a Linkwitz-Riley 4th-order crossover, the two outputs should be in-phase (0 degrees relative) at the crossover frequency when the drivers are time-aligned. If you see a 90-180 degree offset, adjust the tweeter delay in CamillaDSP:
+   - Increase the delay by 0.05 ms increments.
+   - After each adjustment, measure the tweeter phase again.
+   - When the phases match at the crossover frequency, you are aligned.
+
+4. **Verify with both drivers playing:** Measure the combined response. At the crossover frequency, you should see a smooth transition with no dip. A dip at crossover of 3+ dB after phase alignment usually means one driver's polarity needs to be inverted (swap + and - in CamillaDSP or at the speaker terminal).
+
+5. **Check the summed phase:** The combined measurement's phase should transition smoothly through the crossover region without abrupt jumps. A smooth phase transition correlates with accurate transient reproduction -- the system responds to a step input as a single coherent source rather than two out-of-sync drivers fighting each other.
+
+> **What happens if... you skip time alignment in an active system?** The tweeter and woofer are physically offset (typically 2-5 cm). Without delay compensation, the tweeter's sound arrives at the listener 0.06-0.15 ms before the woofer's. This creates a partial cancellation at the crossover frequency (because the two signals are not perfectly in-phase when they arrive at your ear). You hear this as: (a) a dip in the frequency response at crossover, (b) a subtle "disconnect" between the lower and upper frequencies -- the sound lacks coherence and precision, especially on transient-rich material like plucked strings or snare drum hits. Adding 0.1 ms of delay to the tweeter channel fixes this completely and is one of the biggest advantages of active over passive crossover systems.
+
+### 6.4 Phase in Room Measurements
 
 At the listening position, the phase plot is often useless because room reflections add random phase contributions at every frequency. Do not try to EQ based on phase measured at the listening position. Phase alignment should be done with near-field measurements (1 meter, on-axis) where the direct sound dominates.
 
@@ -301,7 +388,38 @@ When comparing two configurations (before and after EQ, two different speaker po
 - Which has a wider, more convincing stereo image?
 - Which can I listen to for longer without fatigue?
 
-### 7.3 The Difference Between "Accurate" and "Preferred"
+### 7.3 Test Tracks for Subjective Evaluation
+
+Building a personal library of evaluation tracks is one of the most valuable investments you can make. These should be recordings you know intimately -- songs you have heard hundreds of times on many different systems, so you instantly notice when something is different.
+
+Here is a curated list organized by what each track reveals:
+
+**Bass quality and extension:**
+- Massive Attack - "Angel" (deep, sustained bass notes; reveals port chuffing and room mode problems)
+- Billie Eilish - "Bad Guy" (sub-bass impact; reveals whether your system actually reaches 30 Hz or just pretends to)
+- Hans Zimmer - "Why So Serious?" (organ pedal tones at 25-30 Hz; only full-range systems reproduce these)
+
+**Midrange clarity and vocal accuracy:**
+- Eva Cassidy - "Songbird" (solo female voice, extremely revealing of sibilance and nasality)
+- Leonard Cohen - "You Want It Darker" (deep male voice, reveals midrange thinness or coloration)
+- Norah Jones - "Don't Know Why" (voice + piano, reveals comb filtering that smears the piano's attack)
+
+**Stereo imaging and soundstage:**
+- Pink Floyd - "Money" (instruments placed specifically across the stereo field)
+- Steely Dan - "Aja" (studio recording with precise instrument placement and layered depth)
+- Eagles - "Hotel California" (Hell Freezes Over) (live audience ambiance should surround, instruments should be pinpoint)
+
+**Transient accuracy and dynamics:**
+- Nils Lofgren - "Keith Don't Go" (acoustic guitar transients, razor sharp in a good system)
+- Beethoven Symphony No. 7, 2nd movement (pianissimo to fortissimo transitions)
+- Dire Straits - "Money for Nothing" (opening guitar riff should be visceral and punchy)
+
+**Fatigue and long-term listening comfort:**
+- Any album you love, played for 45+ minutes. If you want to turn it off after 20 minutes, the treble balance is wrong.
+
+Save these as a playlist on your streaming service. Label it "System Evaluation." Use the same playlist every time you make a change to the system, so you can compare the effect of each change against a consistent reference.
+
+### 7.4 The Difference Between "Accurate" and "Preferred"
 
 Research from Harman International (the company behind JBL, AKG, Mark Levinson, and others) has consistently shown that most listeners do not prefer a perfectly flat in-room response. They prefer a response that:
 
@@ -350,6 +468,34 @@ For practical purposes, the Harman target and B&K curve are similar enough that 
 A "house curve" is simply your personal preference target. Maybe you like more bass than the Harman target suggests. Maybe you are treble-sensitive and prefer a steeper roll-off above 5 kHz. Maybe you listen to a lot of bass-heavy electronic music and want +8 dB at 50 Hz.
 
 This is entirely valid. The purpose of measurement is to give you control, not to dictate taste. Use the Harman target as a starting point, listen, and adjust until you are happy.
+
+### 8.4 Genre-Specific EQ Considerations
+
+Different music genres have different spectral balance expectations. While a well-tuned system should sound good with everything, you may want genre-specific CamillaDSP presets for different listening sessions:
+
+**Classical and jazz:**
+- These genres have the widest dynamic range. Keep compression to a minimum (or off entirely).
+- Bass should be accurate, not boosted. Classical bass comes from double basses, cellos, and tympani -- they have texture and pitch that gets lost in a bass-heavy curve. Try the Harman target as-is, or even reduce the bass shelf by 1-2 dB.
+- Treble should be natural and extended. String instruments and cymbals contain energy up to 15-16 kHz. Avoid aggressive treble roll-off.
+- Midrange clarity is paramount -- this is where the human voice and most instruments live. Any midrange peaks from room reflections should be corrected carefully.
+
+**Rock and pop:**
+- The Harman target works well as a default. These genres are mixed to sound good on a wide range of systems.
+- If your system sounds thin on rock, a 2-3 dB boost at 80-120 Hz adds body to the bass guitar and kick drum without muddying things.
+- A slight presence boost at 2-4 kHz (1-2 dB) adds bite to electric guitars and clarity to vocals, but too much makes the sound fatiguing on bright recordings.
+
+**Electronic / EDM / hip-hop:**
+- These genres are bass-heavy by design. Boost the Harman target's bass shelf by an additional 2-4 dB if you want the full club experience.
+- Sub-bass (20-50 Hz) matters here more than in any other genre. If your speakers roll off above 40 Hz, a subwoofer is not optional -- it is essential. The entire emotional impact of a bass drop is in the sub-40 Hz range.
+- A slight dip at 200-300 Hz (the "muddiness" zone) keeps the low end tight and defined even with the extra bass boost.
+- Treble can tolerate a steeper roll-off above 10 kHz -- electronic music has less content up there compared to acoustic music.
+
+**Vocal-forward music (singer-songwriter, podcasts, audiobooks):**
+- Presence range (2-5 kHz) is critical. Any tonal dip here makes voices sound recessed and hard to follow.
+- A gentle 1-2 dB boost centered at 3 kHz can improve vocal clarity without making the system sound bright.
+- Bass content is minimal, so an aggressive bass curve is wasted. The Harman target or even a slightly reduced bass shelf works well.
+
+You can save each of these as a named CamillaDSP configuration file and switch between them via the web interface. Some builders map physical buttons (GPIO on the Pi, Chapter 30) to preset selection, so switching from "Classical" to "Party" mode is a single button press.
 
 **How to define your house curve:**
 1. Measure your system's in-room response at the listening position
@@ -400,7 +546,72 @@ Here is the practical workflow for system EQ using REW and CamillaDSP:
 
 **Step 8: Listen.** Does it sound better? If yes, great. If something sounds wrong despite measuring well, trust your ears and adjust. The measurement is a guide, not a master.
 
-### 9.3 Parametric EQ vs FIR Convolution
+### 9.3 Practical EQ Examples for Common Problems
+
+Here are specific filter recipes for problems you will encounter regularly:
+
+**Problem: Room mode peak at 68 Hz (measured as a 12 dB peak, consistent across measurement positions)**
+
+```yaml
+# CamillaDSP parametric EQ filter
+room_mode_68:
+  type: Biquad
+  parameters:
+    type: Peaking
+    freq: 68
+    gain: -10.0    # Not the full -12 dB — leave 2 dB for natural room behavior
+    q: 8.0         # Narrow Q targets just the mode, not the surrounding bass
+```
+
+Why not cut the full 12 dB? Because the measurement shows the peak at one specific position. At other positions, the peak might only be 8-10 dB. Cutting 10 dB brings the peak close to the surrounding level without overcorrecting at adjacent positions.
+
+**Problem: Broad brightness -- treble is 3 dB too loud above 5 kHz compared to the Harman target**
+
+```yaml
+treble_tilt:
+  type: Biquad
+  parameters:
+    type: Highshelf
+    freq: 5000
+    gain: -3.0
+    q: 0.7         # Gentle slope, not an abrupt cutoff
+```
+
+**Problem: The crossover dip -- a 4 dB notch at 2.5 kHz where the woofer and tweeter hand off**
+
+First, check if this is a measurement artifact or a real problem. Measure at 1 meter, on-axis. If the dip is present there, it is a crossover alignment issue. If it only appears at the listening position, it may be a room reflection cancellation -- do not EQ it.
+
+If it is a real crossover issue in a passive system:
+```yaml
+# Gentle fill — this is one of the few cases where a boost is justified,
+# because it is a speaker response issue, not a room null
+crossover_fill:
+  type: Biquad
+  parameters:
+    type: Peaking
+    freq: 2500
+    gain: 2.5       # Partial fill, not full correction
+    q: 2.0          # Moderate width
+```
+
+If it is a real crossover issue in an active system, the better fix is adjusting the crossover: check driver polarity, verify the crossover frequency is correct, and adjust the time alignment delay. EQ is a bandage; fixing the crossover is the cure.
+
+**Problem: The room sounds boxy -- there is a 5 dB bump centered around 300 Hz**
+
+This is almost always a first-reflection issue or a standing wave in the width dimension. Check: is there a bare wall at the first reflection point? If so, install an absorption panel before reaching for EQ.
+
+If treatment is already in place and the bump persists:
+```yaml
+box_reduction:
+  type: Biquad
+  parameters:
+    type: Peaking
+    freq: 300
+    gain: -3.0       # Conservative cut
+    q: 1.5           # Moderate width catches the broad bump
+```
+
+### 9.4 Parametric EQ vs FIR Convolution
 
 CamillaDSP supports both:
 
@@ -457,7 +668,32 @@ For most home hi-fi use, parametric EQ is sufficient and simpler. FIR convolutio
 
 11. **Listen**: A/B compare the corrected system against the uncorrected system (save both CamillaDSP configs). Level-match and compare.
 
-### 10.3 Documenting Your Results
+### 10.3 Interpreting Your Results: What "Good" Looks Like
+
+After completing the measurement session, compare your results against these benchmarks:
+
+**Frequency response (in-room, at listening position, 1/6 octave smoothed):**
+- **Excellent:** Within ±4 dB of your target curve from 40 Hz to 16 kHz (after EQ). Bass below 40 Hz may roll off depending on speaker and room size.
+- **Good:** Within ±6 dB of target from 50 Hz to 14 kHz. A few narrow peaks or dips are acceptable if they are in the bass (room modes) or above 10 kHz (room/speaker interaction).
+- **Needs work:** More than ±8 dB deviation. Usually indicates untreated room modes, severe reflection issues, or a speaker/crossover problem.
+
+**Waterfall plot (300 ms window):**
+- **Excellent:** All frequencies decay to -20 dB within 150 ms. No persistent ridges.
+- **Good:** Midrange and treble decay within 150 ms. Bass modes decay within 250 ms.
+- **Needs work:** One or more bass frequencies persist above -20 dB at 300 ms. This is classic room mode ringing -- add bass traps or adjust speaker/listener position.
+
+**RT60:**
+- **Excellent (home hi-fi):** 0.3-0.4 seconds. The room sounds controlled but alive.
+- **Good:** 0.4-0.6 seconds. Slightly lively but still enjoyable for music.
+- **Needs work:** Above 0.7 seconds. The room is too reverberant for critical listening. Add absorption panels.
+- **Over-treated:** Below 0.2 seconds. The room feels dead and claustrophobic. Remove some absorption, especially from the rear wall.
+
+**Distortion (at 85 dB SPL, 1 meter):**
+- **Excellent:** THD under 1% from 80 Hz to 20 kHz. Under 3% from 50-80 Hz.
+- **Good:** THD under 2% from 100 Hz to 20 kHz. Under 5% from 50-100 Hz.
+- **Needs work:** THD above 5% at any frequency in the speaker's intended operating range. Investigate: port issues, driver problems, or a crossover design that asks too much of a driver near its limits.
+
+### 10.4 Documenting Your Results
 
 Save all REW measurements with descriptive names:
 - `Living Room - Left Speaker - 1m On-Axis - 2026-04-10`
@@ -476,6 +712,23 @@ The measurement workflow in this chapter is the quality control process for your
 - **Amplifier match**: Does the impedance curve confirm compatibility?
 - **Room treatment**: Did the bass traps reduce mode ringing? Did the panels clean up reflections?
 - **DSP correction**: Is the final in-room response close to your target curve?
+
+**The measurement workflow summarized:**
+
+```
+1. Set up mic with calibration file loaded
+2. Near-field (1m): verify speaker response matches simulation
+3. Impedance: verify amp compatibility
+4. In-room (listening position): measure at 5 positions, average
+5. Compare to target curve (Harman or house curve)
+6. Design EQ: cut peaks, tilt to target, do NOT boost dips
+7. Implement in CamillaDSP
+8. Re-measure with EQ active
+9. Listen, adjust, repeat until satisfied
+10. Save all measurements as your baseline
+```
+
+> **What happens if... you skip measurement and just EQ by ear?** You can get decent results, but you will likely over-boost bass (our ears are less sensitive to bass at low volumes, per the Fletcher-Munson curves, so we tend to add too much) and under-correct room modes (which are position-dependent and hard to evaluate by ear alone). Measurement takes 30-60 minutes and removes the guesswork from steps 1-8. EQ by ear is fine for the final touch (step 9), but the foundation should be measurement-based.
 
 If all four answers are yes, you have a system that is not just assembled but *tuned*. The difference between an assembled system and a tuned system is the difference between a race car with the engine bolted in and a race car that has been dyno-tuned and aligned. Same hardware, dramatically different performance.
 

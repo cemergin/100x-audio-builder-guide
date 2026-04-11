@@ -575,7 +575,88 @@ This usually stems from emotional attachment. "I spent 40 hours on these speaker
 
 The fix: always reality-check your price against the market. If comparable products sell for $800, and your cost is $600, pricing at $900-1,000 is justified by the handmade premium. Pricing at $2,500 is not.
 
-### 11.4 Not Adjusting Prices Over Time
+### 11.4 The Pricing Calculator: A Methodology You Can Replicate
+
+Here is a step-by-step pricing calculator you can use for any product. Copy this into a spreadsheet and fill in the numbers for each product you build.
+
+**Step 1: Calculate BOM cost**
+- List every component (use the format from sections 2-4 of this chapter)
+- Include consumables (solder, flux, sandpaper, heat-shrink)
+- Include packaging (box, foam, tape, documentation)
+- Sum: this is your **Materials Cost**
+
+**Step 2: Calculate labor cost**
+- Time each phase of the build (or estimate based on similar builds)
+- Multiply total hours by your labor rate ($25-35/hour for starting out)
+- Sum: this is your **Labor Cost**
+
+**Step 3: Calculate overhead**
+- Amortized tool cost per unit (section 6.2)
+- Amortized workspace cost per unit (monthly rent / units per month)
+- Insurance amortized per unit (annual premium / units per year)
+- Sum: this is your **Overhead Cost**
+
+**Step 4: Calculate total cost**
+```
+Total Cost = Materials + Labor + Overhead
+```
+
+**Step 5: Determine your selling price**
+- Calculate cost-plus floor: Total Cost × 1.30 (30% markup minimum)
+- Research market price range for comparable products
+- Position your price within the range based on quality and brand
+
+**Step 6: Calculate net margin after fees**
+```
+Marketplace fee = Selling Price × 0.08 (approximate for Reverb)
+Shipping cost = $5-15 (depending on product size and weight)
+Net revenue = Selling Price - Marketplace fee - Shipping cost
+Net profit = Net revenue - Total Cost
+Net margin = Net profit / Selling Price
+```
+
+**Step 7: Sanity check**
+- Is net margin above 20%? If not, reduce costs or increase price.
+- Is net profit per unit above $30? If not, the product may not be worth your time at low volumes.
+- Divide net profit by labor hours: is your effective hourly rate above $20? If not, you are undercharging.
+
+**Example: the overdrive pedal through the calculator:**
+
+| Step | Value |
+|------|-------|
+| Materials (BOM at smart-hobby prices) | $18.30 |
+| Labor (3 hours × $30/hr) | $90.00 |
+| Overhead (tools + workspace + insurance) | $6.50 |
+| **Total Cost** | **$114.80** |
+| Cost-plus floor (1.30x) | $149.24 |
+| Market range (Reverb search) | $130-200 |
+| **Selling price (chosen)** | **$175.00** |
+| Reverb fee (8%) | -$14.00 |
+| Shipping (baked into price) | -$8.00 |
+| Net revenue | $153.00 |
+| **Net profit** | **$38.20** |
+| **Net margin** | **21.8%** |
+| Effective hourly rate | $12.73/hr |
+
+That effective hourly rate looks low. It improves dramatically with batch production (3 hours drops to 1.5 hours per unit): net profit stays the same but your effective rate doubles to $25.47/hr. And at batch BOM prices ($13 instead of $18.30), your net profit jumps to $43.50 per unit at $29/hr.
+
+This is why Chapter 43 (Scaling Up) is not optional -- it is where the economics actually start working.
+
+### 11.5 The Psychology of Pricing
+
+Pricing is not purely rational. The buyer's perception of value is shaped by psychological factors that you can use honestly and ethically:
+
+**Anchor pricing:** When you list a pedal for $175, the buyer mentally compares it to other pedals they have seen. If the first thing they see in your listing is "comparable to boutique pedals selling for $250+," the $175 feels like a good deal. This is anchoring -- the $250 number sets the reference point. Use it honestly: if your pedal genuinely compares to $250 pedals in build quality and sound, say so.
+
+**Price endings:** $175 feels meaningfully cheaper than $180, even though the difference is negligible. Prices ending in 5 or 9 are perceived as value-oriented. Prices ending in 0 are perceived as round and premium. $200 feels premium. $199 feels like a deal. Choose the ending that matches your positioning.
+
+**Bundle pricing:** If you sell three pedal models, offer a "pedalboard bundle" of all three at 10-15% off the individual prices. The buyer perceives a deal, you move more inventory, and the total sale value is higher than a single pedal. For speakers + amp combinations, bundles are even more powerful -- the buyer saves money and gets a pre-matched system.
+
+**The decoy effect:** If you offer two pedals -- a basic model at $125 and a premium model at $200 -- adding a mid-range model at $165 makes the premium model look more reasonable by comparison. The middle option often becomes the best seller because it seems like the "sensible choice" between extremes.
+
+**Perceived value of presentation:** A pedal in a plain cardboard box sells for less than the same pedal in a fitted box with a foam insert and a printed card. The $2 packaging upgrade can justify a $10-15 price increase because it signals quality and care. This is not deception -- it is communication.
+
+### 11.6 Not Adjusting Prices Over Time
 
 As you get faster (3 hours becomes 2 hours per pedal), as you buy in bulk (BOM drops from $18 to $13), and as your brand grows (you can charge more), your pricing should evolve. Review and adjust prices quarterly. Many builders set a price on day one and never touch it, leaving money on the table for years.
 
@@ -601,6 +682,28 @@ As you get faster (3 hours becomes 2 hours per pedal), as you buy in bulk (BOM d
 - Materials are the minority of your costs. Labor and overhead are the majority.
 - Pricing is not set-and-forget. Review quarterly as your costs and efficiency change.
 - Some products have better margins than others. Let the math guide which products to focus on.
+
+### Quick Reference: Revenue per Hour by Product Type
+
+This table shows the effective revenue per hour of labor for each product category at typical prices and build times. Use it to decide where to focus your effort:
+
+| Product | Typical Sell Price | BOM | Labor Hours | Overhead + Fees | Net Profit | Profit/Hour |
+|---------|-------------------|-----|-------------|----------------|------------|-------------|
+| Overdrive pedal (single) | $175 | $18 | 3.0 | $22 | $45 | $15/hr |
+| Overdrive pedal (batch of 10) | $175 | $14 | 1.5 | $20 | $51 | $34/hr |
+| Bookshelf speakers (pair) | $800 | $200 | 16 | $90 | $110 | $6.88/hr |
+| Bookshelf speakers (batch of 3 pairs) | $800 | $160 | 12 | $85 | $155 | $12.92/hr |
+| Custom speakers (premium drivers, hardwood) | $2,000 | $450 | 25 | $175 | $775 | $31/hr |
+| LM3886 chip amp | $500 | $200 | 10 | $55 | $135 | $13.50/hr |
+| Tube amp (15W combo) | $1,200 | $400 | 20 | $115 | $285 | $14.25/hr |
+| PA sound service (per event) | $300-500 | $0* | 6** | $30 | $270-470 | $45-78/hr |
+
+*PA service uses equipment you already own. BOM is zero (amortized into the system cost).
+**Includes setup, operation, and breakdown.
+
+Notice that PA sound services and custom premium speakers have the highest profit per hour. This is why many builders eventually evolve from "person who sells pedals" to "person who designs and installs custom audio systems." The economics improve dramatically as you sell expertise rather than just hardware.
+
+> **What happens if... you undercharge for your first few sales to "build a reputation"?** This is the most common trap in the DIY audio community. You sell five pedals at $80 each ($400 total revenue), losing money on each one because your total cost is $110 per unit. You now have five customers who expect $80 pedals. When you raise the price to $175 (where you actually make money), they feel betrayed — "it was $80 last month!" You have anchored your brand at a price point that is unsustainable. Instead: charge the real price from day one. If nobody buys at $175, the problem is marketing, not pricing. Better to sell zero units at the right price (and fix your marketing) than to sell ten units at the wrong price (and dig a hole you cannot climb out of).
 
 ---
 

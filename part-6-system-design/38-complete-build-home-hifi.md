@@ -681,7 +681,84 @@ Total number of components the signal passed through: approximately 30 active co
 | Clicks or dropouts | Pi CPU overloaded, buffer too small | Increase CamillaDSP buffer size; close unnecessary Pi services |
 | Distortion at moderate volume | Amp clipping due to too much DSP gain | Reduce CamillaDSP output level; check gain structure |
 
-### 13.2 The Diagnostic Approach
+### 13.2 Signal Path Troubleshooting: Hum, Noise, and Channel Imbalance
+
+These three problems are so common in multi-component systems that they deserve detailed coverage.
+
+**Diagnosing hum (50/60 Hz and harmonics):**
+
+Hum is almost always a grounding problem. Here is the systematic isolation procedure:
+
+1. **Disconnect all audio cables from the amplifier inputs.** Leave the amp powered on with speakers connected. Put your ear to the woofer. If the hum is gone, the problem is upstream (source, DAC, cables, or ground loop). If the hum persists with nothing connected, it is internal to the amp (power supply ripple, poor star grounding in the amp, or a nearby magnetic source like a transformer too close to signal traces).
+
+2. **Reconnect cables one at a time.** Connect only the left channel interconnect from the DAC to the amp. Does hum appear? If yes, that cable or the connection between DAC and amp is creating a ground loop. Try the other channel. If both hum, the ground loop is between the Pi/DAC unit and the amp.
+
+3. **Try a ground lift.** Disconnect the Pi's USB connection to the audio interface. If hum disappears, the USB ground is creating a loop. Insert a USB ground loop isolator ($10-15 on Amazon) in the USB chain.
+
+4. **Try a different outlet.** Plug the Pi and the amp into the exact same power strip. If they are on different circuits, the ground potential difference between circuits can drive hum current through the audio cables.
+
+5. **Physically separate the power transformer from signal cables.** The toroidal transformer in the LM3886 power supply radiates a magnetic field. If an RCA cable runs within 10 cm of the transformer, it can pick up 50/60 Hz hum through magnetic coupling. Route signal cables away from transformers. If the transformer is in the same chassis as the amp board, orient the toroid so its axis is perpendicular to the PCB traces.
+
+**Diagnosing noise (hiss, buzz, crackle):**
+
+- **Hiss (constant, white-noise-like):** This is thermal noise from active components. Some hiss is normal -- put your ear 5 cm from the tweeter. If you can hear it from the listening position, the gain structure is wrong (too much gain in the amp relative to the source level). Reduce the amp's gain (lower the feedback resistor ratio) or increase the CamillaDSP output level and reduce the amp's input sensitivity.
+
+- **Buzz (harmonics of 50/60 Hz, sounds "raspy"):** Distinct from hum. Buzz contains higher harmonics and sounds rougher. Common cause: a dimmer switch on the same electrical circuit. Dimmers chop the AC waveform, generating high-frequency noise that radiates into audio cables. Move the audio system to a different circuit, or replace the dimmer with a standard switch.
+
+- **Crackle or intermittent noise:** A failing solder joint, a dirty potentiometer, or a bad cable. Wiggle each cable connection while listening. If the crackle corresponds to a cable movement, replace that cable. If it corresponds to touching the amp or a connector, reflow the solder joints at that connection. Clean potentiometers with DeoxIT D5.
+
+**Diagnosing channel imbalance:**
+
+- Play a mono test tone through both speakers. Stand equidistant between them. If one side is louder, either: (a) the CamillaDSP channel levels are mismatched, (b) one amp channel has different gain, (c) one speaker's driver is wired out of phase (which causes partial cancellation and sounds "quieter" and "thin" on that side), or (d) one speaker has a different crossover or driver sensitivity.
+- Measure each channel independently at 1 meter with the measurement mic. The SPL should match within 1 dB. If one channel is 3+ dB lower, check for a wiring error or a failed component in that channel's signal path.
+
+### 13.3 Listening Test Procedure with Specific Test Tracks
+
+Beyond the evaluation playlist in section 11.6, here is a rigorous test procedure you can run after any system change (new EQ settings, new treatment, a component swap):
+
+**Track 1: "Limit to Your Love" by James Blake** (bass test)
+- The sub-bass drops in this track extend below 30 Hz. If your system reproduces them, you should feel a physical vibration in your chest and in the couch. If you hear distortion, buzzing, or rattling during the bass notes, something is resonating (a loose panel, a rattling object on a shelf, or an overloaded woofer). If you hear nothing below 50 Hz, your system's bass extension does not reach the sub-bass range -- consider a subwoofer.
+
+**Track 2: "Hotel California" (Hell Freezes Over, live version) by The Eagles** (imaging and space)
+- The opening has audience applause, spatially wide. The guitar enters from a specific position in the stereo field. Close your eyes: can you point to the guitar? Does the applause surround you, or does it collapse into the speakers? Wide, enveloping applause with a pinpoint guitar image means your treatment and speaker placement are working.
+
+**Track 3: "Aja" by Steely Dan** (midrange clarity and detail)
+- This recording is a reference for engineering quality. Listen for the texture of the drum kit, the separation between instruments, and the clarity of the backing vocals. If instruments blur together or the drums sound flat, check your midrange -- room reflections or a crossover issue may be smearing the detail.
+
+**Track 4: "Why So Serious?" by Hans Zimmer (The Dark Knight soundtrack)** (dynamics and scale)
+- This track goes from near-silence to full orchestral fortissimo. At moderate listening levels, the quiet passages should be clear and atmospheric, not lost in system noise. The loud passages should be powerful and controlled, not compressed or distorted. If the quiet parts are inaudible, your system noise floor is too high. If the loud parts distort, your headroom is insufficient.
+
+**Track 5: "Nils Lofgren - Keith Don't Go"** (transient accuracy)
+- The acoustic guitar picking in this live recording has razor-sharp transients. Each string pluck should sound crisp and immediate, not soft or rounded. If transients are blunted, check your amplifier's damping factor (Chapter 35) and your tweeter alignment (delay settings in CamillaDSP).
+
+### 13.4 System Cost Breakdown
+
+Here is the complete bill of materials for the active crossover home hi-fi system, referencing every build chapter:
+
+| Component | Build Chapter | Estimated Cost |
+|-----------|---------------|---------------|
+| Raspberry Pi 4 + case + power supply | Ch 28 | $65-85 |
+| DAC HAT (PCM5122 or ES9038Q2M) | Ch 28 | $30-80 |
+| USB Audio Interface (Behringer UMC404HD) | Ch 38 | $100 |
+| CamillaDSP (software, free) | Ch 29 | $0 |
+| LM3886 Gainclone boards x2 (4 channels) | Ch 23 | $60-80 (BOM per board: $30-40) |
+| Toroidal transformer + power supply components | Ch 23 | $60-90 |
+| Amp chassis / enclosure | Ch 33 | $30-50 |
+| 2-way Bookshelf Speakers x2 (modified for active) | Ch 16 | $200-300 (pair, with drivers + cabinet materials) |
+| RCA interconnect cables (4 pairs, DIY) | Ch 38 | $40-60 |
+| Speaker cables (4 pairs, 14 AWG) | Ch 38 | $20-30 |
+| Measurement microphone (miniDSP UMIK-1) | Ch 37 | $80 |
+| Acoustic treatment (4 bass traps + 6 panels) | Ch 36 | $300-500 |
+| Surge-protected power strip | Ch 38 | $30-40 |
+| **Total system cost** | | **$1,015-1,395** |
+
+For the simpler passive crossover path (one amp board, no USB interface, speakers with passive crossover), subtract about $200-250, bringing the total to $815-1,145.
+
+For comparison, a commercial active speaker system with similar performance (say, a pair of Genelec 8330A with GLM room correction kit) runs about $2,500-3,000. A passive system with comparable sound quality (KEF R3 Meta speakers + a Rotel RA-1572 integrated amp) runs about $3,500-4,000 before room treatment.
+
+Your DIY system costs less, and because you measured, treated the room, and applied DSP correction, it likely outperforms both commercial options in your specific room.
+
+### 13.5 The Diagnostic Approach
 
 When something sounds wrong, isolate the problem systematically (as we practiced in Chapter 34):
 
@@ -692,7 +769,47 @@ When something sounds wrong, isolate the problem systematically (as we practiced
 
 ---
 
-## 14. Summary
+## 14. Maintenance and Long-Term Care
+
+### 14.1 Routine Maintenance Schedule
+
+Your home hi-fi system is not a set-and-forget appliance. Here is a maintenance schedule that keeps it performing at its best:
+
+**Monthly:**
+- Dust the speaker drivers with a soft, dry microfiber cloth. Pay special attention to the tweeters -- dust on a dome tweeter does not damage it, but visible dust looks sloppy if you have guests.
+- Check that all speaker cables are secure in their terminals. A loose banana plug develops resistance over time from oxidation at the contact point.
+- Verify the Pi is running the latest version of your audio distribution (moOde/Volumio) and CamillaDSP. Security updates matter -- the Pi is a network-connected device.
+
+**Quarterly:**
+- Re-measure the system's frequency response at the listening position using REW. Compare to your saved baseline. If the response has shifted, investigate: did furniture move? Did a driver degrade? Did a crossover component drift?
+- Clean the RCA and TRS connectors with DeoxIT D5 (one spray on a cotton swab, wipe each connector). This removes oxidation that causes subtle contact resistance and intermittent noise.
+- Check the amp's power supply capacitors visually (if accessible). Bulging caps need replacement. Electrolytic capacitors degrade over 5-10 years, especially in warm environments.
+
+**Annually:**
+- Do a full listening evaluation with your test tracks (section 11.6). Compare your impressions to your notes from last year. If you notice the treble has dulled or the bass has loosened, something has changed -- re-measure and investigate.
+- Check the speaker surrounds (the rubber or foam ring connecting the cone to the frame) for cracking or deterioration. Foam surrounds on some drivers degrade after 10-15 years and need replacement (re-foaming kits cost $15-30).
+- Back up your CamillaDSP configuration file and all REW measurements to cloud storage. If the Pi's SD card fails (and SD cards do fail eventually), you can restore your entire DSP setup in minutes rather than re-measuring and re-configuring from scratch.
+
+### 14.2 When Components Fail
+
+Nothing lasts forever. Here is the typical lifespan of each component and what failure looks like:
+
+| Component | Expected Lifespan | Failure Symptoms |
+|-----------|------------------|-----------------|
+| Raspberry Pi SD card | 2-5 years | Pi fails to boot, CamillaDSP crashes randomly |
+| Electrolytic capacitors (amp power supply) | 7-15 years | Increased hum, reduced bass, amp runs warmer |
+| LM3886 IC | 20+ years | Extremely reliable; failure is rare |
+| Speaker woofer surround (rubber) | 15-25 years | Visible cracking, loose bass, rattling at high excursion |
+| Speaker woofer surround (foam) | 8-15 years | Crumbling foam, air leaks, weak bass |
+| Tweeter | 20+ years (unless abused) | Reduced treble output, distortion at high frequencies |
+| Potentiometers | 5-15 years (depends on use) | Scratchy sound when turning, intermittent crackling |
+| RCA connectors | 15-25 years | Intermittent connection, hum when cable is wiggled |
+
+The most likely component to fail first is the Pi's SD card. Use a high-quality card (SanDisk Extreme or Samsung EVO Plus) and keep a backup image of the card on your computer. If the card fails, flash the backup to a new card and you are running again in 10 minutes.
+
+---
+
+## 15. Summary
 
 You now have a complete, high-fidelity audio system built from components you understand at every level. No black boxes. No mystery components. Every resistor, every capacitor, every line of DSP code is there because you put it there, and you know why.
 

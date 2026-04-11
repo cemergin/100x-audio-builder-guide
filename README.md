@@ -1,10 +1,10 @@
 <!--
   TYPE: index
   TITLE: The 100x Audio Builder Guide
-  CHAPTERS: 44
+  CHAPTERS: 46
   PARTS: 8
   APPENDICES: 3
-  UPDATED: 2026-04-10
+  UPDATED: 2026-04-11
   STRUCTURE: domain-towers-interleaved
   AI_NOTE: Each chapter file contains an HTML comment metadata block with CHAPTER, TITLE, PART, PREREQS, KEY_TOPICS, DIFFICULTY, UPDATED fields. Use these for filtering, prerequisite graphs, and topic search. Files are organized into subdirectories by Part. The guide uses domain towers (self-contained beginner-to-advanced per domain) with interleaved theory-practice within each tower.
 -->
@@ -14,7 +14,7 @@
 
 A comprehensive, opinionated guide for the software engineer who wants to build audio gear — deeply enough to reason about circuits, design custom systems for any use case, and potentially sell their work. Covers guitar pedals, speakers, amplifiers, and digital audio (Raspberry Pi streaming/DSP).
 
-**44 chapters** · **8 Parts** · **3 Appendices** · **10 build projects** · **~$1,100-2,300 in materials**
+**46 chapters** · **8 Parts** · **3 Appendices** · **10 build projects** · **12 coding projects** · **~$1,100-2,300 in materials**
 
 ```
 100x-audio-builder-guide/
@@ -23,7 +23,7 @@ Part 0  — Electronics for Audio People              ← Electricity, component
 Part 1  — Guitar Pedals                             ← Signal theory, gain/clipping, builds: fuzz → overdrive → delay
 Part 2  — Speakers                                  ← Acoustics, Thiele-Small, crossovers, cabinets, builds: bookshelf → towers → PA
 Part 3  — Amplifiers                                ← Amp theory, solid-state, tubes, safety, builds: chip amp → Class D → tube amp
-Part 4  — Digital Audio & The Pi Streamer            ← DAC/ADC, streaming, DSP, builds: streamer → crossover → full hub
+Part 4  — Digital Audio & The Pi Streamer            ← DAC/ADC, streaming, DSP, Fourier/FFT, audio coding, builds: streamer → crossover → full hub
 Part 5  — PCB Design & Professional Builds           ← KiCad, enclosures, finishing, QC
 Part 6  — System Design & Integration               ← Matching, room acoustics, complete system builds
 Part 7  — From Hobby to Hustle                      ← Sourcing, costing, branding, scaling
@@ -148,11 +148,13 @@ The towers converge in Part 6 (System Design), where you combine speakers + amps
 | 25 | [Digital Audio Fundamentals](./part-4-digital-audio/25-digital-audio-fundamentals.md) | Intermediate | ADC/DAC, Nyquist, bit depth, delta-sigma vs R2R, jitter, I2S/S/PDIF/USB, audio formats |
 | 26 | [Streaming Architectures and Protocols](./part-4-digital-audio/26-streaming-architectures-protocols.md) | Intermediate | DLNA, AirPlay, Spotify Connect, Roon, music servers (Volumio, moOde), multi-room concepts |
 | 27 | [DSP Fundamentals for Audio](./part-4-digital-audio/27-dsp-fundamentals.md) | Inter→Adv | FIR vs IIR filters, parametric EQ, compression/limiting, convolution, CamillaDSP |
+| 27a | [The Math of Sound — Fourier Transforms](./part-4-digital-audio/27a-math-of-sound-fourier-transforms.md) | Inter→Adv | DFT, FFT, frequency bins, windowing, spectrograms, real-time spectrum analyzer in Python |
+| 27b | [Audio Programming — DSP Effects in Code](./part-4-digital-audio/27b-audio-programming-dsp-in-code.md) | Inter→Adv | Distortion, delay, reverb, chorus, filters, guitar tuner, convolution reverb, FM synth — all in Python |
 | 28 | [Build: Pi Streamer with Physical Controls](./part-4-digital-audio/28-build-pi-streamer.md) | Intermediate | Pi + DAC HAT, Volumio/moOde, rotary encoder, buttons, OLED display, case, Spotify/AirPlay |
 | 29 | [Build: Active Crossover and Room Correction](./part-4-digital-audio/29-build-active-crossover-room-correction.md) | Advanced | CamillaDSP crossover, UMIK-1 measurement, REW analysis, room correction filters, multi-amp output |
 | 30 | [Build: The Full Control Hub](./part-4-digital-audio/30-build-full-control-hub.md) | Advanced | Multi-room (Snapcast), touchscreen, source switching, physical master controls, system architecture |
 
-> **Tower exit state:** A streaming system from simple DAC to full DSP hub with room correction and multi-room — with physical controls that never fail.
+> **Tower exit state:** You understand digital audio from math to code to hardware. You've built a spectrum analyzer, written audio effects in Python, and constructed a streaming system from simple DAC to full DSP hub — with physical controls that never fail.
 
 ---
 
@@ -217,11 +219,14 @@ These concepts thread through multiple domain towers, building richer understand
 IMPEDANCE     Ch 0 → Ch 5 → Ch 12 → Ch 13 → Ch 18 → Ch 20 → Ch 35
               concept → pedal chain → speaker curves → crossover comp → amp output → transformers → matching
 
-FREQ RESPONSE Ch 0 → Ch 5 → Ch 6 → Ch 11 → Ch 13 → Ch 15 → Ch 18 → Ch 27 → Ch 37
-              concept → effects → tone stacks → drivers → crossovers → simulation → amp bandwidth → DSP EQ → measurement
+FREQ RESPONSE Ch 0 → Ch 5 → Ch 6 → Ch 11 → Ch 13 → Ch 15 → Ch 18 → Ch 27 → Ch 27a → Ch 37
+              concept → effects → tone stacks → drivers → crossovers → simulation → amp bandwidth → DSP EQ → FFT/spectral → measurement
 
-SIGNAL PATH   Ch 5 → Ch 11 → Ch 18 → Ch 25 → Ch 35 → Ch 38/39
-              guitar chain → electrical→acoustic → gain stages → digital pipeline → complete chain → system builds
+SIGNAL PATH   Ch 5 → Ch 11 → Ch 18 → Ch 25 → Ch 27b → Ch 35 → Ch 38/39
+              guitar chain → electrical→acoustic → gain stages → digital pipeline → DSP in code → complete chain → system builds
+
+DSP/CODE      Ch 3 → Ch 27 → Ch 27a → Ch 27b → Ch 29 → Ch 30
+              SPICE sims → filter theory → Fourier math → effects in Python → CamillaDSP → full hub
 
 POWER         Ch 0 → Ch 8 → Ch 17 → Ch 18 → Ch 21 → Ch 23 → Ch 35
               P=VI → 9V pedals → speaker limits → amp ratings → supply design → builds → system budget
@@ -253,4 +258,19 @@ PRO QUALITY   Ch 7 → Ch 16 → Ch 32 → Ch 33 → Ch 34 → Ch 42
 | 29 | Active Crossover + Room Correction | $50-100 | Digital |
 | 30 | Full Control Hub | $100-200 | Digital |
 
-**Total: ~$1,100-2,300 across all projects**
+**Total: ~$1,100-2,300 across all hardware projects**
+
+## Coding Projects
+
+| Ch | Project | What You'll Build |
+|----|---------|-------------------|
+| 27a | Real-Time Spectrum Analyzer | FFT-based audio visualizer with peak hold and octave banding |
+| 27b | Distortion Effect | Hard/soft/asymmetric clipping — the code version of your pedal circuits |
+| 27b | Delay + Reverb | Circular buffer delay and Schroeder reverb from comb + allpass filters |
+| 27b | Tremolo + Chorus | LFO-modulated amplitude and delay — code versions of Ch 10 builds |
+| 27b | Auto-Wah Filter | Sweepable band-pass IIR filter — play guitar through it |
+| 27b | Guitar Tuner | Autocorrelation pitch detection with note name and cents display |
+| 27b | Convolution Reverb | Load a cathedral impulse response, convolve with your guitar signal |
+| 27b | FM Synthesizer | Oscillators + FM + ADSR envelope — playable from your keyboard |
+
+**All coding projects: Python + numpy + sounddevice. Zero cost, maximum dopamine.**

@@ -141,7 +141,34 @@ Reddit's DIY audio communities are highly engaged and technically knowledgeable.
 
 **The approach:** Be a community member first, a seller second. Post build photos with detailed descriptions. Answer questions about your circuit or design. Share your measurement data. When someone asks "where can I buy one?", that's your opening. If you only post ads, you'll get downvoted and possibly banned.
 
-### 2.4 TikTok
+### 2.4 Social Media Posting Strategy: A Practical Schedule
+
+Consistency matters more than volume. Here is a realistic posting schedule for a one-person builder operation:
+
+**Weekly minimum (takes ~2 hours/week total):**
+
+| Day | Platform | Content Type | Time to Create |
+|-----|----------|-------------|----------------|
+| Monday | Instagram | Build progress photo or Reel (15-30 sec build clip) | 15 min |
+| Wednesday | Instagram | Finished product photo or detail shot | 10 min |
+| Friday | YouTube | Demo video OR build documentation (bi-weekly, alternating) | 60-90 min (recording + basic editing) |
+| Saturday | Reddit | Build post with technical details in r/diypedals or r/diysound | 15 min |
+| Anytime | TikTok | Repurpose Instagram Reel content (cross-post) | 5 min |
+
+**Hashtag strategy for Instagram (2026):**
+
+Use 10-15 hashtags per post, mixing categories:
+
+- **Broad reach (3-4):** #guitar, #guitarist, #audiophile, #handmade
+- **Medium reach (4-5):** #guitarpedals, #pedalboard, #diypedals, #tubeamp, #speakerbuilding
+- **Niche/community (3-4):** #tubescreamer, #fuzzpedal, #diyaudio, #bookshelfsspeakers, #gainclone
+- **Brand-specific (1-2):** #yourBrandName, #yourProductName
+
+Rotate hashtags between posts -- using the exact same set every time can be flagged as spam by Instagram's algorithm. Keep a note file with 3-4 hashtag sets you cycle through.
+
+**Engagement matters as much as posting:** Spend 10-15 minutes daily liking and commenting on other builders' posts. This is not networking fluff -- the Instagram algorithm surfaces your content more when you are an active participant in the community. Comment something genuine and specific ("love the LED placement -- did you use a 3mm or 5mm bezel?"), not generic ("great work!").
+
+### 2.5 TikTok
 
 Short-form video. Don't underestimate it.
 
@@ -206,7 +233,65 @@ Short-form video. Don't underestimate it.
 - Facebook Marketplace is more active than Craigslist for most areas in 2026
 - Post in local audio/musician groups on Facebook — targeted audience, zero fees
 
-### 3.5 Your Own Website
+### 3.5 Sample Product Listing Template (Reverb/Etsy)
+
+Copy and adapt this template for your marketplace listings. A complete, well-structured listing answers every question the buyer might have before they ask it.
+
+```
+TITLE: [Brand Name] [Product Name] — Handmade [Effect Type] Pedal
+
+PRICE: $[XXX] (free shipping to US)
+
+DESCRIPTION:
+
+[One-sentence hook that describes the sound and appeal]
+Example: "A hand-built overdrive with the warmth of a cranked tweed amp 
+and the clarity to cut through any mix."
+
+WHAT IT IS:
+[2-3 sentences about the circuit, what it's based on, and what makes 
+your version special]
+Example: "Based on the classic JRC4558 overdrive topology with a 
+modified clipping section that offers three voicings: symmetrical 
+silicon for tight modern drive, asymmetrical silicon for bluesy 
+sag, and LED clipping for higher headroom. Hand-soldered in my 
+[City] workshop with premium components throughout."
+
+CONTROLS:
+• Drive — [describe range, e.g., "From clean boost to saturated 
+  overdrive"]
+• Tone — [describe range]  
+• Volume — [describe range]
+• [Switch] — [describe function]
+
+SPECIFICATIONS:
+• Power: 9V DC center-negative (standard pedal power supply)
+• Current draw: [XX] mA
+• True bypass switching
+• Dimensions: [X]" x [X]" x [X]" (fits standard pedalboard)
+• Weight: [X] oz
+
+WHAT'S IN THE BOX:
+• [Product Name] pedal
+• Printed quick-start card
+• [Anything else you include]
+
+BUILD QUALITY:
+• [List specific quality details: "Hand-soldered PCB with 
+  audio-grade film capacitors," "Genuine Neutrik jacks," 
+  "Powder-coated Hammond 125B enclosure"]
+• [Mention testing: "Each unit is individually tested for 
+  noise, signal integrity, and all control functions"]
+
+WARRANTY:
+[X]-year warranty on electronics. See my shop policies for details.
+
+DEMO VIDEO: [Link to YouTube demo]
+```
+
+Adapt the template for speakers (add driver specs, frequency response, sensitivity, impedance, cabinet dimensions, finish options, and measurement data) and for amplifiers (add power output, input options, frequency response, and THD specifications).
+
+### 3.6 Your Own Website
 
 **What:** A Shopify, Squarespace, or custom website with your branding, your products, your story.
 
@@ -322,7 +407,56 @@ Speaker demos are tricky because the listener is hearing the recording through t
 
 **Best practice:** Combine all three. Measurements for the technical audience, comparison for the curious, and in-room for the "I just want to hear what they sound like" crowd.
 
-### 5.4 Amplifier Demos
+### 5.4 Demo Video Production: Equipment and Setup
+
+You do not need a studio to produce excellent demo videos. Here is the practical setup:
+
+**Pedal demo recording chain:**
+
+```
+Guitar → Your Pedal → Audio Interface (direct input) → DAW
+                                                         ↓
+                                                   Video: Phone on tripod
+                                                   aimed at your hands
+                                                   and the pedalboard
+```
+
+**Equipment:**
+- Guitar: Use a decent instrument. A $300-500 guitar is fine. Avoid cheap guitars with noisy pickups -- they add hiss that distracts from the pedal's sound.
+- Audio interface: Focusrite Scarlett Solo ($120) or Behringer UMC202HD ($70). Records the guitar's direct signal cleanly.
+- DAW: GarageBand (free on Mac), Audacity (free on all platforms), or Reaper ($60, free to evaluate). You only need basic recording -- no fancy plugins.
+- Amp simulation (optional but recommended): A free amp sim plugin (Neural Amp Modeler, LePou, or Ignite Amps) in your DAW gives you a realistic amp sound in the recording. Record both: the raw DI signal and the amped version. This lets viewers hear what the pedal sounds like through different "amps."
+- Camera: Your phone. Mount it on a $15 phone tripod or gorillapod, angled to show your hands, the pedal, and the guitar. Good framing: pedalboard at bottom third, your picking hand visible above.
+- Lighting: Two softbox lights or two desk lamps with diffusion (a sheet of paper taped in front works in a pinch). No overhead-only lighting -- it casts ugly shadows under your hands.
+
+**Recording workflow:**
+1. Set the audio interface gain so the signal peaks at about -12 dBFS (plenty of headroom, no clipping).
+2. Start video recording on your phone.
+3. Start audio recording in your DAW.
+4. Clap once (this syncs audio and video in editing -- find the clap spike in the waveform and match it to the visual).
+5. Play your demo (follow the format from section 5.2).
+6. Stop recording. Import both into a free video editor (DaVinci Resolve is free and professional-grade; iMovie is simpler). Sync the clap, replace the phone audio with the interface audio, trim, and export.
+
+**Total time per demo video:** 30-45 minutes to record, 30-60 minutes to edit. Gets faster with practice.
+
+**Speaker demo recording chain:**
+
+Speaker demos are harder because you are recording the room and the speaker together. The best approach:
+
+```
+Music source → Your amp → Your speakers → Room → Measurement mic → Audio interface → DAW
+                                                                                       ↓
+                                                                              Video: Camera capturing
+                                                                              the listening room setup
+```
+
+Use the miniDSP UMIK-1 (your measurement mic from Chapter 37) as the recording microphone. Position it at the listening position, at ear height. This gives the most honest representation of what the speakers actually sound like in the room.
+
+**Important:** Tell your viewers that "this recording was captured with a calibrated measurement microphone at the listening position, so what you hear through your headphones or speakers is as close to the real thing as a recording can be." This sets expectations and builds credibility.
+
+For the video portion, capture the room setup: speakers on stands, treatment panels visible, the amp, the Pi -- the complete system. A slow pan of the setup followed by the listener sitting down and music playing is a compelling visual.
+
+### 5.5 Amplifier Demos
 
 Record through the amp with different settings, different guitars (if applicable), and at different volumes. Show clean headroom, breakup character, and power amp saturation. For hi-fi/chip amps, show measurements (THD, frequency response, noise floor) alongside listening demos.
 
@@ -444,6 +578,27 @@ Put this on your website's "About" page, your marketplace profiles, and condense
 
 **Be genuine.** "I'm a software engineer who got into DIY audio during the pandemic and fell in love with building things people can hear" is a better story than corporate-speak about "pursuing excellence in sonic artistry." People connect with people, not marketing copy.
 
+### 8.4 Building a Mailing List
+
+A mailing list is the one marketing channel you own completely. Social media algorithms change, marketplace policies evolve, but your email list is yours forever.
+
+**When to start:** From your very first sale. Include a card in every shipment: "Want to hear about new products and limited runs? Sign up at [yourwebsite.com/newsletter]."
+
+**What to send:**
+- New product announcements (1-2 per quarter)
+- Build process stories with photos (monthly)
+- Limited runs or special editions (when available)
+- Seasonal sales (Black Friday, holiday gift guides)
+- Technical content (a short article on how a circuit works, or a measurement comparison)
+
+**How often:** Monthly is the sweet spot. Weekly is too much for most buyers. Quarterly is too infrequent to stay top-of-mind.
+
+**Tools:** Mailchimp (free up to 500 subscribers), Buttondown ($9/month, cleaner interface), or Substack (free, doubles as a blog). Start with the free tier and upgrade when you exceed the subscriber limit.
+
+**The key metric:** Open rate. A healthy email list has 40-60% open rates for a small, engaged audience. If your open rate drops below 20%, you are either emailing too frequently or sending content people do not care about. Quality over quantity.
+
+> **What happens if... you never build a mailing list and rely entirely on marketplace traffic?** You are renting your audience. If Reverb changes their search algorithm, your visibility drops overnight. If Etsy raises fees to 12%, your margins shrink. If Instagram bans your account (it happens, sometimes for no apparent reason), your entire following disappears. A mailing list of 500 engaged subscribers who have bought from you before is more valuable than 10,000 Instagram followers, because you can reach them directly, any time, with no algorithm in between.
+
 ---
 
 ## 9. The Sales Process
@@ -461,11 +616,59 @@ Put this on your website's "About" page, your marketplace profiles, and condense
 - **Provide tracking.** Always. Every platform supports this. The buyer should be able to see where their package is.
 - **Insure high-value shipments.** Anything over $200 should be insured. The cost is a few dollars and it protects you if the carrier damages or loses the package. For items over $500, require signature confirmation.
 
-### 9.3 After the Sale
+### 9.3 Handling International Orders
+
+As your brand grows, you will receive inquiries from outside your home country. International sales are worth pursuing -- they expand your market significantly -- but they come with logistics:
+
+**Shipping:**
+- Use USPS Priority Mail International (from the US) for most shipments. It is the most affordable option with tracking. A pedal (under 1 lb) ships for $30-45 to most countries. Speakers are prohibitively expensive to ship internationally due to weight and size.
+- Include a customs declaration form with an accurate description and value. "Electronic musical instrument effect, handmade" is correct for a pedal. Do not undervalue the declaration -- this is customs fraud.
+- Add "no lithium batteries" to the customs form if applicable. Pedals do not contain batteries (they use external power supplies), but customs inspectors sometimes flag electronics.
+
+**Customs and taxes:**
+- The buyer is responsible for import duties and taxes in their country. Make this explicit in your listing: "International buyers are responsible for any import duties, taxes, or customs fees levied by their country."
+- Some buyers will not understand this and will be surprised by a customs charge on delivery. A brief pre-sale message explaining potential import costs prevents negative reviews.
+
+**Warranty for international customers:**
+- Return shipping from overseas is expensive ($30-60 for a pedal). For warranty claims from international buyers, consider offering a repair-reimbursement model: the buyer finds a local tech to do the repair, you provide diagnosis and reimburse the repair cost. This avoids double-shipping the product across oceans.
+
+**Payment:**
+- Marketplace platforms (Reverb, Etsy) handle currency conversion and international payment processing automatically. No additional setup needed.
+- For direct sales from your own website, PayPal and Stripe both handle international payments in most currencies. Stripe's exchange rates are typically better than PayPal's.
+
+### 9.4 After the Sale
 
 - **Follow up.** A brief message 3-5 days after delivery: "Hey, hope the pedal arrived safely! Let me know if you have any questions. I'd love to hear what you think." This is optional, but it builds relationships, encourages reviews, and catches problems early.
 - **Ask for reviews.** Politely, once. "If you're enjoying the pedal, I'd really appreciate a review on Reverb — it helps other buyers find me." Reviews are social proof and directly influence future sales.
 - **Handle problems gracefully.** If something's wrong, fix it. Don't argue. Don't make excuses. A customer who has a problem that gets resolved quickly and generously often becomes your most loyal advocate.
+
+### 9.5 Building Repeat Customers
+
+Acquiring a new customer costs 5-7x more than retaining an existing one. Here is how to turn one-time buyers into repeat customers:
+
+**Keep a customer database.** A simple spreadsheet: name, email, what they bought, when, and any notes ("prefers dark-voiced overdrives," "has a 4x12 Marshall cab"). When you launch a new product that matches their preferences, send them a personal email: "Hey [name], I just finished a new high-gain pedal that I think would pair perfectly with your Marshall setup. Thought of you."
+
+**Offer a returning customer discount.** 10% off their second purchase, with a unique discount code included in their first shipment. This is a direct incentive to return, and the 10% costs you less than marketplace fees for finding a new buyer.
+
+**Launch new products to your existing customers first.** A "48-hour early access" email to your mailing list before you list on Reverb makes your existing customers feel valued and often sells out limited runs before they even hit the marketplace.
+
+**Remember that after-sale communication is marketing.** Every support interaction, every follow-up email, every warranty repair is a marketing opportunity. A customer who receives exceptional support tells their friends. Word-of-mouth from a satisfied customer is the most effective marketing in the boutique audio world -- and it costs nothing.
+
+---
+
+## 10. Common Mistakes and How to Avoid Them
+
+### 10.1 The Top Five Selling Mistakes
+
+1. **No demo video.** You are selling audio products. Without a demo, you are asking buyers to trust a photo and a text description. Add a demo -- even a simple phone recording -- and your conversion rate will double.
+
+2. **Inconsistent photos.** One product shot on white, the next on your kitchen table, the third with Instagram filters. Inconsistency makes your brand look amateur. Pick one background, one lighting setup, and use it for everything.
+
+3. **Ignoring customer messages.** Every unanswered inquiry is a lost sale. Set up notifications and respond within hours, not days. A buyer who does not hear back within 24 hours buys from someone else.
+
+4. **Pricing based on materials, not total cost.** We covered this in Chapter 41, but it bears repeating: your time is worth money. A $60 pedal that cost you $110 to make (including labor) is not a sale -- it is a donation.
+
+5. **Not asking for reviews.** Reviews are social proof. Every positive review makes the next sale easier. Ask every buyer, once, politely, a few days after delivery. Most will not respond, but the ones who do build your credibility permanently.
 
 ---
 

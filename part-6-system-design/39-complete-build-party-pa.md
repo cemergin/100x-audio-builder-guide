@@ -301,6 +301,63 @@ Input → EQ → Compressor → Crossover → Per-channel Limiter → Output
 
 The EQ shapes the tone first. The compressor tames overall dynamics. The crossover splits to subs and tops. The per-channel limiter is the last line of defense before the amp, ensuring no channel ever exceeds its safe output.
 
+### 5.5 Specific Protection Settings for Our System
+
+Here is a complete CamillaDSP protection configuration for the Chapter 39 PA system. These are the starting-point values -- adjust based on your specific drivers and listening tests.
+
+**Sub channel protection:**
+
+| Parameter | Value | Why |
+|-----------|-------|-----|
+| High-pass filter frequency | 35 Hz | Matches sub port tuning frequency |
+| High-pass filter type | Linkwitz-Riley 4th order (24 dB/oct) | Steep enough to protect below tuning |
+| Limiter threshold | -2 dBFS | 1 dB below amp clipping point |
+| Limiter attack | 3 ms | Fast enough to catch kick drum transients |
+| Limiter release | 100 ms | Slow enough to avoid audible pumping on bass |
+| Max continuous output | ~170W into 4Ω | Keeps below thermal limit of voice coil |
+
+**Top channel protection:**
+
+| Parameter | Value | Why |
+|-----------|-------|-----|
+| High-pass filter frequency | 100 Hz | Below crossover (120 Hz) for smooth transition |
+| High-pass filter type | Linkwitz-Riley 4th order | Matches sub low-pass for flat sum |
+| Limiter threshold | -4 dBFS | Lower than subs because compression driver is more fragile |
+| Limiter attack | 1 ms | Compression drivers are fast and fragile -- protect quickly |
+| Limiter release | 50 ms | Faster release OK for mid/high content |
+| Tweeter protection HF limiter | -6 dBFS above 5 kHz | Extra headroom reduction above 5 kHz where the compression driver diaphragm is most vulnerable |
+
+**Master bus compressor:**
+
+| Parameter | Value |
+|-----------|-------|
+| Threshold | -12 dBFS |
+| Ratio | 3:1 |
+| Attack | 20 ms |
+| Release | 200 ms |
+| Makeup gain | +4 dB |
+| Knee | Soft (if available in CamillaDSP) |
+
+These settings prioritize driver safety over maximum volume. You can increase the limiter thresholds by 1-2 dB for more headroom if your drivers can handle it, but never exceed 0 dBFS on any channel -- that is the amp's clipping point, and clipped signals destroy tweeters.
+
+### 5.6 Weather Protection
+
+If there is any chance of rain -- and outdoor events always have some chance -- plan for it:
+
+**For speakers:**
+- Cover the tops with heavy-duty plastic bags or purpose-built speaker rain covers. A 33-gallon trash bag fits over most 12" tops on stands. Cut a small hole for the cable entry, secure with gaffer tape.
+- Subs on the ground are more vulnerable to puddles. Raise them off the ground on pallets, plywood sheets, or even upside-down plastic bins. 2 inches of elevation is enough to survive a moderate rain.
+- If rain is heavy and sustained, stop the event and protect the equipment. No party is worth a $500 set of blown drivers from water damage.
+
+**For electronics:**
+- The amp rack and Pi must stay dry. Position them under a canopy, tent, or at minimum under a tarp. Even light drizzle on a hot amp heatsink can cause thermal shock that cracks solder joints.
+- Cover the amp rack with a plastic bag or tarp if rain starts unexpectedly. The cooling fan (if present) can pull moisture into the enclosure, so turn it off during rain if possible.
+- Disconnect the USB audio interface before covering -- trapped moisture in a USB connector can short the data lines.
+
+**For cables:**
+- SpeakON and XLR connectors are designed for outdoor use and tolerate moisture well. Keep the mating surfaces clean and dry, but do not panic if they get damp.
+- RCA connectors (if you used them anywhere in the signal chain) are NOT weather-resistant. Moisture on an RCA ground causes corrosion and intermittent contact. This is another reason to use balanced connections throughout the PA system.
+
 > **What happens if... the limiter is set too aggressively?** An over-aggressive limiter (threshold too low, ratio too high) causes audible "pumping" -- the volume ducks noticeably on every kick drum hit and then recovers. The music sounds like it is breathing. Raise the threshold until the limiter only activates on the loudest peaks. If the limiter is constantly active, you are trying to push more volume than the system can handle. Either turn down the master level or accept that you need more speakers/amps.
 
 ---
@@ -359,6 +416,77 @@ Bring spares. For every cable in the system, bring one spare. The cable that fai
 ## 7. Quick Setup Checklist
 
 This is the field deployment procedure. Print it. Laminate it. Keep it in the PA case.
+
+### 7.0 Complete Packing and Transport List
+
+Before you leave the house, verify everything is in the vehicle. Print this list and check it off:
+
+**Speakers:**
+- [ ] 2x subwoofer cabinets
+- [ ] 2x top speaker cabinets
+- [ ] 2x tripod speaker stands with 35mm pole adapters
+- [ ] 2x speaker stand carry bag (optional but protects stands)
+
+**Amplification and DSP:**
+- [ ] Amp rack case containing: 2x TPA3255 amp boards, power supplies, cooling fan
+- [ ] Raspberry Pi in protective case with pre-loaded CamillaDSP configuration
+- [ ] Pi power supply (5V 3A USB-C)
+- [ ] USB audio interface (Behringer UMC404HD or similar)
+- [ ] USB cable (Pi to audio interface)
+
+**Cables:**
+- [ ] 4x speaker cables with speakON connectors (2 for subs, 2 for tops) — label both ends
+- [ ] 4x balanced signal cables (XLR or TRS) from interface to amps — label both ends
+- [ ] 1x spare speaker cable
+- [ ] 1x spare signal cable
+- [ ] 1x 3.5mm to RCA adapter (phone backup input)
+- [ ] 1x 3.5mm to XLR cable (phone to interface backup)
+
+**Power:**
+- [ ] 1x heavy-duty power strip (15A rated, surge protected) with at least 6 outlets
+- [ ] 1x extension cord (12 AWG, at least 25 feet / 8 meters)
+- [ ] 1x spare extension cord
+- [ ] 1x circuit tester plug (verifies outlet is wired correctly and grounded — $5 from any hardware store)
+
+**Tools and spares:**
+- [ ] Multimeter
+- [ ] Gaffer tape (1 roll minimum)
+- [ ] Electrical tape
+- [ ] Cable ties (various sizes)
+- [ ] Small toolkit: screwdriver, pliers, wire strippers, soldering iron + solder (for field repair)
+- [ ] Spare speakON and XLR connectors (2 each)
+- [ ] Spare fuses for amp rack
+- [ ] DI box (for guitar or keyboard input)
+- [ ] Flashlight or headlamp (you will be behind the speaker stack in the dark)
+
+**Environment protection:**
+- [ ] Tarps or plastic sheeting (2x) — for speaker covers if rain threatens
+- [ ] Bungee cords or ratchet straps — for securing speakers on stands in wind
+- [ ] Plastic bags — for covering amp rack and Pi in case of unexpected rain
+
+**Loading the vehicle:**
+Subs go in first (heaviest items on the bottom, against the back seat or rear wall). Tops next, on their sides with the horn facing up. Speaker stands in a bag or bundled with velcro straps. Amp rack and cables last (first out). Nothing should be loose — a 20 kg sub sliding forward during a hard brake will damage anything in its path.
+
+### 7.0.1 Outdoor Event Power Requirements
+
+For an outdoor event without permanent power, you need to plan your electrical load:
+
+| Component | Power Draw |
+|-----------|-----------|
+| TPA3255 amp board #1 (subs, full power) | ~220W from wall (175W output / 0.90 efficiency + standby) |
+| TPA3255 amp board #2 (tops, moderate power) | ~150W from wall |
+| Raspberry Pi + USB interface | ~15W |
+| Cooling fan (if used) | ~5W |
+| Phone charging | ~10W |
+| **Total** | **~400W continuous, ~600W peak** |
+
+A standard US 15A / 120V outlet provides 1,800W. You are well within capacity even at full power. A single heavy-duty extension cord (12 AWG, 50 feet) handles this load without significant voltage drop.
+
+**Generator sizing:** If using a portable generator, choose one rated for at least 2,000W continuous (to handle startup inrush and leave headroom). A Honda EU2200i or equivalent inverter generator ($1,000-1,200) is the gold standard -- it produces clean sine-wave power (important for audio electronics, which can buzz or hum on cheap generators that produce modified sine wave output), runs quietly (48-57 dBA at rated load), and runs for 8+ hours on a single tank at 25% load.
+
+Never use a cheap contractor generator ($200-400 "open frame" type) for audio. They produce dirty power with voltage spikes and frequency instability that can damage your amp's power supply and inject audible buzz into the audio.
+
+**Battery power:** For truly remote locations, a portable power station (EcoFlow Delta 2, Bluetti AC200P, or similar) with 1-2 kWh capacity can run the system for 2-4 hours at moderate levels. This is enough for a sunset session or a short event. For all-night parties, a generator is the only practical option.
 
 ### 7.1 Arrival and Assessment (5 minutes)
 
@@ -514,7 +642,34 @@ Total elapsed time from bass drop in the audio file to bass drop hitting the dan
 6. **Coil cables properly** (over-under technique prevents tangles and cable damage). Each cable gets its own coil, secured with a velcro strap.
 7. **Load vehicle**: Subs first (heavy, go on the bottom). Tops next. Stands and cables last. Nothing loose -- secure everything so it does not slide.
 
-### 10.2 Post-Event Inspection
+### 10.2 Emergency Procedures
+
+Things go wrong at events. Here is how to handle the most common emergencies:
+
+**Rain starts during an outdoor event:**
+1. Immediately reduce volume to 50% (protect speakers from moisture-induced thermal stress).
+2. If rain is light and brief (5-10 minutes), cover the amp rack with a tarp/plastic sheet and keep playing. The speakers can handle light drizzle for a short time.
+3. If rain is heavy or sustained, power down the amps first, then disconnect speaker cables. Cover everything with tarps. Do not resume until equipment is dry.
+4. After the event, leave the speaker grilles off overnight in a dry room to allow any moisture in the cabinets to evaporate.
+
+**A speaker stops working mid-event:**
+1. Check the speakON connection at the speaker end (most common cause -- the connector was not fully twist-locked).
+2. Check the amp channel: does the amp's protection LED indicate a fault? If yes, power-cycle the amp. If the fault returns, the speaker cable or speaker may have a short.
+3. Swap the speaker cable with a spare. If the speaker works with the new cable, the old cable has a break.
+4. If the speaker is dead and the cable is good, the driver or internal wiring has failed. You cannot fix this in the field. Swap in a spare speaker if you have one, or redistribute: run the remaining top as a mono center speaker and reduce volume to avoid overloading it.
+
+**The Pi crashes or freezes:**
+1. Power-cycle the Pi (unplug and re-plug the USB-C power). It should reboot in 30-60 seconds and CamillaDSP will start automatically if configured to do so.
+2. If the Pi does not boot, switch to the backup path: phone 3.5mm output directly to the USB audio interface (or to a small analog mixer if you have one), bypassing the Pi entirely. You lose DSP processing but keep the music playing.
+3. If you frequently experience Pi crashes at events, the problem is usually power supply related. Use a high-quality 5V 3A power supply (the official Raspberry Pi supply, not a random phone charger) and avoid sharing the power strip circuit with high-draw equipment like lighting dimmers.
+
+**Power trips the circuit breaker:**
+1. Reduce the PA volume to zero immediately (to prevent speaker damage from the power surge when the breaker is reset).
+2. Identify what tripped the breaker. If the PA was on the same circuit as lighting, a fog machine, or a refrigerator, one of those probably caused the overload.
+3. Reset the breaker. Move the PA to a different circuit if possible, or disconnect the non-essential load.
+4. Gradually bring the PA volume back up. If the breaker trips again at moderate volume, your power source is inadequate -- reduce the system to tops-only (lower power draw) or find a better power source.
+
+### 10.3 Post-Event Inspection
 
 The day after:
 - Check each speaker for driver damage: push gently on each cone (should move smoothly with no rubbing or scratching sound).
